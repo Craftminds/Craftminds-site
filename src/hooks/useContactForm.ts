@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ContactFormData, submitContactForm } from '../services/api';
+import { ContactFormData, submitContactForm } from '../services/api.ts';
 
 interface UseContactFormReturn {
   formData: ContactFormData;
