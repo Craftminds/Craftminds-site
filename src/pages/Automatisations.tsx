@@ -155,7 +155,7 @@ const Price = styled.strong`
   font-size: 2rem;
   color: var(--color-primary);
   display: block;
-  margin: 1rem 0;
+  margin: -1rem 0px 1rem;
 `;
 
 const PriceHint = styled.span`
