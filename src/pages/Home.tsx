@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import { useContactForm } from '../hooks/useContactForm.ts';
 import Notification from '../components/Notification.tsx';
 
