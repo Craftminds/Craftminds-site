@@ -200,6 +200,32 @@ const FormGroup = styled.div`
   }
 `;
 
+const SubmitButton = styled.button`
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 20px 40px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 1.2rem;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: var(--color-accent);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+`;
+
 const Automatisations: React.FC = () => {
   return (
     <Main>
@@ -414,7 +440,7 @@ const Automatisations: React.FC = () => {
                 <option value="advanced">Système avancé (à partir de 379€)</option>
               </select>
             </FormGroup>
-            <Button as="button" type="submit">Envoyer</Button>
+            <SubmitButton type="submit">Envoyer</SubmitButton>
           </Form>
         </Container>
       </Section>
