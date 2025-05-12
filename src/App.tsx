@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { createGlobalStyle, styled } from 'styled-components';
 import Header from './components/Header.tsx';
@@ -9,39 +9,6 @@ const Home = React.lazy(() => import('./pages/Home.tsx'));
 const Debug = React.lazy(() => import('./pages/Debug.tsx'));
 const Automatisations = React.lazy(() => import('./pages/Automatisations.tsx'));
 const Support = React.lazy(() => import('./pages/Support.tsx'));
-
-// Exemple de composant pour apprendre React
-const LearningSection = styled.div`
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 600px;
-  text-align: center;
-  background: var(--color-white);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-sm);
-`;
-
-const Button = styled.button`
-  background: var(--color-primary);
-  color: var(--color-white);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  margin: 0.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: var(--color-accent);
-    transform: translateY(-2px);
-  }
-`;
-
-const Counter = styled.div`
-  font-size: 2rem;
-  margin: 1rem 0;
-  color: var(--color-primary);
-`;
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -178,9 +145,6 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { has
 }
 
 function App() {
-  // État pour le compteur
-  const [count, setCount] = useState(0);
-
   return (
     <ErrorBoundary>
       <Router>
@@ -195,20 +159,6 @@ function App() {
             <Route path="/support" element={<Support />} />
           </Routes>
         </Suspense>
-        
-        {/* Section d'apprentissage React */}
-        <LearningSection>
-          <h2>Apprendre React</h2>
-          <p>Ceci est un exemple simple de compteur utilisant le hook useState</p>
-          <Counter>{count}</Counter>
-          <Button onClick={() => setCount(count - 1)}>-</Button>
-          <Button onClick={() => setCount(count + 1)}>+</Button>
-          <Button onClick={() => setCount(0)}>Réinitialiser</Button>
-          <p style={{ marginTop: '1rem', fontSize: '0.9rem', color: 'var(--color-text-light)' }}>
-            Modifiez src/App.tsx pour voir les changements en temps réel !
-          </p>
-        </LearningSection>
-
         <Footer />
       </Router>
     </ErrorBoundary>

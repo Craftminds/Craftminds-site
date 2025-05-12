@@ -214,6 +214,71 @@ const StepNumber = styled.div`
   margin: 0 auto 1.5rem;
 `;
 
+const ContactForm = styled.form`
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-pastel-1);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px var(--color-pastel-1);
+    }
+  }
+
+  textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+`;
+
 const Home: React.FC = () => {
   const {
     formData,
@@ -358,7 +423,7 @@ const Home: React.FC = () => {
       <Section id="contact">
         <Container>
           <Title as="h2">Contact</Title>
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <ContactForm onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Nom</label>
               <input
@@ -391,10 +456,10 @@ const Home: React.FC = () => {
                 required
               />
             </div>
-            <Button as="button" type="submit" disabled={loading}>
+            <button type="submit" disabled={loading}>
               {loading ? 'Envoi en cours...' : 'Envoyer'}
-            </Button>
-          </form>
+            </button>
+          </ContactForm>
         </Container>
       </Section>
 
