@@ -334,7 +334,6 @@ const Home: React.FC = () => {
               <CardContent>
                 Résolution rapide de bugs et blocages techniques. Intervention sous 24-48h pour débloquer votre situation.
               </CardContent>
-              <Price>à partir de 249€</Price>
               <CardLink to="/debug">Choisir l'offre →</CardLink>
             </Card>
             <Card>
@@ -343,7 +342,6 @@ const Home: React.FC = () => {
               <CardContent>
                 Airtable, Zapier, APIs et automatisation de processus. Optimisez vos workflows et gagnez du temps.
               </CardContent>
-              <Price>à partir de 379€</Price>
               <CardLink to="/automatisations">Choisir l'offre →</CardLink>
             </Card>
             <Card>
@@ -352,7 +350,6 @@ const Home: React.FC = () => {
               <CardContent>
                 Investigations, corrections et mini-features. Gardez votre produit en parfait état de fonctionnement.
               </CardContent>
-              <Price>à partir de 399€</Price>
               <CardLink to="/support">Choisir l'offre →</CardLink>
             </Card>
           </Grid>
