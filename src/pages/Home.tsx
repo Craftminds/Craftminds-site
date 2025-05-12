@@ -179,14 +179,6 @@ const CardContent = styled.p`
   flex-grow: 1;
 `;
 
-const Price = styled.div`
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  margin: 1rem 0 2rem;
-  text-align: center;
-`;
-
 const CardLink = styled(Link)`
   color: var(--color-primary);
   text-decoration: none;
@@ -226,17 +218,14 @@ const StepNumber = styled.div`
   margin: 0 auto 1.5rem;
 `;
 
-const ContactForm = styled.form`
+const Form = styled.form`
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  padding: 2rem;
-  background: var(--color-white);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-sm);
+`;
 
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
+const FormGroup = styled.div`
+  margin-bottom: 1.5rem;
 
   label {
     display: block;
@@ -245,49 +234,49 @@ const ContactForm = styled.form`
     font-weight: 500;
   }
 
-  input,
-  textarea {
+  input, textarea, select {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--color-pastel-1);
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: var(--border-radius);
     font-size: 1rem;
-    transition: all 0.3s ease;
+    font-family: inherit;
 
     &:focus {
       outline: none;
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 2px var(--color-pastel-1);
     }
   }
 
   textarea {
     min-height: 150px;
-    resize: vertical;
+  }
+`;
+
+const SubmitButton = styled.button`
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 20px 40px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: var(--color-accent);
   }
 
-  button[type="submit"] {
-    width: 100%;
-    padding: 1rem;
-    background: var(--color-primary);
-    color: var(--color-white);
-    border: none;
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background: var(--color-accent);
-      transform: translateY(-2px);
-    }
-
-    &:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-      transform: none;
-    }
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
   }
 `;
 
@@ -435,8 +424,8 @@ const Home: React.FC = () => {
       <Section id="contact">
         <Container>
           <Title as="h2">Contact</Title>
-          <ContactForm onSubmit={handleSubmit}>
-            <div className="form-group">
+          <Form onSubmit={handleSubmit}>
+            <FormGroup>
               <label htmlFor="name">Nom</label>
               <input
                 type="text"
@@ -446,8 +435,8 @@ const Home: React.FC = () => {
                 onChange={handleChange}
                 required
               />
-            </div>
-            <div className="form-group">
+            </FormGroup>
+            <FormGroup>
               <label htmlFor="email">Email</label>
               <input
                 type="email"
@@ -457,8 +446,8 @@ const Home: React.FC = () => {
                 onChange={handleChange}
                 required
               />
-            </div>
-            <div className="form-group">
+            </FormGroup>
+            <FormGroup>
               <label htmlFor="message">Votre besoin technique</label>
               <textarea
                 id="message"
@@ -467,11 +456,11 @@ const Home: React.FC = () => {
                 onChange={handleChange}
                 required
               />
-            </div>
-            <button type="submit" disabled={loading}>
+            </FormGroup>
+            <SubmitButton type="submit" disabled={loading}>
               {loading ? 'Envoi en cours...' : 'Envoyer'}
-            </button>
-          </ContactForm>
+            </SubmitButton>
+          </Form>
         </Container>
       </Section>
 
