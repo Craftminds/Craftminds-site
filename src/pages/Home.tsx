@@ -136,6 +136,9 @@ const Card = styled.div`
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   &::before {
     content: '';
@@ -172,7 +175,16 @@ const CardTitle = styled.h3`
 
 const CardContent = styled.p`
   color: var(--color-text-light);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+`;
+
+const Price = styled.div`
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 1rem 0 2rem;
+  text-align: center;
 `;
 
 const CardLink = styled(Link)`
@@ -322,7 +334,8 @@ const Home: React.FC = () => {
               <CardContent>
                 Résolution rapide de bugs et blocages techniques. Intervention sous 24-48h pour débloquer votre situation.
               </CardContent>
-              <CardLink to="/debug">En savoir plus →</CardLink>
+              <Price>à partir de 249€</Price>
+              <CardLink to="/debug">Choisir l'offre →</CardLink>
             </Card>
             <Card>
               <CardIcon>⚙️</CardIcon>
@@ -330,7 +343,8 @@ const Home: React.FC = () => {
               <CardContent>
                 Airtable, Zapier, APIs et automatisation de processus. Optimisez vos workflows et gagnez du temps.
               </CardContent>
-              <CardLink to="/automatisations">En savoir plus →</CardLink>
+              <Price>à partir de 379€</Price>
+              <CardLink to="/automatisations">Choisir l'offre →</CardLink>
             </Card>
             <Card>
               <CardIcon>🧠</CardIcon>
@@ -338,7 +352,8 @@ const Home: React.FC = () => {
               <CardContent>
                 Investigations, corrections et mini-features. Gardez votre produit en parfait état de fonctionnement.
               </CardContent>
-              <CardLink to="/support">En savoir plus →</CardLink>
+              <Price>à partir de 399€</Price>
+              <CardLink to="/support">Choisir l'offre →</CardLink>
             </Card>
           </Grid>
         </Container>
