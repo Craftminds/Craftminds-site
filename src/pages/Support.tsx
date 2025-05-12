@@ -102,6 +102,9 @@ const Card = styled.div<{ featured?: boolean }>`
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   ${props => props.featured && `
     transform: scale(1.05);
     box-shadow: var(--shadow-lg);
@@ -113,15 +116,21 @@ const Card = styled.div<{ featured?: boolean }>`
   }
 `;
 
+const CardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+`;
+
 const CardIcon = styled.div`
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
 `;
 
 const CardTitle = styled.h3`
   font-size: 1.5rem;
-  margin-bottom: 1rem;
   color: var(--color-text);
+  margin: 0;
 `;
 
 const IconList = styled.ul`
@@ -210,8 +219,10 @@ const Support: React.FC = () => {
           <Title as="h2">Ce que je prends en charge</Title>
           <Grid>
             <Card>
-              <CardIcon>💬</CardIcon>
-              <CardTitle>Support utilisateurs</CardTitle>
+              <CardHeader>
+                <CardIcon>💬</CardIcon>
+                <CardTitle>Support utilisateurs</CardTitle>
+              </CardHeader>
               <p>Gestion professionnelle des demandes utilisateurs et résolution des problèmes.</p>
               <IconList>
                 <li>Réponses personnalisées</li>
@@ -221,8 +232,10 @@ const Support: React.FC = () => {
               </IconList>
             </Card>
             <Card>
-              <CardIcon>🛠</CardIcon>
-              <CardTitle>Maintenance</CardTitle>
+              <CardHeader>
+                <CardIcon>🛠</CardIcon>
+                <CardTitle>Maintenance</CardTitle>
+              </CardHeader>
               <p>Maintien et amélioration continue de votre produit pour une expérience optimale.</p>
               <IconList>
                 <li>Correction de bugs</li>
@@ -232,8 +245,10 @@ const Support: React.FC = () => {
               </IconList>
             </Card>
             <Card>
-              <CardIcon>📈</CardIcon>
-              <CardTitle>Suivi produit</CardTitle>
+              <CardHeader>
+                <CardIcon>📈</CardIcon>
+                <CardTitle>Suivi produit</CardTitle>
+              </CardHeader>
               <p>Analyse et amélioration continue basée sur les retours utilisateurs.</p>
               <IconList>
                 <li>Analyse des tickets</li>
@@ -255,8 +270,10 @@ const Support: React.FC = () => {
           </Subtitle>
           <Grid>
             <Card>
-              <CardIcon>🚀</CardIcon>
-              <CardTitle>Starter</CardTitle>
+              <CardHeader>
+                <CardIcon>🚀</CardIcon>
+                <CardTitle>Starter</CardTitle>
+              </CardHeader>
               <Price>149€</Price>
               <span>par mois</span>
               <IconList>
@@ -268,8 +285,10 @@ const Support: React.FC = () => {
               <Button to="#contact">Choisir cette offre</Button>
             </Card>
             <Card featured>
-              <CardIcon>⭐</CardIcon>
-              <CardTitle>Pro</CardTitle>
+              <CardHeader>
+                <CardIcon>⭐</CardIcon>
+                <CardTitle>Pro</CardTitle>
+              </CardHeader>
               <Price>249€</Price>
               <span>par mois</span>
               <IconList>
@@ -281,8 +300,10 @@ const Support: React.FC = () => {
               <Button to="#contact">Choisir cette offre</Button>
             </Card>
             <Card>
-              <CardIcon>👑</CardIcon>
-              <CardTitle>Sur-mesure</CardTitle>
+              <CardHeader>
+                <CardIcon>👑</CardIcon>
+                <CardTitle>Sur-mesure</CardTitle>
+              </CardHeader>
               <PriceHint>à partir de</PriceHint>
               <Price>399€</Price>
               <span>par mois</span>
@@ -307,18 +328,24 @@ const Support: React.FC = () => {
           </Subtitle>
           <Grid>
             <Card>
-              <CardIcon>📊</CardIcon>
-              <CardTitle>Rapports réguliers</CardTitle>
+              <CardHeader>
+                <CardIcon>📊</CardIcon>
+                <CardTitle>Rapports réguliers</CardTitle>
+              </CardHeader>
               <p>Suivi détaillé des interventions et métriques clés de votre produit</p>
             </Card>
             <Card>
-              <CardIcon>💬</CardIcon>
-              <CardTitle>Communication directe</CardTitle>
+              <CardHeader>
+                <CardIcon>💬</CardIcon>
+                <CardTitle>Communication directe</CardTitle>
+              </CardHeader>
               <p>Canal de communication dédié et réponses sous 24h maximum</p>
             </Card>
             <Card>
-              <CardIcon>📈</CardIcon>
-              <CardTitle>Amélioration continue</CardTitle>
+              <CardHeader>
+                <CardIcon>📈</CardIcon>
+                <CardTitle>Amélioration continue</CardTitle>
+              </CardHeader>
               <p>Recommandations mensuelles pour optimiser votre produit</p>
             </Card>
           </Grid>

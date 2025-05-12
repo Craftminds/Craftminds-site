@@ -162,15 +162,21 @@ const Card = styled.div`
   }
 `;
 
+const CardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+`;
+
 const CardIcon = styled.div`
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
 `;
 
 const CardTitle = styled.h3`
   font-size: 1.5rem;
-  margin-bottom: 1rem;
   color: var(--color-text);
+  margin: 0;
 `;
 
 const CardContent = styled.p`
@@ -184,6 +190,8 @@ const CardLink = styled(Link)`
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
+  display: inline-block;
+  margin-top: 2rem;
 
   &:hover {
     color: var(--color-accent);
@@ -262,10 +270,11 @@ const SubmitButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
   font-size: 1.2rem;
-  width: 100%;
   position: relative;
   overflow: hidden;
+  animation: slideIn 1s ease-out 0.4s backwards;
 
   &:hover {
     transform: translateY(-2px);
@@ -318,24 +327,30 @@ const Home: React.FC = () => {
           <Title as="h2">Ce que je propose</Title>
           <Grid>
             <Card>
-              <CardIcon>🔧</CardIcon>
-              <CardTitle>Debug express</CardTitle>
+              <CardHeader>
+                <CardIcon>🔧</CardIcon>
+                <CardTitle>Debug express</CardTitle>
+              </CardHeader>
               <CardContent>
                 Résolution rapide de bugs et blocages techniques. Intervention sous 24-48h pour débloquer votre situation.
               </CardContent>
               <CardLink to="/debug">Choisir l'offre →</CardLink>
             </Card>
             <Card>
-              <CardIcon>⚙️</CardIcon>
-              <CardTitle>Intégrations & automatisations</CardTitle>
+              <CardHeader>
+                <CardIcon>⚙️</CardIcon>
+                <CardTitle>Intégrations & automatisations</CardTitle>
+              </CardHeader>
               <CardContent>
                 Airtable, Zapier, APIs et automatisation de processus. Optimisez vos workflows et gagnez du temps.
               </CardContent>
               <CardLink to="/automatisations">Choisir l'offre →</CardLink>
             </Card>
             <Card>
-              <CardIcon>🧠</CardIcon>
-              <CardTitle>Support technique produit</CardTitle>
+              <CardHeader>
+                <CardIcon>🧠</CardIcon>
+                <CardTitle>Support technique produit</CardTitle>
+              </CardHeader>
               <CardContent>
                 Investigations, corrections et mini-features. Gardez votre produit en parfait état de fonctionnement.
               </CardContent>

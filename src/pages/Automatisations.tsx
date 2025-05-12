@@ -102,6 +102,9 @@ const Card = styled.div<{ featured?: boolean }>`
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   ${props => props.featured && `
     transform: scale(1.05);
     box-shadow: var(--shadow-lg);
@@ -113,15 +116,21 @@ const Card = styled.div<{ featured?: boolean }>`
   }
 `;
 
+const CardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+`;
+
 const CardIcon = styled.div`
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
 `;
 
 const CardTitle = styled.h3`
   font-size: 1.5rem;
-  margin-bottom: 1rem;
   color: var(--color-text);
+  margin: 0;
 `;
 
 const IconList = styled.ul`
@@ -210,18 +219,24 @@ const Automatisations: React.FC = () => {
           <Title as="h2">Comment ça marche ?</Title>
           <Grid>
             <Card>
-              <CardIcon>📝</CardIcon>
-              <CardTitle>1. Décrivez vos outils et besoins</CardTitle>
+              <CardHeader>
+                <CardIcon>📝</CardIcon>
+                <CardTitle>1. Décrivez vos outils et besoins</CardTitle>
+              </CardHeader>
               <p>Expliquez-moi vos processus actuels et les outils que vous utilisez. Je vous aide à identifier les opportunités d'automatisation.</p>
             </Card>
             <Card>
-              <CardIcon>⚙️</CardIcon>
-              <CardTitle>2. Je conçois et teste les scénarios</CardTitle>
+              <CardHeader>
+                <CardIcon>⚙️</CardIcon>
+                <CardTitle>2. Je conçois et teste les scénarios</CardTitle>
+              </CardHeader>
               <p>Création des workflows, mise en place des intégrations et tests approfondis pour garantir un fonctionnement optimal.</p>
             </Card>
             <Card>
-              <CardIcon>🚀</CardIcon>
-              <CardTitle>3. Vous profitez d'un système fluide</CardTitle>
+              <CardHeader>
+                <CardIcon>🚀</CardIcon>
+                <CardTitle>3. Vous profitez d'un système fluide</CardTitle>
+              </CardHeader>
               <p>Vos processus sont automatisés et vous gagnez un temps précieux. Formation incluse pour maîtriser votre nouveau système.</p>
             </Card>
           </Grid>
@@ -233,7 +248,10 @@ const Automatisations: React.FC = () => {
           <Title as="h2">Outils & services compatibles</Title>
           <Grid columns={2}>
             <Card>
-              <CardTitle>Outils No-Code</CardTitle>
+              <CardHeader>
+                <CardIcon>🔌</CardIcon>
+                <CardTitle>Outils No-Code</CardTitle>
+              </CardHeader>
               <IconList>
                 <li>Airtable, Notion, Google Sheets</li>
                 <li>Zapier, Make (ex-Integromat)</li>
@@ -242,7 +260,10 @@ const Automatisations: React.FC = () => {
               </IconList>
             </Card>
             <Card>
-              <CardTitle>Solutions techniques</CardTitle>
+              <CardHeader>
+                <CardIcon>⚡</CardIcon>
+                <CardTitle>Solutions techniques</CardTitle>
+              </CardHeader>
               <IconList>
                 <li>Webhooks et APIs REST</li>
                 <li>Scripts sur-mesure</li>
@@ -263,8 +284,10 @@ const Automatisations: React.FC = () => {
           </Subtitle>
           <Grid>
             <Card>
-              <CardIcon>🔌</CardIcon>
-              <CardTitle>Mini setup</CardTitle>
+              <CardHeader>
+                <CardIcon>🔌</CardIcon>
+                <CardTitle>Mini setup</CardTitle>
+              </CardHeader>
               <Price>129€</Price>
               <IconList>
                 <li>1 intégration simple</li>
@@ -274,8 +297,10 @@ const Automatisations: React.FC = () => {
               <Button to="#contact">Choisir cette offre</Button>
             </Card>
             <Card featured>
-              <CardIcon>⚡</CardIcon>
-              <CardTitle>Workflow standard</CardTitle>
+              <CardHeader>
+                <CardIcon>⚡</CardIcon>
+                <CardTitle>Workflow standard</CardTitle>
+              </CardHeader>
               <Price>229€</Price>
               <IconList>
                 <li>2 à 3 intégrations</li>
@@ -285,8 +310,10 @@ const Automatisations: React.FC = () => {
               <Button to="#contact">Choisir cette offre</Button>
             </Card>
             <Card>
-              <CardIcon>🚀</CardIcon>
-              <CardTitle>Système avancé</CardTitle>
+              <CardHeader>
+                <CardIcon>🚀</CardIcon>
+                <CardTitle>Système avancé</CardTitle>
+              </CardHeader>
               <PriceHint>à partir de</PriceHint>
               <Price>379€</Price>
               <IconList>
@@ -309,18 +336,24 @@ const Automatisations: React.FC = () => {
           </Subtitle>
           <Grid>
             <Card>
-              <CardIcon>📋</CardIcon>
-              <CardTitle>Cahier des charges</CardTitle>
+              <CardHeader>
+                <CardIcon>📋</CardIcon>
+                <CardTitle>Cahier des charges</CardTitle>
+              </CardHeader>
               <p>Documentation détaillée des besoins et validation des scénarios avant développement</p>
             </Card>
             <Card>
-              <CardIcon>🔄</CardIcon>
-              <CardTitle>Tests approfondis</CardTitle>
+              <CardHeader>
+                <CardIcon>🔄</CardIcon>
+                <CardTitle>Tests approfondis</CardTitle>
+              </CardHeader>
               <p>Validation de tous les scénarios et cas d'usage en conditions réelles</p>
             </Card>
             <Card>
-              <CardIcon>📚</CardIcon>
-              <CardTitle>Formation incluse</CardTitle>
+              <CardHeader>
+                <CardIcon>📚</CardIcon>
+                <CardTitle>Formation incluse</CardTitle>
+              </CardHeader>
               <p>Documentation complète et formation à l'utilisation de votre système</p>
             </Card>
           </Grid>

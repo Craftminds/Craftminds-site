@@ -102,6 +102,9 @@ const Card = styled.div<{ featured?: boolean }>`
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   ${props => props.featured && `
     transform: scale(1.05);
     box-shadow: var(--shadow-lg);
@@ -113,15 +116,21 @@ const Card = styled.div<{ featured?: boolean }>`
   }
 `;
 
+const CardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+`;
+
 const CardIcon = styled.div`
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
 `;
 
 const CardTitle = styled.h3`
   font-size: 1.5rem;
-  margin-bottom: 1rem;
   color: var(--color-text);
+  margin: 0;
 `;
 
 const IconList = styled.ul`
@@ -210,18 +219,24 @@ const Debug: React.FC = () => {
           <Title as="h2">Comment ça marche ?</Title>
           <Grid>
             <Card>
-              <CardIcon>📝</CardIcon>
-              <CardTitle>1. Décrivez votre bug</CardTitle>
+              <CardHeader>
+                <CardIcon>📝</CardIcon>
+                <CardTitle>1. Décrivez votre bug</CardTitle>
+              </CardHeader>
               <p>Expliquez-moi le problème rencontré et son contexte via le formulaire de contact.</p>
             </Card>
             <Card>
-              <CardIcon>🔍</CardIcon>
-              <CardTitle>2. Diagnostic rapide</CardTitle>
+              <CardHeader>
+                <CardIcon>🔍</CardIcon>
+                <CardTitle>2. Diagnostic rapide</CardTitle>
+              </CardHeader>
               <p>Je vous recontacte sous 24h avec une première analyse et une estimation.</p>
             </Card>
             <Card>
-              <CardIcon>✅</CardIcon>
-              <CardTitle>3. Résolution express</CardTitle>
+              <CardHeader>
+                <CardIcon>✅</CardIcon>
+                <CardTitle>3. Résolution express</CardTitle>
+              </CardHeader>
               <p>Intervention rapide et ciblée pour résoudre votre problème.</p>
             </Card>
           </Grid>
@@ -233,7 +248,10 @@ const Debug: React.FC = () => {
           <Title as="h2">Types de bugs traités</Title>
           <Grid columns={2}>
             <Card>
-              <CardTitle>Bugs techniques</CardTitle>
+              <CardHeader>
+                <CardIcon>🔧</CardIcon>
+                <CardTitle>Bugs techniques</CardTitle>
+              </CardHeader>
               <IconList>
                 <li>Erreurs de code et exceptions</li>
                 <li>Problèmes de performance</li>
@@ -242,7 +260,10 @@ const Debug: React.FC = () => {
               </IconList>
             </Card>
             <Card>
-              <CardTitle>Blocages fonctionnels</CardTitle>
+              <CardHeader>
+                <CardIcon>🔧</CardIcon>
+                <CardTitle>Blocages fonctionnels</CardTitle>
+              </CardHeader>
               <IconList>
                 <li>Workflows cassés</li>
                 <li>Problèmes de déploiement</li>
@@ -263,8 +284,10 @@ const Debug: React.FC = () => {
           </Subtitle>
           <Grid>
             <Card>
-              <CardIcon>🔧</CardIcon>
-              <CardTitle>Bug unique</CardTitle>
+              <CardHeader>
+                <CardIcon>🔧</CardIcon>
+                <CardTitle>Bug unique</CardTitle>
+              </CardHeader>
               <Price>79€</Price>
               <IconList>
                 <li>Correction rapide</li>
@@ -274,8 +297,10 @@ const Debug: React.FC = () => {
               <Button to="#contact">Choisir cette offre</Button>
             </Card>
             <Card featured>
-              <CardIcon>⚡</CardIcon>
-              <CardTitle>Fix Prioritaire</CardTitle>
+              <CardHeader>
+                <CardIcon>⚡</CardIcon>
+                <CardTitle>Fix Prioritaire</CardTitle>
+              </CardHeader>
               <Price>149€</Price>
               <IconList>
                 <li>Résolution prioritaire</li>
@@ -285,8 +310,10 @@ const Debug: React.FC = () => {
               <Button to="#contact">Choisir cette offre</Button>
             </Card>
             <Card>
-              <CardIcon>🚀</CardIcon>
-              <CardTitle>Pack Sérénité</CardTitle>
+              <CardHeader>
+                <CardIcon>🚀</CardIcon>
+                <CardTitle>Pack Sérénité</CardTitle>
+              </CardHeader>
               <PriceHint>à partir de</PriceHint>
               <Price>249€</Price>
               <IconList>
@@ -309,18 +336,24 @@ const Debug: React.FC = () => {
           </Subtitle>
           <Grid>
             <Card>
-              <CardIcon>🎯</CardIcon>
-              <CardTitle>Diagnostic précis</CardTitle>
+              <CardHeader>
+                <CardIcon>🎯</CardIcon>
+                <CardTitle>Diagnostic précis</CardTitle>
+              </CardHeader>
               <p>Analyse approfondie du problème et estimation détaillée avant toute intervention</p>
             </Card>
             <Card>
-              <CardIcon>⚡</CardIcon>
-              <CardTitle>Solution testée</CardTitle>
+              <CardHeader>
+                <CardIcon>⚡</CardIcon>
+                <CardTitle>Solution testée</CardTitle>
+              </CardHeader>
               <p>Tests rigoureux et validation complète de la solution avant livraison</p>
             </Card>
             <Card>
-              <CardIcon>🛡️</CardIcon>
-              <CardTitle>Garantie totale</CardTitle>
+              <CardHeader>
+                <CardIcon>🛡️</CardIcon>
+                <CardTitle>Garantie totale</CardTitle>
+              </CardHeader>
               <p>Remboursement intégral si le problème n'est pas résolu comme convenu</p>
             </Card>
           </Grid>
