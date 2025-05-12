@@ -16,7 +16,7 @@ src/
 
 1. Clonez le repository :
 ```bash
-git clone https://github.com/votre-username/craftminds-site.git
+git clone https://github.com/Craftminds/Craftminds-site.git
 cd craftminds-site
 ```
 
