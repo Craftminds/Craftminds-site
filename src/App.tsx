@@ -1,14 +1,14 @@
 import React, { Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { createGlobalStyle, styled } from 'styled-components';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/Header.tsx';
+import Footer from './components/Footer.tsx';
 
 // Lazy loading des pages
-const Home = React.lazy(() => import('./pages/Home'));
-const Debug = React.lazy(() => import('./pages/Debug'));
-const Automatisations = React.lazy(() => import('./pages/Automatisations'));
-const Support = React.lazy(() => import('./pages/Support'));
+const Home = React.lazy(() => import('./pages/Home.tsx'));
+const Debug = React.lazy(() => import('./pages/Debug.tsx'));
+const Automatisations = React.lazy(() => import('./pages/Automatisations.tsx'));
+const Support = React.lazy(() => import('./pages/Support.tsx'));
 
 // Exemple de composant pour apprendre React
 const LearningSection = styled.div`
