@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useContactForm } from '../hooks/useContactForm.ts';
-import Notification from '../components/Notification.tsx';
+import { useContactForm } from '../hooks/useContactForm';
+import Notification from '../components/Notification';
 import SEO from '../components/SEO';
 import { seoConfig } from '../config/seo';
 
@@ -395,201 +395,111 @@ const Home: React.FC = () => {
               <Card>
                 <CardIcon>⚡</CardIcon>
                 <CardTitle>Réactivité et transparence</CardTitle>
-    <Main>
-      <Hero>
-        <Container>
-          <Title>Du bug au build, Craftminds vous accompagne à chaque étape.</Title>
-          <Subtitle>
-            Développeur freelance, j'interviens rapidement pour résoudre vos blocages techniques,
-            améliorer vos produits, ou accélérer vos projets.
-          </Subtitle>
-          <Button to="#contact">Discutons de votre besoin →</Button>
-        </Container>
-      </Hero>
+                <CardContent>
+                  Communication claire et réponse rapide à chaque étape. Vous êtes toujours informé de l'avancement de votre projet.
+                </CardContent>
+                <ul>
+                  <li>Réponse sous 24h maximum</li>
+                  <li>Points d'avancement réguliers</li>
+                  <li>Communication directe et efficace</li>
+                </ul>
+              </Card>
+              <Card>
+                <CardIcon>📈</CardIcon>
+                <CardTitle>Résultats mesurables</CardTitle>
+                <CardContent>
+                  Des objectifs clairs et des résultats concrets. Chaque intervention est orientée vers des améliorations tangibles.
+                </CardContent>
+                <ul>
+                  <li>Métriques de performance</li>
+                  <li>Solutions documentées</li>
+                  <li>Suivi des améliorations</li>
+                </ul>
+              </Card>
+              <Card>
+                <CardIcon>🎯</CardIcon>
+                <CardTitle>Vous gardez le contrôle</CardTitle>
+                <CardContent>
+                  Votre projet reste votre projet. Je m'adapte à vos méthodes et vos outils pour une collaboration fluide.
+                </CardContent>
+                <ul>
+                  <li>Processus transparent</li>
+                  <li>Respect de vos contraintes</li>
+                  <li>Transfert de connaissances</li>
+                </ul>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
 
-      <Section id="about">
-        <Container>
-          <Title as="h2">Qui je suis</Title>
-          <Subtitle>
-            Je suis Enzo, développeur freelance spécialisé en debugging, no-code et développement sur-mesure.<br />
-            J'aide les fondateurs, freelances et PM à livrer plus vite en réglant les problèmes qui bloquent.
-          </Subtitle>
-        </Container>
-      </Section>
+        <Section>
+          <Container>
+            <Title as="h2">Besoin d'un coup de main rapide et efficace ?</Title>
+            <Subtitle>Discutons de votre projet et trouvons la meilleure solution ensemble.</Subtitle>
+            <Button to="#contact">Discutons de votre besoin →</Button>
+          </Container>
+        </Section>
 
-      <Section id="services">
-        <Container>
-          <Title as="h2">Ce que je propose</Title>
-          <Grid>
-            <Card>
-              <CardHeader>
-                <CardIcon>🔧</CardIcon>
-                <CardTitle>Debug express</CardTitle>
-              </CardHeader>
-              <CardContent>
-                Résolution rapide de bugs et blocages techniques. Intervention sous 24-48h pour débloquer votre situation.
-              </CardContent>
-              <CardLink to="/debug">Choisir l'offre →</CardLink>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>⚙️</CardIcon>
-                <CardTitle>Intégrations & automatisations</CardTitle>
-              </CardHeader>
-              <CardContent>
-                Airtable, Zapier, APIs et automatisation de processus. Optimisez vos workflows et gagnez du temps.
-              </CardContent>
-              <CardLink to="/automatisations">Choisir l'offre →</CardLink>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>🧠</CardIcon>
-                <CardTitle>Support technique produit</CardTitle>
-              </CardHeader>
-              <CardContent>
-                Investigations, corrections et mini-features. Gardez votre produit en parfait état de fonctionnement.
-              </CardContent>
-              <CardLink to="/support">Choisir l'offre →</CardLink>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
+        <Section id="contact">
+          <Container>
+            <Title as="h2">Contact</Title>
+            <Form onSubmit={handleSubmit}>
+              <FormGroup>
+                <label htmlFor="name">Nom</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="message">Votre besoin technique</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                />
+              </FormGroup>
+              <SubmitButton type="submit" disabled={loading}>
+                {loading ? 'Envoi en cours...' : 'Envoyer'}
+              </SubmitButton>
+            </Form>
+          </Container>
+        </Section>
 
-      <Section id="process">
-        <Container>
-          <Title as="h2">Méthode Craftminds</Title>
-          <Grid>
-            <ProcessStep>
-              <StepNumber>1</StepNumber>
-              <CardTitle>Vous m'expliquez votre besoin</CardTitle>
-              <CardContent>Description claire de votre problématique ou objectif.</CardContent>
-            </ProcessStep>
-            <ProcessStep>
-              <StepNumber>2</StepNumber>
-              <CardTitle>Je vous propose un plan clair</CardTitle>
-              <CardContent>Solution concrète et estimation précise.</CardContent>
-            </ProcessStep>
-            <ProcessStep>
-              <StepNumber>3</StepNumber>
-              <CardTitle>On exécute efficacement</CardTitle>
-              <CardContent>Mise en œuvre rapide, sans blabla.</CardContent>
-            </ProcessStep>
-          </Grid>
-        </Container>
-      </Section>
+        {error && (
+          <Notification
+            message={error}
+            type="error"
+            onClose={() => {}}
+          />
+        )}
 
-      <Section>
-        <Container>
-          <Title as="h2">Pourquoi Craftminds ?</Title>
-          <Subtitle>Une approche centrée sur vos besoins et vos objectifs</Subtitle>
-          <Grid>
-            <Card>
-              <CardIcon>⚡</CardIcon>
-              <CardTitle>Réactivité et transparence</CardTitle>
-              <CardContent>
-                Communication claire et réponse rapide à chaque étape. Vous êtes toujours informé de l'avancement de votre projet.
-              </CardContent>
-              <ul>
-                <li>Réponse sous 24h maximum</li>
-                <li>Points d'avancement réguliers</li>
-                <li>Communication directe et efficace</li>
-              </ul>
-            </Card>
-            <Card>
-              <CardIcon>📈</CardIcon>
-              <CardTitle>Résultats mesurables</CardTitle>
-              <CardContent>
-                Des objectifs clairs et des résultats concrets. Chaque intervention est orientée vers des améliorations tangibles.
-              </CardContent>
-              <ul>
-                <li>Métriques de performance</li>
-                <li>Solutions documentées</li>
-                <li>Suivi des améliorations</li>
-              </ul>
-            </Card>
-            <Card>
-              <CardIcon>🎯</CardIcon>
-              <CardTitle>Vous gardez le contrôle</CardTitle>
-              <CardContent>
-                Votre projet reste votre projet. Je m'adapte à vos méthodes et vos outils pour une collaboration fluide.
-              </CardContent>
-              <ul>
-                <li>Processus transparent</li>
-                <li>Respect de vos contraintes</li>
-                <li>Transfert de connaissances</li>
-              </ul>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <Title as="h2">Besoin d'un coup de main rapide et efficace ?</Title>
-          <Subtitle>Discutons de votre projet et trouvons la meilleure solution ensemble.</Subtitle>
-          <Button to="#contact">Discutons de votre besoin →</Button>
-        </Container>
-      </Section>
-
-      <Section id="contact">
-        <Container>
-          <Title as="h2">Contact</Title>
-          <Form onSubmit={handleSubmit}>
-            <FormGroup>
-              <label htmlFor="name">Nom</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="message">Votre besoin technique</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-            </FormGroup>
-            <SubmitButton type="submit" disabled={loading}>
-              {loading ? 'Envoi en cours...' : 'Envoyer'}
-            </SubmitButton>
-          </Form>
-        </Container>
-      </Section>
-
-      {error && (
-        <Notification
-          message={error}
-          type="error"
-          onClose={() => {}}
-        />
-      )}
-
-      {success && (
-        <Notification
-          message="Votre message a été envoyé avec succès !"
-          type="success"
-          onClose={() => {}}
-        />
-      )}
-    </Main>
+        {success && (
+          <Notification
+            message="Votre message a été envoyé avec succès !"
+            type="success"
+            onClose={() => {}}
+          />
+        )}
+      </Main>
+    </>
   );
 };
 

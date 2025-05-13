@@ -1,17 +1,17 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { createGlobalStyle, styled } from 'styled-components';
-import Header from './components/Header.tsx';
-import Footer from './components/Footer.tsx';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import SEO from './components/SEO';
 import './styles/main.css';
 import { HelmetProvider } from 'react-helmet-async';
 
-// Lazy loading des pages
-const Home = React.lazy(() => import('./pages/Home.tsx'));
-const Debug = React.lazy(() => import('./pages/Debug.tsx'));
-const Automatisations = React.lazy(() => import('./pages/Automatisations.tsx'));
-const Support = React.lazy(() => import('./pages/Support.tsx'));
+// Lazy load pages
+const Home = React.lazy(() => import('./pages/Home'));
+const Debug = React.lazy(() => import('./pages/Debug'));
+const Automatisations = React.lazy(() => import('./pages/Automatisations'));
+const Support = React.lazy(() => import('./pages/Support'));
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -153,7 +153,6 @@ const App: React.FC = () => {
       <HelmetProvider>
         <Router>
           <SEO />
-          <ScrollToTop />
           <GlobalStyle />
           <Header />
           <Suspense fallback={<LoadingSpinner />}>
