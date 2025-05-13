@@ -309,210 +309,145 @@ const Support: React.FC = () => {
             <Subtitle>
               ✅ Support réactif et professionnel<br />
               ⚡ Intervention rapide garantie
-    <Main>
-      <Hero>
-        <Container>
-          <Title>Support technique produit</Title>
-          <Subtitle>
-            Assistance technique réactive pour vos produits numériques.<br />
-            Accompagnement continu et support utilisateurs.
-          </Subtitle>
-          <Button to="#contact">Prendre contact →</Button>
-        </Container>
-      </Hero>
+            </Subtitle>
+            <Grid>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🚀</CardIcon>
+                  <CardTitle>Starter</CardTitle>
+                </CardHeader>
+                <PriceContainer>
+                  <Price>149€</Price>
+                </PriceContainer>
+                <IconList>
+                  <li>4h de support par mois</li>
+                  <li>Réponse sous 48h</li>
+                  <li>Rapport mensuel</li>
+                  <li>Support email</li>
+                </IconList>
+                <Button to="#contact">Choisir cette offre</Button>
+              </Card>
+              <Card featured>
+                <CardHeader>
+                  <CardIcon>⭐</CardIcon>
+                  <CardTitle>Pro</CardTitle>
+                </CardHeader>
+                <PriceContainer>
+                  <Price>299€</Price>
+                </PriceContainer>
+                <IconList>
+                  <li>8h de support par mois</li>
+                  <li>Réponse sous 24h</li>
+                  <li>Rapport hebdomadaire</li>
+                  <li>Support email et téléphone</li>
+                </IconList>
+                <Button to="#contact">Choisir cette offre</Button>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🏢</CardIcon>
+                  <CardTitle>Enterprise</CardTitle>
+                </CardHeader>
+                <PriceContainer>
+                  <Price>Sur mesure</Price>
+                </PriceContainer>
+                <IconList>
+                  <li>Support illimité</li>
+                  <li>Réponse prioritaire</li>
+                  <li>Rapport personnalisé</li>
+                  <li>Support complet</li>
+                </IconList>
+                <Button to="#contact">Discuter de vos besoins</Button>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
 
-      <Section id="features">
-        <Container>
-          <Title as="h2">Ce que je prends en charge</Title>
-          <Grid>
-            <Card>
-              <CardHeader>
-                <CardIcon>💬</CardIcon>
-                <CardTitle>Support utilisateurs</CardTitle>
-              </CardHeader>
-              <p>Gestion professionnelle des demandes utilisateurs et résolution des problèmes.</p>
-              <IconList>
-                <li>Réponses personnalisées</li>
-                <li>Suivi des tickets</li>
-                <li>Documentation utilisateur</li>
-                <li>Assistance technique</li>
-              </IconList>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>🛠</CardIcon>
-                <CardTitle>Maintenance</CardTitle>
-              </CardHeader>
-              <p>Maintien et amélioration continue de votre produit pour une expérience optimale.</p>
-              <IconList>
-                <li>Correction de bugs</li>
-                <li>Évolutions simples</li>
-                <li>Mises à jour techniques</li>
-                <li>Optimisations régulières</li>
-              </IconList>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>📈</CardIcon>
-                <CardTitle>Suivi produit</CardTitle>
-              </CardHeader>
-              <p>Analyse et amélioration continue basée sur les retours utilisateurs.</p>
-              <IconList>
-                <li>Analyse des tickets</li>
-                <li>Rapports mensuels</li>
-                <li>Recommandations</li>
-                <li>Plan d'amélioration</li>
-              </IconList>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
+        <Section>
+          <Container>
+            <Title as="h2">Mon engagement</Title>
+            <Subtitle>
+              Communication transparente et proactive<br />
+              Points d'avancement hebdomadaires et rapports détaillés sur l'état de votre produit.
+            </Subtitle>
+            <Grid>
+              <Card>
+                <CardHeader>
+                  <CardIcon>📊</CardIcon>
+                  <CardTitle>Rapports réguliers</CardTitle>
+                </CardHeader>
+                <p>Suivi détaillé des interventions et métriques clés de votre produit</p>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>💬</CardIcon>
+                  <CardTitle>Communication directe</CardTitle>
+                </CardHeader>
+                <p>Canal de communication dédié et réponses sous 24h maximum</p>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>📈</CardIcon>
+                  <CardTitle>Amélioration continue</CardTitle>
+                </CardHeader>
+                <p>Recommandations mensuelles pour optimiser votre produit</p>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
 
-      <Section>
-        <Container>
-          <Title as="h2">Formules proposées</Title>
-          <Subtitle>
-            ✅ Support réactif et professionnel<br />
-            ⚡ Intervention rapide garantie
-          </Subtitle>
-          <Grid>
-            <Card>
-              <CardHeader>
-                <CardIcon>🚀</CardIcon>
-                <CardTitle>Starter</CardTitle>
-              </CardHeader>
-              <PriceContainer>
-                <Price>149€</Price>
-              </PriceContainer>
-              <IconList>
-                <li>4h de support par mois</li>
-                <li>Réponse sous 48h</li>
-                <li>Rapport mensuel</li>
-                <li>Support email</li>
-              </IconList>
-              <Button to="#contact">Choisir cette offre</Button>
-            </Card>
-            <Card featured>
-              <CardHeader>
-                <CardIcon>⭐</CardIcon>
-                <CardTitle>Pro</CardTitle>
-              </CardHeader>
-              <PriceContainer>
-                <Price>249€</Price>
-              </PriceContainer>
-              <IconList>
-                <li>8h de support par mois</li>
-                <li>Réponse sous 24h</li>
-                <li>Rapport détaillé</li>
-                <li>Support prioritaire</li>
-              </IconList>
-              <Button to="#contact">Choisir cette offre</Button>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>👑</CardIcon>
-                <CardTitle>Sur-mesure</CardTitle>
-              </CardHeader>
-              <PriceContainer>
-                <PriceHint>à partir de</PriceHint>
-                <Price>399€</Price>
-              </PriceContainer>
-              <IconList>
-                <li>Volume personnalisé</li>
-                <li>Réponse ASAP</li>
-                <li>Support dédié</li>
-                <li>Suivi sur-mesure</li>
-              </IconList>
-              <Button to="#contact">Choisir cette offre</Button>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
+        <Section>
+          <Container>
+            <Title as="h2">Besoin d'un support technique fiable ?</Title>
+            <Subtitle>Discutons de vos besoins et mettons en place un accompagnement adapté.</Subtitle>
+            <Button to="#contact">Prendre contact →</Button>
+          </Container>
+        </Section>
 
-      <Section>
-        <Container>
-          <Title as="h2">Mon engagement</Title>
-          <Subtitle>
-            Communication transparente et proactive<br />
-            Points d'avancement hebdomadaires et rapports détaillés sur l'état de votre produit.
-          </Subtitle>
-          <Grid>
-            <Card>
-              <CardHeader>
-                <CardIcon>📊</CardIcon>
-                <CardTitle>Rapports réguliers</CardTitle>
-              </CardHeader>
-              <p>Suivi détaillé des interventions et métriques clés de votre produit</p>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>💬</CardIcon>
-                <CardTitle>Communication directe</CardTitle>
-              </CardHeader>
-              <p>Canal de communication dédié et réponses sous 24h maximum</p>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>📈</CardIcon>
-                <CardTitle>Amélioration continue</CardTitle>
-              </CardHeader>
-              <p>Recommandations mensuelles pour optimiser votre produit</p>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <Title as="h2">Besoin d'un support technique fiable ?</Title>
-          <Subtitle>Discutons de vos besoins et mettons en place un accompagnement adapté.</Subtitle>
-          <Button to="#contact">Prendre contact →</Button>
-        </Container>
-      </Section>
-
-      <Section id="contact">
-        <Container>
-          <Title as="h2">Décrivez votre besoin</Title>
-          <Form>
-            <FormGroup>
-              <label htmlFor="name">Nom</label>
-              <input type="text" id="name" required />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" required />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="product">Type de produit</label>
-              <input
-                type="text"
-                id="product"
-                placeholder="Ex: Application web, SaaS, app mobile..."
-                required
-              />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="needs">Besoins en support</label>
-              <textarea
-                id="needs"
-                placeholder="Décrivez vos besoins en support technique et vos attentes."
-                required
-              />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="volume">Volume estimé</label>
-              <select id="volume" required>
-                <option value="">Choisissez un volume</option>
-                <option value="starter">Starter (4h/mois)</option>
-                <option value="pro">Pro (8h/mois)</option>
-                <option value="custom">Sur-mesure (à définir)</option>
-              </select>
-            </FormGroup>
-            <SubmitButton type="submit">Envoyer</SubmitButton>
-          </Form>
-        </Container>
-      </Section>
-    </Main>
+        <Section id="contact">
+          <Container>
+            <Title as="h2">Décrivez votre besoin</Title>
+            <Form>
+              <FormGroup>
+                <label htmlFor="name">Nom</label>
+                <input type="text" id="name" required />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" required />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="product">Type de produit</label>
+                <input
+                  type="text"
+                  id="product"
+                  placeholder="Ex: Application web, SaaS, app mobile..."
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="needs">Besoins en support</label>
+                <textarea
+                  id="needs"
+                  placeholder="Décrivez vos besoins en support technique et vos attentes."
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="volume">Volume estimé</label>
+                <select id="volume" required>
+                  <option value="">Choisissez un volume</option>
+                  <option value="starter">Starter (4h/mois)</option>
+                  <option value="pro">Pro (8h/mois)</option>
+                  <option value="custom">Sur-mesure (à définir)</option>
+                </select>
+              </FormGroup>
+              <SubmitButton type="submit">Envoyer</SubmitButton>
+            </Form>
+          </Container>
+        </Section>
+      </Main>
+    </>
   );
 };
 
