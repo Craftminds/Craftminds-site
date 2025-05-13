@@ -58,7 +58,7 @@ const handler: Handler = async (event) => {
 
     console.log('Configuration du transporteur SMTP...');
     const transporter = nodemailer.createTransport({
-      host: 'mail.craftminds.fr',
+      host: '185.162.231.84', // Adresse IP du serveur Zimbra
       port: 587,
       secure: false,
       auth: {
@@ -68,7 +68,12 @@ const handler: Handler = async (event) => {
       tls: {
         rejectUnauthorized: false,
         minVersion: 'TLSv1'
-      }
+      },
+      connectionTimeout: 10000, // 10 secondes
+      greetingTimeout: 10000,
+      socketTimeout: 10000,
+      debug: true,
+      logger: true
     });
 
     console.log('Vérification de la connexion SMTP...');
