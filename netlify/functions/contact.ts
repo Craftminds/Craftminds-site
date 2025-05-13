@@ -1,26 +1,34 @@
 import { Handler } from '@netlify/functions';
 import nodemailer from 'nodemailer';
 
-// Validation des données
-const validateContactData = (data: any) => {
-  const errors: string[] = [];
-  
-  if (!data.name || typeof data.name !== 'string' || data.name.length < 2) {
-    errors.push('Le nom est invalide');
+interface ContactData {
+  name: string;
+  email: string;
+  message: string;
+  service?: string;
+  urgency?: string;
+  offer?: string;
+  tools?: string;
+  objective?: string;
+  product?: string;
+  needs?: string;
+  volume?: string;
+}
+
+const validateContactData = (data: ContactData): string | null => {
+  if (!data.name || data.name.length < 2) {
+    return 'Le nom doit contenir au moins 2 caractères';
   }
-  
   if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-    errors.push('L\'email est invalide');
+    return 'L\'email n\'est pas valide';
   }
-  
-  if (!data.message || typeof data.message !== 'string' || data.message.length < 10) {
-    errors.push('Le message doit contenir au moins 10 caractères');
+  if (!data.message || data.message.length < 10) {
+    return 'Le message doit contenir au moins 10 caractères';
   }
-  
-  return errors;
+  return null;
 };
 
-export const handler: Handler = async (event) => {
+const handler: Handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -29,52 +37,98 @@ export const handler: Handler = async (event) => {
   }
 
   try {
-    const data = JSON.parse(event.body || '{}');
-    
-    // Validation des données
-    const errors = validateContactData(data);
-    if (errors.length > 0) {
+    console.log('Fonction contact appelée');
+    const data: ContactData = JSON.parse(event.body || '{}');
+    console.log('Données reçues:', data);
+
+    const validationError = validateContactData(data);
+    if (validationError) {
+      console.log('Erreur de validation:', validationError);
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: errors.join(', ') })
+        body: JSON.stringify({ error: validationError })
       };
     }
 
-    // Configuration de l'email
     const transporter = nodemailer.createTransport({
       host: 'mail.craftminds.fr',
-      port: 25,
-      secure: false,
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
-      }
+      },
+      tls: {
+        rejectUnauthorized: false
+      },
+      debug: true,
+      logger: true
     });
 
-    // Envoi de l'email
-    await transporter.sendMail({
-      from: `"Formulaire de contact" <${process.env.EMAIL_USER}>`,
-      to: 'enzo.monnier@craftminds.fr',
-      replyTo: data.email,
-      subject: `Nouveau message de ${data.name}`,
+    // Vérifier la connexion SMTP
+    try {
+      await transporter.verify();
+      console.log('Connexion SMTP vérifiée avec succès');
+    } catch (error) {
+      console.error('Erreur de vérification SMTP:', error);
+      throw new Error('Impossible de se connecter au serveur SMTP');
+    }
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: process.env.CONTACT_EMAIL || process.env.EMAIL_USER,
+      subject: `Nouveau message de contact de ${data.name}`,
       text: `
         Nom: ${data.name}
         Email: ${data.email}
+        Service: ${data.service || 'Non spécifié'}
+        Urgence: ${data.urgency || 'Non spécifiée'}
+        Offre: ${data.offer || 'Non spécifiée'}
+        Outils: ${data.tools || 'Non spécifiés'}
+        Objectif: ${data.objective || 'Non spécifié'}
+        Produit: ${data.product || 'Non spécifié'}
+        Besoins: ${data.needs || 'Non spécifiés'}
+        Volume: ${data.volume || 'Non spécifié'}
         
         Message:
         ${data.message}
+      `,
+      html: `
+        <h2>Nouveau message de contact</h2>
+        <p><strong>Nom:</strong> ${data.name}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Service:</strong> ${data.service || 'Non spécifié'}</p>
+        <p><strong>Urgence:</strong> ${data.urgency || 'Non spécifiée'}</p>
+        <p><strong>Offre:</strong> ${data.offer || 'Non spécifiée'}</p>
+        <p><strong>Outils:</strong> ${data.tools || 'Non spécifiés'}</p>
+        <p><strong>Objectif:</strong> ${data.objective || 'Non spécifié'}</p>
+        <p><strong>Produit:</strong> ${data.product || 'Non spécifié'}</p>
+        <p><strong>Besoins:</strong> ${data.needs || 'Non spécifiés'}</p>
+        <p><strong>Volume:</strong> ${data.volume || 'Non spécifié'}</p>
+        <h3>Message:</h3>
+        <p>${data.message.replace(/\n/g, '<br>')}</p>
       `
-    });
+    };
+
+    console.log('Tentative d\'envoi d\'email...');
+    await transporter.sendMail(mailOptions);
+    console.log('Email envoyé avec succès');
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true, message: 'Message envoyé avec succès' })
+      body: JSON.stringify({ message: 'Message envoyé avec succès' })
     };
+
   } catch (error) {
-    console.error('Erreur:', error);
+    console.error('Erreur lors du traitement:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Une erreur est survenue lors de l\'envoi du message' })
+      body: JSON.stringify({ 
+        error: 'Une erreur est survenue lors de l\'envoi du message',
+        details: error instanceof Error ? error.message : 'Erreur inconnue'
+      })
     };
   }
-}; 
+};
+
+export { handler }; 
