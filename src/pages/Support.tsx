@@ -156,6 +156,8 @@ const PriceContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 1rem 0 2rem;
+  position: relative;
+  min-height: 3.5rem;
 `;
 
 const Price = styled.strong`
@@ -169,7 +171,10 @@ const PriceHint = styled.span`
   font-size: 0.9rem;
   color: var(--color-text-light);
   display: block;
-  margin-bottom: 0.5rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 const Form = styled.form`
