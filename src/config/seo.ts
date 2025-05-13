@@ -48,50 +48,53 @@ export const seoConfig: SEOConfigMap = {
     ]
   },
   automatisations: {
-    title: 'Intégration et Automatisation - Optimisez vos Processus | CraftMinds',
-    description: 'Automatisez vos processus métier avec nos solutions d\'intégration et d\'automatisation. Expertise en Airtable, Zapier, APIs et workflows personnalisés. Optimisez votre productivité et réduisez les tâches manuelles.',
+    title: 'Automatisation de Processus - Optimisez vos Workflows | CraftMinds',
+    description: 'Automatisez vos processus métier avec nos solutions d\'intégration et d\'automatisation. Optimisez votre productivité avec des workflows personnalisés.',
     image: '/logo.svg',
     type: 'service',
     price: '129',
-    serviceType: 'Intégration et Automatisation',
+    serviceType: 'Automatisation',
     keywords: [
       'automatisation',
-      'intégration API',
-      'Airtable',
-      'Zapier',
       'workflow',
+      'intégration',
       'productivité',
-      'processus métier'
+      'processus métier',
+      'optimisation',
+      'zapier',
+      'airtable'
     ]
   },
   support: {
-    title: 'Support Technique Premium - Maintenance et Assistance | CraftMinds',
-    description: 'Support technique premium pour votre infrastructure digitale. Maintenance proactive, résolution rapide des incidents et assistance technique dédiée. Expertise en développement web, applications et systèmes.',
+    title: 'Support Technique Premium - Accompagnement Continu | CraftMinds',
+    description: 'Support technique premium pour votre entreprise. Accompagnement continu, maintenance proactive et résolution rapide des problèmes. Disponible 5/7 pour assurer la stabilité de vos systèmes.',
     image: '/logo.svg',
     type: 'service',
-    price: '149',
+    price: '299',
     serviceType: 'Support Technique',
     keywords: [
       'support technique',
       'maintenance',
-      'assistance technique',
-      'développement web',
-      'applications',
-      'infrastructure digitale'
+      'accompagnement',
+      'disponibilité',
+      'réactivité',
+      'stabilité',
+      'systèmes'
     ]
   },
   contact: {
     title: 'Contactez CraftMinds - Expert en Solutions Digitales | Paris',
-    description: 'Contactez CraftMinds pour vos projets de développement web, automatisation ou support technique. Expert freelance basé à Paris, intervention rapide et solutions sur-mesure. Réponse sous 24h, devis personnalisé.',
+    description: 'Contactez CraftMinds pour vos projets de développement web, debug ou automatisation. Expert basé à Paris, disponible pour des interventions rapides et des solutions sur-mesure.',
     image: '/logo.svg',
     type: 'website',
     keywords: [
       'contact',
-      'devis',
       'développeur freelance',
+      'expert digital',
       'Paris',
-      'solutions digitales',
-      'projet web'
+      'projet web',
+      'consultation',
+      'devis gratuit'
     ]
   }
 }; 

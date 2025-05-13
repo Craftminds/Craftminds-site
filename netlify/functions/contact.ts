@@ -43,7 +43,9 @@ export const handler: Handler = async (event) => {
 
     // Configuration de l'email
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'mail.craftminds.fr',
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,

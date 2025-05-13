@@ -12,6 +12,7 @@ const Home = React.lazy(() => import('./pages/Home'));
 const Debug = React.lazy(() => import('./pages/Debug'));
 const Automatisations = React.lazy(() => import('./pages/Automatisations'));
 const Support = React.lazy(() => import('./pages/Support'));
+const Contact = React.lazy(() => import('./pages/Contact'));
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -150,6 +151,7 @@ const App: React.FC = () => {
               <Route path="/debug" element={<Debug />} />
               <Route path="/automatisations" element={<Automatisations />} />
               <Route path="/support" element={<Support />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </Suspense>
           <Footer />
