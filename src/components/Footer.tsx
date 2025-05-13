@@ -106,7 +106,6 @@ const Footer: React.FC = () => {
             <li><Link to="/debug">Debug Express</Link></li>
             <li><Link to="/automatisations">Intégrations & Automatisations</Link></li>
             <li><Link to="/support">Support technique</Link></li>
-            <li><Link to="/#services">Développement sur-mesure</Link></li>
           </FooterLinks>
         </FooterSection>
         <FooterSection>
