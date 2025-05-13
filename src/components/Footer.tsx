@@ -113,9 +113,9 @@ const Footer: React.FC = () => {
         <FooterSection>
           <h4>Contact</h4>
           <FooterLinks>
-            <li><a href="mailto:contact@craftminds.fr">contact@craftminds.fr</a></li>
+            <li><a href="mailto:enzo.monnier@craftminds.fr">enzo.monnier@craftminds.fr</a></li>
             <li><Link to="/#contact">Formulaire de contact</Link></li>
-            <li><a href="tel:+33600000000">+33 6 00 00 00 00</a></li>
+            <li><a href="tel:+33615756549">+33 6 15 75 65 49</a></li>
           </FooterLinks>
         </FooterSection>
       </FooterContent>
