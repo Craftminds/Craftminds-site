@@ -19,8 +19,14 @@
   status = 200
 
 [[redirects]]
-  from = "http://*"
-  to = "https://:splat"
+  from = "http://craftminds.fr/*"
+  to = "https://craftminds.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.craftminds.fr/*"
+  to = "https://www.craftminds.fr/:splat"
   status = 301
   force = true
 
