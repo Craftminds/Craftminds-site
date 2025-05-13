@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logoLong from '../assets/images/logo_transparent_long.png';
+import logoShort from '../assets/images/logo_court.png';
 
 const HeaderContainer = styled.header`
   background: rgba(255, 255, 255, 0.9);
@@ -34,6 +35,20 @@ const Logo = styled(Link)`
     height: 40px;
     width: auto;
     display: block;
+  }
+
+  .logo-long {
+    display: block;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .logo-short {
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
+    }
   }
 `;
 
@@ -104,7 +119,8 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <HeaderContent>
         <Logo to="/">
-          <img src={logoLong} alt="Craftminds" />
+          <img src={logoLong} alt="Craftminds" className="logo-long" />
+          <img src={logoShort} alt="Craftminds" className="logo-short" />
         </Logo>
         <Nav>
           <NavLink to="/">Accueil</NavLink>
