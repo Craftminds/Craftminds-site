@@ -1,96 +1,146 @@
-# Craftminds - Site Web
+# CraftMinds - Documentation Technique
 
-Site web de Craftminds, développeur freelance spécialisé en debugging, no-code et développement sur-mesure.
+## Table des matières
+1. [Présentation](#présentation)
+2. [Architecture](#architecture)
+3. [Installation](#installation)
+4. [Configuration](#configuration)
+5. [Développement](#développement)
+6. [Déploiement](#déploiement)
+7. [Maintenance](#maintenance)
 
-## Structure du projet
+## Présentation
 
+CraftMinds est un site vitrine présentant des services de développement et d'automatisation. Le site est construit avec React, TypeScript et Styled Components, et déployé sur Netlify.
+
+### Technologies utilisées
+- React 18
+- TypeScript
+- Styled Components
+- React Router
+- React Helmet Async
+- Axios
+- Netlify Functions
+
+## Architecture
+
+### Structure des dossiers
 ```
-src/
-├── assets/
-│   └── images/      # Images et logos
-├── styles/          # Fichiers CSS
-└── pages/           # Pages HTML
+craftminds-site/
+├── src/
+│   ├── components/     # Composants réutilisables
+│   ├── pages/         # Pages du site
+│   ├── hooks/         # Hooks personnalisés
+│   ├── services/      # Services (API, etc.)
+│   ├── config/        # Configuration (SEO, etc.)
+│   ├── styles/        # Styles globaux
+│   └── types/         # Types TypeScript
+├── netlify/
+│   └── functions/     # Fonctions Netlify
+├── public/            # Assets statiques
+└── package.json       # Dépendances
 ```
+
+### Composants principaux
+- `App.tsx` : Point d'entrée de l'application
+- `Layout.tsx` : Layout principal avec header et footer
+- `SEO.tsx` : Gestion du SEO
+- `Notification.tsx` : Système de notification
+- `ContactForm.tsx` : Formulaire de contact réutilisable
 
 ## Installation
 
-1. Clonez le repository :
+1. Cloner le repository :
 ```bash
-git clone https://github.com/Craftminds/Craftminds-site.git
+git clone https://github.com/votre-username/craftminds-site.git
 cd craftminds-site
 ```
 
-2. Installez les dépendances :
+2. Installer les dépendances :
 ```bash
 npm install
 ```
 
-3. Configurez les variables d'environnement :
-```bash
-cp .env.example .env
-```
-Puis modifiez le fichier `.env` avec vos informations.
-
-## Configuration des variables d'environnement
-
-Créez un fichier `.env` à la racine du projet avec les variables suivantes :
-
+3. Créer un fichier `.env` à la racine :
 ```env
-# Configuration du serveur
-PORT=3001
-
-# Configuration de l'email
-EMAIL_USER=votre-email@gmail.com
-EMAIL_PASS=votre-mot-de-passe-application
-CONTACT_EMAIL=contact@craftminds.dev
-
-# Configuration de l'API
-REACT_APP_API_URL=http://localhost:3001/api
+REACT_APP_API_URL=/.netlify/functions
 ```
 
-### Configuration de l'email avec Gmail
+## Configuration
 
-Pour utiliser Gmail comme service d'envoi d'emails :
+### Variables d'environnement Netlify
+Dans le dashboard Netlify, configurer les variables suivantes :
+- `EMAIL_USER` : Adresse email pour recevoir les contacts
+- `EMAIL_PASS` : Mot de passe de l'email
 
-1. Activez la validation en deux étapes sur votre compte Google
-2. Générez un "mot de passe d'application" :
-   - Allez dans les paramètres de votre compte Google
-   - Sécurité > Validation en deux étapes > Mots de passe d'application
-   - Sélectionnez "Autre" comme type d'application
-   - Utilisez ce mot de passe dans la variable `EMAIL_PASS`
+### Configuration SEO
+Le fichier `src/config/seo.ts` contient la configuration SEO pour chaque page :
+- Titres
+- Descriptions
+- Images
+- Mots-clés
 
-## Démarrage
+## Développement
 
-Pour démarrer le serveur de développement :
-
+### Lancer le serveur de développement
 ```bash
-npm run dev
+npm start
 ```
 
-Cela lancera :
-- Le serveur backend sur le port 3001
-- L'application React sur le port 3000
+### Commandes disponibles
+- `npm start` : Lance le serveur de développement
+- `npm build` : Crée une version de production
+- `npm test` : Lance les tests
+- `npm run lint` : Vérifie le code avec ESLint
 
-## Production
+### Bonnes pratiques
+1. Utiliser TypeScript pour tout nouveau code
+2. Suivre la structure de dossiers existante
+3. Documenter les nouveaux composants
+4. Tester les modifications localement avant de déployer
 
-Pour construire l'application pour la production :
+## Déploiement
 
+Le site est automatiquement déployé sur Netlify à chaque push sur la branche main.
+
+### Configuration Netlify
+- Build command : `npm run build`
+- Publish directory : `build`
+- Node version : 18.x
+
+### Fonctions Netlify
+Les fonctions sont dans le dossier `netlify/functions/` :
+- `contact.ts` : Gère l'envoi des emails de contact
+
+## Maintenance
+
+### Mise à jour des dépendances
 ```bash
-npm run build
+npm update
 ```
 
-## Sécurité
+### Vérification de sécurité
+```bash
+npm audit
+```
 
-- Ne jamais commiter le fichier `.env` dans le repository
-- Utiliser des mots de passe d'application pour les services externes
-- Maintenir les dépendances à jour
-- Utiliser HTTPS en production
+### Sauvegarde
+- Sauvegarder régulièrement la base de code
+- Documenter les modifications importantes
+- Maintenir à jour le fichier CHANGELOG.md
+
+### Monitoring
+- Vérifier régulièrement les logs Netlify
+- Surveiller les performances du site
+- Tester régulièrement les formulaires de contact
+
+## Support
+
+Pour toute question ou problème :
+1. Consulter la documentation
+2. Vérifier les issues GitHub
+3. Contacter l'équipe de développement
 
 ## Licence
 
-ISC
-
-## Organisation des fichiers
-
-- `src/pages/` : Contient toutes les pages HTML du site
-- `
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
