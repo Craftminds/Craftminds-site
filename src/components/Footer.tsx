@@ -96,9 +96,8 @@ const Footer: React.FC = () => {
           <h4>Craftminds</h4>
           <p>Services tech freelance spécialisés pour startups et indépendants. Débogage, automatisation et support technique.</p>
           <SocialLinks>
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">📱</a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">💼</a>
-            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">🐦</a>
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">Github</a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">Linkedin</a>
           </SocialLinks>
         </FooterSection>
         <FooterSection>
