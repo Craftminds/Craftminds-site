@@ -1,51 +1,51 @@
 interface SEOConfig {
   title: string;
   description: string;
-  keywords: string;
-  url: string;
   image: string;
   type: 'website' | 'service';
   price?: string;
   serviceType?: string;
 }
 
-export const seoConfig: Record<string, SEOConfig> = {
+interface SEOConfigMap {
+  [key: string]: SEOConfig;
+}
+
+export const seoConfig: SEOConfigMap = {
   home: {
-    title: 'Craftminds - Services Tech Freelance Spécialisés',
-    description: 'Craftminds propose des services tech freelance spécialisés en développement web, applications mobiles et solutions digitales sur mesure. Experts en React, Node.js et technologies modernes.',
-    keywords: 'freelance tech, développement web, applications mobiles, React, Node.js, solutions digitales, expert tech',
-    url: 'https://craftminds.fr',
+    title: 'CraftMinds - Expert en Développement Web et Solutions Digitales',
+    description: 'CraftMinds, expert en développement web et solutions digitales. Services de debug, automatisation et support technique pour optimiser votre présence en ligne.',
     image: '/logo.svg',
     type: 'website'
   },
   debug: {
-    title: 'Debug Express - Craftminds',
-    description: 'Service de débogage et optimisation de vos applications Express.js. Identification et résolution rapide des problèmes de performance et de sécurité.',
-    keywords: 'debug express, optimisation express, performance node.js, sécurité express, maintenance express',
-    url: 'https://craftminds.fr/debug',
+    title: 'Service de Debug Express - CraftMinds',
+    description: 'Service de debug express pour résoudre rapidement vos problèmes techniques. Intervention en 24h, expertise en développement web et applications.',
     image: '/logo.svg',
     type: 'service',
-    serviceType: 'Debug Express',
-    price: '79'
+    price: '79',
+    serviceType: 'Debug Express'
   },
   automatisations: {
-    title: 'Intégrations & Automatisations - Craftminds',
-    description: 'Automatisez vos processus métier avec nos solutions d\'intégration et d\'automatisation sur mesure. Optimisez votre productivité avec des workflows personnalisés.',
-    keywords: 'automatisation, intégration, workflow, productivité, processus métier, api integration',
-    url: 'https://craftminds.fr/automatisations',
+    title: 'Intégration et Automatisation - CraftMinds',
+    description: 'Automatisez vos processus métier avec nos solutions d'intégration et d'automatisation. Optimisez votre productivité avec des workflows personnalisés.',
     image: '/logo.svg',
     type: 'service',
-    serviceType: 'Intégration et Automatisation',
-    price: '129'
+    price: '129',
+    serviceType: 'Intégration et Automatisation'
   },
   support: {
-    title: 'Support Technique - Craftminds',
-    description: 'Support technique réactif pour vos applications et systèmes. Maintenance préventive, résolution de problèmes et assistance technique 24/7.',
-    keywords: 'support technique, maintenance informatique, assistance technique, helpdesk, support 24/7',
-    url: 'https://craftminds.fr/support',
+    title: 'Support Technique Premium - CraftMinds',
+    description: 'Support technique premium pour votre infrastructure digitale. Maintenance proactive, résolution rapide des incidents et assistance technique dédiée.',
     image: '/logo.svg',
     type: 'service',
-    serviceType: 'Support Technique',
-    price: '149'
+    price: '149',
+    serviceType: 'Support Technique'
+  },
+  contact: {
+    title: 'Contactez CraftMinds - Expert en Solutions Digitales',
+    description: 'Contactez CraftMinds pour vos projets de développement web, automatisation ou support technique. Réponse sous 24h, devis personnalisé.',
+    image: '/logo.svg',
+    type: 'website'
   }
 }; 

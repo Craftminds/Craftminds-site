@@ -1,41 +1,48 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
+import { useLocation } from 'react-router-dom';
+import { seoConfig } from '../config/seo';
 
 interface SEOProps {
   title?: string;
   description?: string;
-  keywords?: string;
   image?: string;
-  url?: string;
   type?: 'website' | 'service';
   price?: string;
   serviceType?: string;
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'Craftminds - Services Tech Freelance Spécialisés',
-  description = 'Craftminds propose des services tech freelance spécialisés en développement web, applications mobiles et solutions digitales sur mesure. Experts en React, Node.js et technologies modernes.',
-  keywords = 'freelance tech, développement web, applications mobiles, React, Node.js, solutions digitales, expert tech',
-  image = '/logo.svg',
-  url = 'https://craftminds.fr',
+  title,
+  description,
+  image,
   type = 'website',
   price,
   serviceType
 }) => {
+  const location = useLocation();
+  const currentPath = location.pathname.slice(1) || 'home';
+  const config = seoConfig[currentPath] || seoConfig.home;
+
+  const seoTitle = title || config.title;
+  const seoDescription = description || config.description;
+  const seoImage = image || config.image;
+  const canonicalUrl = `https://craftminds.fr${location.pathname}`;
+
   const schemaOrg = {
     '@context': 'https://schema.org',
-    '@type': type === 'service' ? 'Service' : 'WebSite',
-    name: title,
-    description: description,
-    url: url,
-    image: image,
+    '@type': type === 'website' ? 'WebSite' : 'Service',
+    name: seoTitle,
+    description: seoDescription,
+    url: canonicalUrl,
+    image: seoImage,
     ...(type === 'service' && {
+      serviceType: serviceType,
       provider: {
         '@type': 'Organization',
-        name: 'Craftminds',
+        name: 'CraftMinds',
         url: 'https://craftminds.fr'
       },
-      serviceType: serviceType,
       ...(price && {
         offers: {
           '@type': 'Offer',
@@ -49,29 +56,35 @@ const SEO: React.FC<SEOProps> = ({
 
   return (
     <Helmet>
-      {/* Basic meta tags */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-
+      <title>{seoTitle}</title>
+      <meta name="description" content={seoDescription} />
+      <meta name="image" content={seoImage} />
+      
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={url} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
-
+      <meta property="og:title" content={seoTitle} />
+      <meta property="og:description" content={seoDescription} />
+      <meta property="og:image" content={seoImage} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:site_name" content="CraftMinds" />
+      
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={url} />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={image} />
-
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={seoTitle} />
+      <meta name="twitter:description" content={seoDescription} />
+      <meta name="twitter:image" content={seoImage} />
+      
       {/* Canonical URL */}
-      <link rel="canonical" href={url} />
-
-      {/* Schema.org */}
+      <link rel="canonical" href={canonicalUrl} />
+      
+      {/* Additional SEO tags */}
+      <meta name="keywords" content="développement web, debug, automatisation, support technique, CraftMinds" />
+      <meta name="author" content="CraftMinds" />
+      <meta name="robots" content="index, follow" />
+      <meta name="language" content="French" />
+      <meta name="revisit-after" content="7 days" />
+      
+      {/* Schema.org structured data */}
       <script type="application/ld+json">
         {JSON.stringify(schemaOrg)}
       </script>

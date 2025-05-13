@@ -11,4 +11,10 @@ Disallow: /private/
 Disallow: /api/
 
 # Crawl-delay
-Crawl-delay: 10 
+Crawl-delay: 10
+
+# Additional rules for better indexing
+Allow: /debug
+Allow: /automatisations
+Allow: /support
+Allow: /contact 

@@ -7,16 +7,22 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://craftminds.fr/about</loc>
+    <loc>https://craftminds.fr/debug</loc>
     <lastmod>2024-03-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://craftminds.fr/services</loc>
+    <loc>https://craftminds.fr/automatisations</loc>
     <lastmod>2024-03-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://craftminds.fr/support</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://craftminds.fr/contact</loc>
