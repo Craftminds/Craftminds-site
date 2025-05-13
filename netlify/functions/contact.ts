@@ -54,7 +54,7 @@ export const handler: Handler = async (event) => {
       },
       tls: {
         rejectUnauthorized: false,
-        ciphers: 'SSLv3'
+        minVersion: 'TLSv1'
       },
       debug: true,
       logger: true
@@ -75,9 +75,17 @@ export const handler: Handler = async (event) => {
       console.log('Connexion SMTP réussie');
     } catch (verifyError) {
       console.error('Erreur de vérification SMTP:', verifyError);
+      // Log plus détaillé de l'erreur
+      if (verifyError instanceof Error) {
+        console.error('Message d\'erreur:', verifyError.message);
+        console.error('Stack trace:', verifyError.stack);
+      }
       return {
         statusCode: 500,
-        body: JSON.stringify({ error: 'Erreur de configuration du serveur email' })
+        body: JSON.stringify({ 
+          error: 'Erreur de configuration du serveur email',
+          details: verifyError instanceof Error ? verifyError.message : 'Erreur inconnue'
+        })
       };
     }
 
