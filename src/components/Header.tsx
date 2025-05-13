@@ -236,12 +236,6 @@ const Header: React.FC = () => {
           >
             <CloseButton onClick={() => setIsMobileMenuOpen(false)}>×</CloseButton>
             <MobileNavLinks>
-              <MobileNavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
-                Accueil
-              </MobileNavLink>
-              <MobileNavLink to="/services" onClick={() => setIsMobileMenuOpen(false)}>
-                Services
-              </MobileNavLink>
               <MobileContactButton to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                 Décrivez votre besoin
               </MobileContactButton>

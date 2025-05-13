@@ -30,11 +30,13 @@ export const handler: Handler = async (event) => {
   }
 
   try {
+    console.log('Données reçues:', event.body);
     const data = JSON.parse(event.body || '{}');
     
     // Validation des données
     const errors = validateContactData(data);
     if (errors.length > 0) {
+      console.log('Erreurs de validation:', errors);
       return {
         statusCode: 400,
         body: JSON.stringify({ error: errors.join(', ') })
@@ -50,6 +52,17 @@ export const handler: Handler = async (event) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+
+    // Vérifier la configuration
+    console.log('Configuration email:', {
+      host: 'mail.craftminds.fr',
+      port: 587,
+      user: process.env.EMAIL_USER,
+      hasPassword: !!process.env.EMAIL_PASS
     });
 
     // Préparation du contenu de l'email
@@ -70,38 +83,46 @@ export const handler: Handler = async (event) => {
     `;
 
     // Envoi de l'email
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.CONTACT_EMAIL,
-      subject: `Nouveau contact de ${data.name} - ${data.service || 'Général'}`,
-      text: emailContent,
-    });
+    try {
+      await transporter.sendMail({
+        from: process.env.EMAIL_USER,
+        to: process.env.CONTACT_EMAIL,
+        subject: `Nouveau contact de ${data.name} - ${data.service || 'Général'}`,
+        text: emailContent,
+      });
 
-    // Email de confirmation
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: data.email,
-      subject: 'Confirmation de votre message - Craftminds',
-      text: `
-        Bonjour ${data.name},
-        
-        Merci de m'avoir contacté. J'ai bien reçu votre message et je vous répondrai dans les plus brefs délais.
-        
-        Cordialement,
-        Enzo
-        Craftminds
-      `,
-    });
+      // Email de confirmation
+      await transporter.sendMail({
+        from: process.env.EMAIL_USER,
+        to: data.email,
+        subject: 'Confirmation de votre message - Craftminds',
+        text: `
+          Bonjour ${data.name},
+          
+          Merci de m'avoir contacté. J'ai bien reçu votre message et je vous répondrai dans les plus brefs délais.
+          
+          Cordialement,
+          Enzo
+          Craftminds
+        `,
+      });
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ success: true, message: 'Message envoyé avec succès' })
-    };
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ success: true, message: 'Message envoyé avec succès' })
+      };
+    } catch (emailError) {
+      console.error('Erreur lors de l\'envoi de l\'email:', emailError);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Erreur lors de l\'envoi de l\'email. Veuillez réessayer plus tard.' })
+      };
+    }
   } catch (error) {
-    console.error('Erreur lors de l\'envoi du message:', error);
+    console.error('Erreur générale:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Une erreur est survenue lors de l\'envoi du message' })
+      body: JSON.stringify({ error: 'Une erreur est survenue lors du traitement de votre demande' })
     };
   }
 }; 

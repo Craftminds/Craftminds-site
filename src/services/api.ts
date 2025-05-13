@@ -27,8 +27,17 @@ export const submitContactForm = async (data: ContactFormData) => {
   try {
     const response = await api.post('/contact', data);
     return response.data;
-  } catch (error) {
-    throw error;
+  } catch (error: any) {
+    if (error.response) {
+      // Le serveur a répondu avec un statut d'erreur
+      throw new Error(error.response.data.error || 'Une erreur est survenue lors de l\'envoi du message');
+    } else if (error.request) {
+      // La requête a été faite mais aucune réponse n'a été reçue
+      throw new Error('Impossible de contacter le serveur. Veuillez réessayer plus tard.');
+    } else {
+      // Une erreur s'est produite lors de la configuration de la requête
+      throw new Error('Une erreur est survenue. Veuillez réessayer.');
+    }
   }
 };
 
