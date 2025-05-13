@@ -151,11 +151,18 @@ const IconList = styled.ul`
   }
 `;
 
+const PriceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0 2rem;
+`;
+
 const Price = styled.strong`
   font-size: 2rem;
   color: var(--color-primary);
   display: block;
-  margin: -1rem 0px 1rem;
+  margin: 0;
 `;
 
 const PriceHint = styled.span`
@@ -314,7 +321,9 @@ const Debug: React.FC = () => {
                 <CardIcon>🔧</CardIcon>
                 <CardTitle>Bug unique</CardTitle>
               </CardHeader>
-              <Price>79€</Price>
+              <PriceContainer>
+                <Price>79€</Price>
+              </PriceContainer>
               <IconList>
                 <li>Correction rapide</li>
                 <li>Bug bloquant</li>
@@ -327,7 +336,9 @@ const Debug: React.FC = () => {
                 <CardIcon>⚡</CardIcon>
                 <CardTitle>Fix Prioritaire</CardTitle>
               </CardHeader>
-              <Price>149€</Price>
+              <PriceContainer>
+                <Price>149€</Price>
+              </PriceContainer>
               <IconList>
                 <li>Résolution prioritaire</li>
                 <li>Suivi personnalisé</li>
@@ -340,8 +351,10 @@ const Debug: React.FC = () => {
                 <CardIcon>🚀</CardIcon>
                 <CardTitle>Pack Sérénité</CardTitle>
               </CardHeader>
-              <PriceHint>à partir de</PriceHint>
-              <Price>249€</Price>
+              <PriceContainer>
+                <PriceHint>à partir de</PriceHint>
+                <Price>249€</Price>
+              </PriceContainer>
               <IconList>
                 <li>Minimum 3 bugs</li>
                 <li>Audit complet</li>

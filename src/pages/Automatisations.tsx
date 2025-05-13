@@ -151,11 +151,18 @@ const IconList = styled.ul`
   }
 `;
 
+const PriceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0 2rem;
+`;
+
 const Price = styled.strong`
   font-size: 2rem;
   color: var(--color-primary);
   display: block;
-  margin: -1rem 0px 1rem;
+  margin: 0;
 `;
 
 const PriceHint = styled.span`
@@ -314,7 +321,9 @@ const Automatisations: React.FC = () => {
                 <CardIcon>🔌</CardIcon>
                 <CardTitle>Mini setup</CardTitle>
               </CardHeader>
-              <Price>129€</Price>
+              <PriceContainer>
+                <Price>129€</Price>
+              </PriceContainer>
               <IconList>
                 <li>1 intégration simple</li>
                 <li>Tests et validation</li>
@@ -327,7 +336,9 @@ const Automatisations: React.FC = () => {
                 <CardIcon>⚡</CardIcon>
                 <CardTitle>Workflow standard</CardTitle>
               </CardHeader>
-              <Price>229€</Price>
+              <PriceContainer>
+                <Price>229€</Price>
+              </PriceContainer>
               <IconList>
                 <li>2 à 3 intégrations</li>
                 <li>Logique conditionnelle</li>
@@ -340,8 +351,10 @@ const Automatisations: React.FC = () => {
                 <CardIcon>🚀</CardIcon>
                 <CardTitle>Système avancé</CardTitle>
               </CardHeader>
-              <PriceHint>à partir de</PriceHint>
-              <Price>379€</Price>
+              <PriceContainer>
+                <PriceHint>à partir de</PriceHint>
+                <Price>379€</Price>
+              </PriceContainer>
               <IconList>
                 <li>+3 applications connectées</li>
                 <li>Logique complexe et conditions</li>

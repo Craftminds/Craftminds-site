@@ -151,11 +151,18 @@ const IconList = styled.ul`
   }
 `;
 
+const PriceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0 2rem;
+`;
+
 const Price = styled.strong`
   font-size: 2rem;
   color: var(--color-primary);
   display: block;
-  margin: -1rem 0px 1rem;
+  margin: 0;
 `;
 
 const PriceHint = styled.span`
@@ -300,8 +307,9 @@ const Support: React.FC = () => {
                 <CardIcon>🚀</CardIcon>
                 <CardTitle>Starter</CardTitle>
               </CardHeader>
-              <Price>149€</Price>
-              <span>par mois</span>
+              <PriceContainer>
+                <Price>149€</Price>
+              </PriceContainer>
               <IconList>
                 <li>4h de support par mois</li>
                 <li>Réponse sous 48h</li>
@@ -315,8 +323,9 @@ const Support: React.FC = () => {
                 <CardIcon>⭐</CardIcon>
                 <CardTitle>Pro</CardTitle>
               </CardHeader>
-              <Price>249€</Price>
-              <span>par mois</span>
+              <PriceContainer>
+                <Price>249€</Price>
+              </PriceContainer>
               <IconList>
                 <li>8h de support par mois</li>
                 <li>Réponse sous 24h</li>
@@ -330,9 +339,10 @@ const Support: React.FC = () => {
                 <CardIcon>👑</CardIcon>
                 <CardTitle>Sur-mesure</CardTitle>
               </CardHeader>
-              <PriceHint>à partir de</PriceHint>
-              <Price>399€</Price>
-              <span>par mois</span>
+              <PriceContainer>
+                <PriceHint>à partir de</PriceHint>
+                <Price>399€</Price>
+              </PriceContainer>
               <IconList>
                 <li>Volume personnalisé</li>
                 <li>Réponse ASAP</li>
