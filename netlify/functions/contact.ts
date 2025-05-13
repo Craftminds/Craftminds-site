@@ -28,6 +28,24 @@ const validateContactData = (data: ContactData): string | null => {
   return null;
 };
 
+// Créer le transporteur une seule fois
+const transporter = nodemailer.createTransport({
+  host: '185.162.231.84',
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  },
+  tls: {
+    rejectUnauthorized: false,
+    minVersion: 'TLSv1'
+  },
+  connectionTimeout: 5000,
+  greetingTimeout: 5000,
+  socketTimeout: 5000
+});
+
 const handler: Handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return {
@@ -37,52 +55,15 @@ const handler: Handler = async (event) => {
   }
 
   try {
-    console.log('Fonction contact appelée');
-    console.log('Variables d\'environnement:', {
-      EMAIL_USER: process.env.EMAIL_USER ? 'Défini' : 'Non défini',
-      EMAIL_PASS: process.env.EMAIL_PASS ? 'Défini' : 'Non défini',
-      CONTACT_EMAIL: process.env.CONTACT_EMAIL ? 'Défini' : 'Non défini'
-    });
-
     const data: ContactData = JSON.parse(event.body || '{}');
-    console.log('Données reçues:', data);
+    console.log('Données reçues:', { name: data.name, email: data.email });
 
     const validationError = validateContactData(data);
     if (validationError) {
-      console.log('Erreur de validation:', validationError);
       return {
         statusCode: 400,
         body: JSON.stringify({ error: validationError })
       };
-    }
-
-    console.log('Configuration du transporteur SMTP...');
-    const transporter = nodemailer.createTransport({
-      host: '185.162.231.84', // Adresse IP du serveur Zimbra
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-      },
-      tls: {
-        rejectUnauthorized: false,
-        minVersion: 'TLSv1'
-      },
-      connectionTimeout: 10000, // 10 secondes
-      greetingTimeout: 10000,
-      socketTimeout: 10000,
-      debug: true,
-      logger: true
-    });
-
-    console.log('Vérification de la connexion SMTP...');
-    try {
-      await transporter.verify();
-      console.log('Connexion SMTP vérifiée avec succès');
-    } catch (error) {
-      console.error('Erreur de vérification SMTP:', error);
-      throw new Error(`Erreur de connexion SMTP: ${error instanceof Error ? error.message : 'Erreur inconnue'}`);
     }
 
     const mailOptions = {
@@ -122,9 +103,8 @@ const handler: Handler = async (event) => {
       `
     };
 
-    console.log('Tentative d\'envoi d\'email...');
     const info = await transporter.sendMail(mailOptions);
-    console.log('Email envoyé avec succès:', info);
+    console.log('Email envoyé:', info.messageId);
 
     return {
       statusCode: 200,
@@ -135,7 +115,7 @@ const handler: Handler = async (event) => {
     };
 
   } catch (error) {
-    console.error('Erreur détaillée:', error);
+    console.error('Erreur:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ 
