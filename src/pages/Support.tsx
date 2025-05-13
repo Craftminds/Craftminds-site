@@ -169,16 +169,6 @@ const Price = styled.strong`
   margin: 0;
 `;
 
-const PriceHint = styled.span`
-  font-size: 0.9rem;
-  color: var(--color-text-light);
-  display: block;
-  position: absolute;
-  top: -20%;
-  left: 50%;
-  transform: translateX(-50%);
-`;
-
 const Form = styled.form`
   width: 100%;
   max-width: 600px;

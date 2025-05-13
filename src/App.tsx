@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { createGlobalStyle, styled } from 'styled-components';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -88,17 +88,6 @@ const LoadingSpinner = styled.div`
     animation: spin 1s linear infinite;
   }
 `;
-
-// Composant ScrollToTop
-const ScrollToTop: React.FC = () => {
-  const { pathname } = useLocation();
-
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-};
 
 // Gestionnaire d'erreurs
 class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
