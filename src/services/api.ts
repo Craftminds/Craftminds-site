@@ -28,6 +28,7 @@ export const submitContactForm = async (data: ContactFormData) => {
     const response = await api.post('/contact', data);
     return response.data;
   } catch (error: any) {
+    console.error('Erreur détaillée:', error);
     if (error.response) {
       // Le serveur a répondu avec un statut d'erreur
       throw new Error(error.response.data.error || 'Une erreur est survenue lors de l\'envoi du message');
