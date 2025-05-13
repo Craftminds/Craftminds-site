@@ -4,8 +4,9 @@ import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
   background: var(--color-white);
-  padding: 4rem 0;
+  padding: 4rem 0 2rem;
   margin-top: 4rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 `;
 
 const FooterContent = styled.div`
@@ -27,16 +28,20 @@ const FooterSection = styled.div`
     color: var(--color-text);
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
+    font-weight: 600;
   }
 
   p {
     color: var(--color-text-light);
     margin-bottom: 1rem;
+    line-height: 1.6;
   }
 `;
 
 const FooterLinks = styled.ul`
   list-style: none;
+  padding: 0;
+  margin: 0;
   
   li {
     margin-bottom: 1rem;
@@ -45,10 +50,40 @@ const FooterLinks = styled.ul`
   a {
     color: var(--color-text-light);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 0.25rem 0;
 
     &:hover {
       color: var(--color-primary);
+      transform: translateX(5px);
+    }
+  }
+`;
+
+const Copyright = styled.div`
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+
+    &:hover {
+      color: var(--color-primary);
+      transform: translateY(-2px);
     }
   }
 `;
@@ -59,25 +94,34 @@ const Footer: React.FC = () => {
       <FooterContent>
         <FooterSection>
           <h4>Craftminds</h4>
-          <p>Services tech freelance spécialisés pour startups et indépendants.</p>
+          <p>Services tech freelance spécialisés pour startups et indépendants. Débogage, automatisation et support technique.</p>
+          <SocialLinks>
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">📱</a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">💼</a>
+            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">🐦</a>
+          </SocialLinks>
         </FooterSection>
         <FooterSection>
           <h4>Services</h4>
           <FooterLinks>
             <li><Link to="/debug">Debug Express</Link></li>
-            <li><Link to="/automatisations">Intégrations</Link></li>
-            <li><Link to="/#services">MVP</Link></li>
+            <li><Link to="/automatisations">Intégrations & Automatisations</Link></li>
             <li><Link to="/support">Support technique</Link></li>
+            <li><Link to="/#services">Développement sur-mesure</Link></li>
           </FooterLinks>
         </FooterSection>
         <FooterSection>
           <h4>Contact</h4>
           <FooterLinks>
-            <li><a href="mailto:contact@craftminds.dev">Email</a></li>
-            <li><Link to="/#contact">Formulaire</Link></li>
+            <li><a href="mailto:contact@craftminds.fr">contact@craftminds.fr</a></li>
+            <li><Link to="/#contact">Formulaire de contact</Link></li>
+            <li><a href="tel:+33600000000">+33 6 00 00 00 00</a></li>
           </FooterLinks>
         </FooterSection>
       </FooterContent>
+      <Copyright>
+        © {new Date().getFullYear()} Craftminds. Tous droits réservés.
+      </Copyright>
     </FooterContainer>
   );
 };
