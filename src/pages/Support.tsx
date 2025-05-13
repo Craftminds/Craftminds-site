@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useContactForm } from '../hooks/useContactForm';
+import Notification from '../components/Notification';
 import SEO from '../components/SEO';
 import { seoConfig } from '../config/seo';
 
@@ -231,6 +233,15 @@ const SubmitButton = styled.button`
 `;
 
 const Support: React.FC = () => {
+  const {
+    formData,
+    loading,
+    error,
+    success,
+    handleChange,
+    handleSubmit,
+  } = useContactForm('support');
+
   return (
     <>
       <SEO {...seoConfig.support} />
@@ -397,20 +408,37 @@ const Support: React.FC = () => {
         <Section id="contact">
           <Container>
             <Title as="h2">Décrivez votre besoin</Title>
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <FormGroup>
                 <label htmlFor="name">Nom</label>
-                <input type="text" id="name" required />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
               </FormGroup>
               <FormGroup>
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" required />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
               </FormGroup>
               <FormGroup>
                 <label htmlFor="product">Type de produit</label>
                 <input
                   type="text"
                   id="product"
+                  name="product"
+                  value={formData.product}
+                  onChange={handleChange}
                   placeholder="Ex: Application web, SaaS, app mobile..."
                   required
                 />
@@ -419,23 +447,50 @@ const Support: React.FC = () => {
                 <label htmlFor="needs">Besoins en support</label>
                 <textarea
                   id="needs"
+                  name="needs"
+                  value={formData.needs}
+                  onChange={handleChange}
                   placeholder="Décrivez vos besoins en support technique et vos attentes."
                   required
                 />
               </FormGroup>
               <FormGroup>
                 <label htmlFor="volume">Volume estimé</label>
-                <select id="volume" required>
+                <select
+                  id="volume"
+                  name="volume"
+                  value={formData.volume}
+                  onChange={handleChange}
+                  required
+                >
                   <option value="">Choisissez un volume</option>
                   <option value="starter">Starter (4h/mois)</option>
                   <option value="pro">Pro (8h/mois)</option>
                   <option value="custom">Sur-mesure (à définir)</option>
                 </select>
               </FormGroup>
-              <SubmitButton type="submit">Envoyer</SubmitButton>
+              <SubmitButton type="submit" disabled={loading}>
+                {loading ? 'Envoi en cours...' : 'Envoyer'}
+              </SubmitButton>
             </Form>
           </Container>
         </Section>
+
+        {error && (
+          <Notification
+            message={error}
+            type="error"
+            onClose={() => {}}
+          />
+        )}
+
+        {success && (
+          <Notification
+            message="Votre message a été envoyé avec succès !"
+            type="success"
+            onClose={() => {}}
+          />
+        )}
       </Main>
     </>
   );

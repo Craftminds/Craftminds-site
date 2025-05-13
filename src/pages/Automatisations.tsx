@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useContactForm } from '../hooks/useContactForm';
+import Notification from '../components/Notification';
 import SEO from '../components/SEO';
 import { seoConfig } from '../config/seo';
 import { Link } from 'react-router-dom';
@@ -241,6 +243,15 @@ const SubmitButton = styled.button`
 `;
 
 const Automatisations: React.FC = () => {
+  const {
+    formData,
+    loading,
+    error,
+    success,
+    handleChange,
+    handleSubmit,
+  } = useContactForm('automatisation');
+
   return (
     <>
       <SEO {...seoConfig.automatisations} />
@@ -419,20 +430,37 @@ const Automatisations: React.FC = () => {
         <Section id="contact">
           <Container>
             <Title as="h2">Décrivez votre projet</Title>
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <FormGroup>
                 <label htmlFor="name">Nom</label>
-                <input type="text" id="name" required />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
               </FormGroup>
               <FormGroup>
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" required />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
               </FormGroup>
               <FormGroup>
                 <label htmlFor="tools">Outils utilisés</label>
                 <input
                   type="text"
                   id="tools"
+                  name="tools"
+                  value={formData.tools}
+                  onChange={handleChange}
                   placeholder="Ex: Airtable, Zapier, Google Sheets..."
                   required
                 />
@@ -441,31 +469,49 @@ const Automatisations: React.FC = () => {
                 <label htmlFor="objective">Objectif de l'automatisation</label>
                 <textarea
                   id="objective"
+                  name="objective"
+                  value={formData.objective}
+                  onChange={handleChange}
                   placeholder="Décrivez le processus que vous souhaitez automatiser et le résultat attendu."
                   required
                 />
               </FormGroup>
               <FormGroup>
                 <label htmlFor="urgency">Niveau d'urgence</label>
-                <select id="urgency" required>
+                <select
+                  id="urgency"
+                  name="urgency"
+                  value={formData.urgency}
+                  onChange={handleChange}
+                  required
+                >
                   <option value="normal">Normal (5-7 jours)</option>
                   <option value="urgent">Rapide (2-3 jours)</option>
                   <option value="critical">Critique (24-48h)</option>
                 </select>
               </FormGroup>
-              <FormGroup>
-                <label htmlFor="offer">Offre souhaitée</label>
-                <select id="offer" required>
-                  <option value="">Choisissez une offre</option>
-                  <option value="mini">Mini setup (129€)</option>
-                  <option value="standard">Workflow standard (229€)</option>
-                  <option value="advanced">Système avancé (à partir de 379€)</option>
-                </select>
-              </FormGroup>
-              <SubmitButton type="submit">Envoyer</SubmitButton>
+              <SubmitButton type="submit" disabled={loading}>
+                {loading ? 'Envoi en cours...' : 'Envoyer'}
+              </SubmitButton>
             </Form>
           </Container>
         </Section>
+
+        {error && (
+          <Notification
+            message={error}
+            type="error"
+            onClose={() => {}}
+          />
+        )}
+
+        {success && (
+          <Notification
+            message="Votre message a été envoyé avec succès !"
+            type="success"
+            onClose={() => {}}
+          />
+        )}
       </Main>
     </>
   );

@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useContactForm } from '../hooks/useContactForm';
+import Notification from '../components/Notification';
 import SEO from '../components/SEO';
 import { seoConfig } from '../config/seo';
 import { Link } from 'react-router-dom';
@@ -241,6 +243,15 @@ const SubmitButton = styled.button`
 `;
 
 const Debug: React.FC = () => {
+  const {
+    formData,
+    loading,
+    error,
+    success,
+    handleChange,
+    handleSubmit,
+  } = useContactForm('debug');
+
   return (
     <>
       <SEO {...seoConfig.debug} />
@@ -419,44 +430,76 @@ const Debug: React.FC = () => {
         <Section id="contact">
           <Container>
             <Title as="h2">Décrivez votre bug</Title>
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <FormGroup>
                 <label htmlFor="name">Nom</label>
-                <input type="text" id="name" required />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
               </FormGroup>
               <FormGroup>
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" required />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
               </FormGroup>
               <FormGroup>
-                <label htmlFor="bug-description">Description du bug</label>
+                <label htmlFor="message">Description du bug</label>
                 <textarea
-                  id="bug-description"
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   required
                   placeholder="Décrivez le bug rencontré, son contexte et les étapes pour le reproduire."
                 />
               </FormGroup>
               <FormGroup>
                 <label htmlFor="urgency">Niveau d'urgence</label>
-                <select id="urgency" required>
+                <select
+                  id="urgency"
+                  name="urgency"
+                  value={formData.urgency}
+                  onChange={handleChange}
+                  required
+                >
                   <option value="normal">Normal (48h)</option>
                   <option value="urgent">Urgent (24h)</option>
                   <option value="critical">Critique (ASAP)</option>
                 </select>
               </FormGroup>
-              <FormGroup>
-                <label htmlFor="offer">Offre souhaitée</label>
-                <select id="offer" required>
-                  <option value="">Choisissez une offre</option>
-                  <option value="bug-unique">Bug unique (79€)</option>
-                  <option value="fix-prioritaire">Fix Prioritaire (149€)</option>
-                  <option value="pack-serenite">Pack Sérénité (à partir de 249€)</option>
-                </select>
-              </FormGroup>
-              <SubmitButton type="submit">Envoyer</SubmitButton>
+              <SubmitButton type="submit" disabled={loading}>
+                {loading ? 'Envoi en cours...' : 'Envoyer'}
+              </SubmitButton>
             </Form>
           </Container>
         </Section>
+
+        {error && (
+          <Notification
+            message={error}
+            type="error"
+            onClose={() => {}}
+          />
+        )}
+
+        {success && (
+          <Notification
+            message="Votre message a été envoyé avec succès !"
+            type="success"
+            onClose={() => {}}
+          />
+        )}
       </Main>
     </>
   );
