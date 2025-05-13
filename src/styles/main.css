@@ -75,23 +75,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: var(--spacing-md);
 }
 
 h2 {
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     margin-bottom: var(--spacing-md);
 }
 
 h3 {
-    font-size: clamp(1.5rem, 3vw, 1.8rem);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
     margin-bottom: var(--spacing-sm);
 }
 
 /* Style uniforme pour tous les paragraphes */
 p {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     line-height: 1.7;
     margin-bottom: var(--spacing-md);
     color: var(--color-text);
@@ -99,6 +99,7 @@ p {
 
 p.subtitle {
     color: var(--color-text-light);
+    font-size: clamp(0.9rem, 2vw, 1.25rem);
 }
 
 /* Suppression des styles spécifiques par section pour les paragraphes */ 
@@ -155,8 +156,28 @@ p.subtitle {
 
 /* Media Queries */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
     section {
         padding: var(--spacing-lg) 0;
+    }
+
+    .card {
+        padding: var(--spacing-md);
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+        justify-content: center;
     }
 
     p {
@@ -165,7 +186,35 @@ p.subtitle {
 }
 
 @media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    p.subtitle {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-xs);
+    }
+
     section {
         padding: var(--spacing-md) 0;
+    }
+
+    .card {
+        padding: var(--spacing-sm);
     }
 } 
