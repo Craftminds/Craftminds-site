@@ -38,6 +38,12 @@ const handler: Handler = async (event) => {
 
   try {
     console.log('Fonction contact appelée');
+    console.log('Variables d\'environnement:', {
+      EMAIL_USER: process.env.EMAIL_USER ? 'Défini' : 'Non défini',
+      EMAIL_PASS: process.env.EMAIL_PASS ? 'Défini' : 'Non défini',
+      CONTACT_EMAIL: process.env.CONTACT_EMAIL ? 'Défini' : 'Non défini'
+    });
+
     const data: ContactData = JSON.parse(event.body || '{}');
     console.log('Données reçues:', data);
 
@@ -50,33 +56,34 @@ const handler: Handler = async (event) => {
       };
     }
 
+    console.log('Configuration du transporteur SMTP...');
     const transporter = nodemailer.createTransport({
       host: 'mail.craftminds.fr',
-      port: 465,
-      secure: true,
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
       },
       tls: {
-        rejectUnauthorized: false
-      },
-      debug: true,
-      logger: true
+        rejectUnauthorized: false,
+        minVersion: 'TLSv1'
+      }
     });
 
-    // Vérifier la connexion SMTP
+    console.log('Vérification de la connexion SMTP...');
     try {
       await transporter.verify();
       console.log('Connexion SMTP vérifiée avec succès');
     } catch (error) {
       console.error('Erreur de vérification SMTP:', error);
-      throw new Error('Impossible de se connecter au serveur SMTP');
+      throw new Error(`Erreur de connexion SMTP: ${error instanceof Error ? error.message : 'Erreur inconnue'}`);
     }
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: `"Formulaire de contact" <${process.env.EMAIL_USER}>`,
       to: process.env.CONTACT_EMAIL || process.env.EMAIL_USER,
+      replyTo: data.email,
       subject: `Nouveau message de contact de ${data.name}`,
       text: `
         Nom: ${data.name}
@@ -111,16 +118,19 @@ const handler: Handler = async (event) => {
     };
 
     console.log('Tentative d\'envoi d\'email...');
-    await transporter.sendMail(mailOptions);
-    console.log('Email envoyé avec succès');
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email envoyé avec succès:', info);
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: 'Message envoyé avec succès' })
+      body: JSON.stringify({ 
+        message: 'Message envoyé avec succès',
+        messageId: info.messageId
+      })
     };
 
   } catch (error) {
-    console.error('Erreur lors du traitement:', error);
+    console.error('Erreur détaillée:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ 
