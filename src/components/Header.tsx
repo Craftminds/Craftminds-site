@@ -213,8 +213,7 @@ const Header: React.FC = () => {
     }}>
       <Nav>
         <Logo to="/">
-          <img src="/logo.svg" alt="CraftMinds Logo" />
-          CraftMinds
+          <img src="src/assets/images/logo_transparent_long.png" alt="CraftMinds Logo" />
         </Logo>
         <NavLinks>
           <ContactButton to="/contact">
