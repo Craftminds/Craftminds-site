@@ -28,22 +28,18 @@ const validateContactData = (data: ContactData): string | null => {
   return null;
 };
 
-// Créer le transporteur une seule fois
+// Configuration du transporteur SMTP OVH
 const transporter = nodemailer.createTransport({
-  host: '185.162.231.84',
-  port: 587,
-  secure: false,
+  host: 'ssl0.ovh.net',
+  port: 465,
+  secure: true, // true pour le port 465, false pour les autres ports
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   },
   tls: {
-    rejectUnauthorized: false,
-    minVersion: 'TLSv1'
-  },
-  connectionTimeout: 5000,
-  greetingTimeout: 5000,
-  socketTimeout: 5000
+    rejectUnauthorized: true // OVH utilise des certificats valides
+  }
 });
 
 const handler: Handler = async (event) => {
