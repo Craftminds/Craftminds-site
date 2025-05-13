@@ -28,7 +28,7 @@ export const seoConfig: SEOConfigMap = {
   },
   automatisations: {
     title: 'Intégration et Automatisation - CraftMinds',
-    description: 'Automatisez vos processus métier avec nos solutions d'intégration et d'automatisation. Optimisez votre productivité avec des workflows personnalisés.',
+    description: 'Automatisez vos processus métier avec nos solutions d\'intégration et d\'automatisation. Optimisez votre productivité avec des workflows personnalisés.',
     image: '/logo.svg',
     type: 'service',
     price: '129',
