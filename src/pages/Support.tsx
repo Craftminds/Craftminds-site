@@ -469,6 +469,21 @@ const Support: React.FC = () => {
                   <option value="custom">Sur-mesure (à définir)</option>
                 </select>
               </FormGroup>
+              <FormGroup>
+                <label htmlFor="offer">Offre souhaitée</label>
+                <select
+                  id="offer"
+                  name="offer"
+                  value={formData.offer}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">Choisissez une offre</option>
+                  <option value="starter">Starter (149€/mois)</option>
+                  <option value="pro">Pro (299€/mois)</option>
+                  <option value="enterprise">Enterprise (Sur mesure)</option>
+                </select>
+              </FormGroup>
               <SubmitButton type="submit" disabled={loading}>
                 {loading ? 'Envoi en cours...' : 'Envoyer'}
               </SubmitButton>

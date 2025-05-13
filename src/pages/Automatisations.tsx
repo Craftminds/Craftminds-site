@@ -490,6 +490,21 @@ const Automatisations: React.FC = () => {
                   <option value="critical">Critique (24-48h)</option>
                 </select>
               </FormGroup>
+              <FormGroup>
+                <label htmlFor="offer">Offre souhaitée</label>
+                <select
+                  id="offer"
+                  name="offer"
+                  value={formData.offer}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">Choisissez une offre</option>
+                  <option value="mini-setup">Mini setup (129€)</option>
+                  <option value="workflow-standard">Workflow standard (229€)</option>
+                  <option value="systeme-avance">Système avancé (à partir de 379€)</option>
+                </select>
+              </FormGroup>
               <SubmitButton type="submit" disabled={loading}>
                 {loading ? 'Envoi en cours...' : 'Envoyer'}
               </SubmitButton>

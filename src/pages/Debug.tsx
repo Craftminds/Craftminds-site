@@ -478,6 +478,21 @@ const Debug: React.FC = () => {
                   <option value="critical">Critique (ASAP)</option>
                 </select>
               </FormGroup>
+              <FormGroup>
+                <label htmlFor="offer">Offre souhaitée</label>
+                <select
+                  id="offer"
+                  name="offer"
+                  value={formData.offer}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">Choisissez une offre</option>
+                  <option value="bug-unique">Bug unique (79€)</option>
+                  <option value="fix-prioritaire">Fix Prioritaire (149€)</option>
+                  <option value="pack-serenite">Pack Sérénité (à partir de 249€)</option>
+                </select>
+              </FormGroup>
               <SubmitButton type="submit" disabled={loading}>
                 {loading ? 'Envoi en cours...' : 'Envoyer'}
               </SubmitButton>
