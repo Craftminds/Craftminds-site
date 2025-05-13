@@ -46,24 +46,39 @@ export const handler: Handler = async (event) => {
     // Configuration de l'email
     const transporter = nodemailer.createTransport({
       host: 'mail.craftminds.fr',
-      port: 587,
-      secure: false,
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
       tls: {
         rejectUnauthorized: false
-      }
+      },
+      debug: true,
+      logger: true
     });
 
     // Vérifier la configuration
     console.log('Configuration email:', {
       host: 'mail.craftminds.fr',
-      port: 587,
+      port: 465,
+      secure: true,
       user: process.env.EMAIL_USER,
       hasPassword: !!process.env.EMAIL_PASS
     });
+
+    // Vérifier la connexion
+    try {
+      await transporter.verify();
+      console.log('Connexion SMTP réussie');
+    } catch (verifyError) {
+      console.error('Erreur de vérification SMTP:', verifyError);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Erreur de configuration du serveur email' })
+      };
+    }
 
     // Préparation du contenu de l'email
     const emailContent = `
