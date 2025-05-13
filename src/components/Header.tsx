@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import logoLong from '../assets/images/logo_transparent_long.png';
 
 const HeaderContainer = styled.header`
   background: rgba(255, 255, 255, 0.9);
@@ -95,7 +96,7 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <HeaderContent>
         <Logo to="/">
-          <img src="../assets/images/logo_transparent_long.png" alt="Craftminds" />
+          <img src={logoLong} alt="Craftminds" />
         </Logo>
         <Nav>
           <NavLink to="/">Accueil</NavLink>
