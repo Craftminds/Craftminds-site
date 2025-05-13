@@ -3,7 +3,6 @@
   command = "npm run build"
   publish = "build"
   functions = "netlify/functions"
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ./"
 
 # Configuration de développement
 [dev]
@@ -17,15 +16,12 @@
 [functions]
   node_bundler = "esbuild"
   external_node_modules = ["nodemailer"]
-  timeout = 30
-  included_files = ["netlify/functions/**/*"]
 
 # Redirections
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
-  force = true
 
 [[redirects]]
   from = "/*"
