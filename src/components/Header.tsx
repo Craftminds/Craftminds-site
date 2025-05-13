@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import logoLong from '../assets/images/logo_transparent_long.png';
 import logoShort from '../assets/images/logo_court.png';
@@ -115,6 +115,33 @@ const Button = styled(Link)`
 `;
 
 const Header: React.FC = () => {
+  const location = useLocation();
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerOffset = 80; // Hauteur de votre header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      // Si nous ne sommes pas sur la page d'accueil, naviguer d'abord vers la page d'accueil
+      window.location.href = `/#${sectionId}`;
+    } else {
+      // Si nous sommes déjà sur la page d'accueil, faire défiler vers la section
+      scrollToSection(sectionId);
+    }
+  };
+
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -132,9 +159,9 @@ const Header: React.FC = () => {
         </Logo>
         <Nav>
           <NavLink to="/">Accueil</NavLink>
-          <NavLink to="/#services">Services</NavLink>
-          <NavLink to="/#contact">Contact</NavLink>
-          <Button to="/#contact">Décrivez votre besoin</Button>
+          <NavLink to="/" onClick={(e) => handleNavClick(e, 'services')}>Services</NavLink>
+          <NavLink to="/" onClick={(e) => handleNavClick(e, 'contact')}>Contact</NavLink>
+          <Button to="/" onClick={(e) => handleNavClick(e, 'contact')}>Décrivez votre besoin</Button>
         </Nav>
       </HeaderContent>
     </HeaderContainer>

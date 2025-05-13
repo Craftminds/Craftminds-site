@@ -312,7 +312,7 @@ const Home: React.FC = () => {
               Développeur freelance, j'interviens rapidement pour résoudre vos blocages techniques,
               améliorer vos produits, ou accélérer vos projets.
             </Subtitle>
-            <Button to="#contact">Discutons de votre besoin →</Button>
+            <Button to="/#contact">Discutons de votre besoin →</Button>
           </Container>
         </Hero>
 
@@ -328,7 +328,8 @@ const Home: React.FC = () => {
 
         <Section id="services">
           <Container>
-            <Title as="h2">Ce que je propose</Title>
+            <Title>Nos Services</Title>
+            <Subtitle>Des solutions techniques adaptées à vos besoins</Subtitle>
             <Grid>
               <Card>
                 <CardHeader>
@@ -436,13 +437,14 @@ const Home: React.FC = () => {
           <Container>
             <Title as="h2">Besoin d'un coup de main rapide et efficace ?</Title>
             <Subtitle>Discutons de votre projet et trouvons la meilleure solution ensemble.</Subtitle>
-            <Button to="#contact">Discutons de votre besoin →</Button>
+            <Button to="/#contact">Discutons de votre besoin →</Button>
           </Container>
         </Section>
 
         <Section id="contact">
           <Container>
-            <Title as="h2">Contact</Title>
+            <Title>Contactez-nous</Title>
+            <Subtitle>Discutons de votre projet</Subtitle>
             <Form onSubmit={handleSubmit}>
               <FormGroup>
                 <label htmlFor="name">Nom</label>
