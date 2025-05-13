@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import SEO from '../components/SEO';
+import { seoConfig } from '../config/seo';
 import { Link } from 'react-router-dom';
 
 const Main = styled.main``;
@@ -240,229 +242,232 @@ const SubmitButton = styled.button`
 
 const Automatisations: React.FC = () => {
   return (
-    <Main>
-      <Hero>
-        <Container>
-          <Title>Intégrations & Automatisations</Title>
-          <Subtitle>
-            Connectez vos outils pour gagner en productivité.<br />
-            Mettez vos processus sur pilote automatique.
-          </Subtitle>
-          <Button to="#contact">Automatiser mon workflow →</Button>
-        </Container>
-      </Hero>
+    <>
+      <SEO {...seoConfig.automatisations} />
+      <Main>
+        <Hero>
+          <Container>
+            <Title>Intégrations & Automatisations</Title>
+            <Subtitle>
+              Connectez vos outils pour gagner en productivité.<br />
+              Mettez vos processus sur pilote automatique.
+            </Subtitle>
+            <Button to="#contact">Automatiser mon workflow →</Button>
+          </Container>
+        </Hero>
 
-      <Section id="features">
-        <Container>
-          <Title as="h2">Comment ça marche ?</Title>
-          <Grid>
-            <Card>
-              <CardHeader>
-                <CardIcon>📝</CardIcon>
-                <CardTitle>1. Décrivez vos outils et besoins</CardTitle>
-              </CardHeader>
-              <p>Expliquez-moi vos processus actuels et les outils que vous utilisez. Je vous aide à identifier les opportunités d'automatisation.</p>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>⚙️</CardIcon>
-                <CardTitle>2. Je conçois et teste les scénarios</CardTitle>
-              </CardHeader>
-              <p>Création des workflows, mise en place des intégrations et tests approfondis pour garantir un fonctionnement optimal.</p>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>🚀</CardIcon>
-                <CardTitle>3. Vous profitez d'un système fluide</CardTitle>
-              </CardHeader>
-              <p>Vos processus sont automatisés et vous gagnez un temps précieux. Formation incluse pour maîtriser votre nouveau système.</p>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
+        <Section id="features">
+          <Container>
+            <Title as="h2">Comment ça marche ?</Title>
+            <Grid>
+              <Card>
+                <CardHeader>
+                  <CardIcon>📝</CardIcon>
+                  <CardTitle>1. Décrivez vos outils et besoins</CardTitle>
+                </CardHeader>
+                <p>Expliquez-moi vos processus actuels et les outils que vous utilisez. Je vous aide à identifier les opportunités d'automatisation.</p>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>⚙️</CardIcon>
+                  <CardTitle>2. Je conçois et teste les scénarios</CardTitle>
+                </CardHeader>
+                <p>Création des workflows, mise en place des intégrations et tests approfondis pour garantir un fonctionnement optimal.</p>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🚀</CardIcon>
+                  <CardTitle>3. Vous profitez d'un système fluide</CardTitle>
+                </CardHeader>
+                <p>Vos processus sont automatisés et vous gagnez un temps précieux. Formation incluse pour maîtriser votre nouveau système.</p>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
 
-      <Section>
-        <Container>
-          <Title as="h2">Outils & services compatibles</Title>
-          <Grid columns={2}>
-            <Card>
-              <CardHeader>
-                <CardIcon>🔌</CardIcon>
-                <CardTitle>Outils No-Code</CardTitle>
-              </CardHeader>
-              <IconList>
-                <li>Airtable, Notion, Google Sheets</li>
-                <li>Zapier, Make (ex-Integromat)</li>
-                <li>n8n et autres plateformes</li>
-                <li>Outils métier spécifiques</li>
-              </IconList>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>⚡</CardIcon>
-                <CardTitle>Solutions techniques</CardTitle>
-              </CardHeader>
-              <IconList>
-                <li>Webhooks et APIs REST</li>
-                <li>Scripts sur-mesure</li>
-                <li>Automatisations internes</li>
-                <li>Intégrations personnalisées</li>
-              </IconList>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
+        <Section>
+          <Container>
+            <Title as="h2">Outils & services compatibles</Title>
+            <Grid columns={2}>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🔌</CardIcon>
+                  <CardTitle>Outils No-Code</CardTitle>
+                </CardHeader>
+                <IconList>
+                  <li>Airtable, Notion, Google Sheets</li>
+                  <li>Zapier, Make (ex-Integromat)</li>
+                  <li>n8n et autres plateformes</li>
+                  <li>Outils métier spécifiques</li>
+                </IconList>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>⚡</CardIcon>
+                  <CardTitle>Solutions techniques</CardTitle>
+                </CardHeader>
+                <IconList>
+                  <li>Webhooks et APIs REST</li>
+                  <li>Scripts sur-mesure</li>
+                  <li>Automatisations internes</li>
+                  <li>Intégrations personnalisées</li>
+                </IconList>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
 
-      <Section>
-        <Container>
-          <Title as="h2">Nos tarifications</Title>
-          <Subtitle>
-            ✅ Automatisation 100% fonctionnelle ou remboursée.<br />
-            ⚡ Mise en place rapide et formation incluse.
-          </Subtitle>
-          <Grid>
-            <Card>
-              <CardHeader>
-                <CardIcon>🔌</CardIcon>
-                <CardTitle>Mini setup</CardTitle>
-              </CardHeader>
-              <PriceContainer>
-                <Price>129€</Price>
-              </PriceContainer>
-              <IconList>
-                <li>1 intégration simple</li>
-                <li>Tests et validation</li>
-                <li>Documentation basique</li>
-              </IconList>
-              <Button to="#contact">Choisir cette offre</Button>
-            </Card>
-            <Card featured>
-              <CardHeader>
-                <CardIcon>⚡</CardIcon>
-                <CardTitle>Workflow standard</CardTitle>
-              </CardHeader>
-              <PriceContainer>
-                <Price>229€</Price>
-              </PriceContainer>
-              <IconList>
-                <li>2 à 3 intégrations</li>
-                <li>Logique conditionnelle</li>
-                <li>Formation utilisateur</li>
-              </IconList>
-              <Button to="#contact">Choisir cette offre</Button>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>🚀</CardIcon>
-                <CardTitle>Système avancé</CardTitle>
-              </CardHeader>
-              <PriceContainer>
-                <PriceHint>à partir de</PriceHint>
-                <Price>379€</Price>
-              </PriceContainer>
-              <IconList>
-                <li>+3 applications connectées</li>
-                <li>Logique complexe et conditions</li>
-                <li>Maintenance et support</li>
-              </IconList>
-              <Button to="#contact">Choisir cette offre</Button>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
+        <Section>
+          <Container>
+            <Title as="h2">Nos tarifications</Title>
+            <Subtitle>
+              ✅ Automatisation 100% fonctionnelle ou remboursée.<br />
+              ⚡ Mise en place rapide et formation incluse.
+            </Subtitle>
+            <Grid>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🔌</CardIcon>
+                  <CardTitle>Mini setup</CardTitle>
+                </CardHeader>
+                <PriceContainer>
+                  <Price>129€</Price>
+                </PriceContainer>
+                <IconList>
+                  <li>1 intégration simple</li>
+                  <li>Tests et validation</li>
+                  <li>Documentation basique</li>
+                </IconList>
+                <Button to="#contact">Choisir cette offre</Button>
+              </Card>
+              <Card featured>
+                <CardHeader>
+                  <CardIcon>⚡</CardIcon>
+                  <CardTitle>Workflow standard</CardTitle>
+                </CardHeader>
+                <PriceContainer>
+                  <Price>229€</Price>
+                </PriceContainer>
+                <IconList>
+                  <li>2 à 3 intégrations</li>
+                  <li>Logique conditionnelle</li>
+                  <li>Formation utilisateur</li>
+                </IconList>
+                <Button to="#contact">Choisir cette offre</Button>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🚀</CardIcon>
+                  <CardTitle>Système avancé</CardTitle>
+                </CardHeader>
+                <PriceContainer>
+                  <PriceHint>à partir de</PriceHint>
+                  <Price>379€</Price>
+                </PriceContainer>
+                <IconList>
+                  <li>+3 applications connectées</li>
+                  <li>Logique complexe et conditions</li>
+                  <li>Maintenance et support</li>
+                </IconList>
+                <Button to="#contact">Choisir cette offre</Button>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
 
-      <Section>
-        <Container>
-          <Title as="h2">Mon engagement</Title>
-          <Subtitle>
-            Automatisation 100% fonctionnelle ou remboursée.<br />
-            Je m'engage à livrer un système fiable et adapté à vos besoins.
-          </Subtitle>
-          <Grid>
-            <Card>
-              <CardHeader>
-                <CardIcon>📋</CardIcon>
-                <CardTitle>Cahier des charges</CardTitle>
-              </CardHeader>
-              <p>Documentation détaillée des besoins et validation des scénarios avant développement</p>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>🔄</CardIcon>
-                <CardTitle>Tests approfondis</CardTitle>
-              </CardHeader>
-              <p>Validation de tous les scénarios et cas d'usage en conditions réelles</p>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>📚</CardIcon>
-                <CardTitle>Formation incluse</CardTitle>
-              </CardHeader>
-              <p>Documentation complète et formation à l'utilisation de votre système</p>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
+        <Section>
+          <Container>
+            <Title as="h2">Mon engagement</Title>
+            <Subtitle>
+              Automatisation 100% fonctionnelle ou remboursée.<br />
+              Je m'engage à livrer un système fiable et adapté à vos besoins.
+            </Subtitle>
+            <Grid>
+              <Card>
+                <CardHeader>
+                  <CardIcon>📋</CardIcon>
+                  <CardTitle>Cahier des charges</CardTitle>
+                </CardHeader>
+                <p>Documentation détaillée des besoins et validation des scénarios avant développement</p>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🔄</CardIcon>
+                  <CardTitle>Tests approfondis</CardTitle>
+                </CardHeader>
+                <p>Validation de tous les scénarios et cas d'usage en conditions réelles</p>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>📚</CardIcon>
+                  <CardTitle>Formation incluse</CardTitle>
+                </CardHeader>
+                <p>Documentation complète et formation à l'utilisation de votre système</p>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
 
-      <Section>
-        <Container>
-          <Title as="h2">Prêt à automatiser vos processus ?</Title>
-          <Subtitle>Gagnez du temps et évitez les tâches répétitives.</Subtitle>
-          <Button to="#contact">Automatiser mon workflow →</Button>
-        </Container>
-      </Section>
+        <Section>
+          <Container>
+            <Title as="h2">Prêt à automatiser vos processus ?</Title>
+            <Subtitle>Gagnez du temps et évitez les tâches répétitives.</Subtitle>
+            <Button to="#contact">Automatiser mon workflow →</Button>
+          </Container>
+        </Section>
 
-      <Section id="contact">
-        <Container>
-          <Title as="h2">Décrivez votre projet</Title>
-          <Form>
-            <FormGroup>
-              <label htmlFor="name">Nom</label>
-              <input type="text" id="name" required />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" required />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="tools">Outils utilisés</label>
-              <input
-                type="text"
-                id="tools"
-                placeholder="Ex: Airtable, Zapier, Google Sheets..."
-                required
-              />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="objective">Objectif de l'automatisation</label>
-              <textarea
-                id="objective"
-                placeholder="Décrivez le processus que vous souhaitez automatiser et le résultat attendu."
-                required
-              />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="urgency">Niveau d'urgence</label>
-              <select id="urgency" required>
-                <option value="normal">Normal (5-7 jours)</option>
-                <option value="urgent">Rapide (2-3 jours)</option>
-                <option value="critical">Critique (24-48h)</option>
-              </select>
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="offer">Offre souhaitée</label>
-              <select id="offer" required>
-                <option value="">Choisissez une offre</option>
-                <option value="mini">Mini setup (129€)</option>
-                <option value="standard">Workflow standard (229€)</option>
-                <option value="advanced">Système avancé (à partir de 379€)</option>
-              </select>
-            </FormGroup>
-            <SubmitButton type="submit">Envoyer</SubmitButton>
-          </Form>
-        </Container>
-      </Section>
-    </Main>
+        <Section id="contact">
+          <Container>
+            <Title as="h2">Décrivez votre projet</Title>
+            <Form>
+              <FormGroup>
+                <label htmlFor="name">Nom</label>
+                <input type="text" id="name" required />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" required />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="tools">Outils utilisés</label>
+                <input
+                  type="text"
+                  id="tools"
+                  placeholder="Ex: Airtable, Zapier, Google Sheets..."
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="objective">Objectif de l'automatisation</label>
+                <textarea
+                  id="objective"
+                  placeholder="Décrivez le processus que vous souhaitez automatiser et le résultat attendu."
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="urgency">Niveau d'urgence</label>
+                <select id="urgency" required>
+                  <option value="normal">Normal (5-7 jours)</option>
+                  <option value="urgent">Rapide (2-3 jours)</option>
+                  <option value="critical">Critique (24-48h)</option>
+                </select>
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="offer">Offre souhaitée</label>
+                <select id="offer" required>
+                  <option value="">Choisissez une offre</option>
+                  <option value="mini">Mini setup (129€)</option>
+                  <option value="standard">Workflow standard (229€)</option>
+                  <option value="advanced">Système avancé (à partir de 379€)</option>
+                </select>
+              </FormGroup>
+              <SubmitButton type="submit">Envoyer</SubmitButton>
+            </Form>
+          </Container>
+        </Section>
+      </Main>
+    </>
   );
 };
 

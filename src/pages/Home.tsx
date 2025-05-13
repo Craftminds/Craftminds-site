@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useContactForm } from '../hooks/useContactForm.ts';
 import Notification from '../components/Notification.tsx';
+import SEO from '../components/SEO';
+import { seoConfig } from '../config/seo';
 
 const Main = styled.main``;
 
@@ -300,6 +302,99 @@ const Home: React.FC = () => {
   } = useContactForm('general');
 
   return (
+    <>
+      <SEO {...seoConfig.home} />
+      <Main>
+        <Hero>
+          <Container>
+            <Title>Du bug au build, Craftminds vous accompagne à chaque étape.</Title>
+            <Subtitle>
+              Développeur freelance, j'interviens rapidement pour résoudre vos blocages techniques,
+              améliorer vos produits, ou accélérer vos projets.
+            </Subtitle>
+            <Button to="#contact">Discutons de votre besoin →</Button>
+          </Container>
+        </Hero>
+
+        <Section id="about">
+          <Container>
+            <Title as="h2">Qui je suis</Title>
+            <Subtitle>
+              Je suis Enzo, développeur freelance spécialisé en debugging, no-code et développement sur-mesure.<br />
+              J'aide les fondateurs, freelances et PM à livrer plus vite en réglant les problèmes qui bloquent.
+            </Subtitle>
+          </Container>
+        </Section>
+
+        <Section id="services">
+          <Container>
+            <Title as="h2">Ce que je propose</Title>
+            <Grid>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🔧</CardIcon>
+                  <CardTitle>Debug express</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  Résolution rapide de bugs et blocages techniques. Intervention sous 24-48h pour débloquer votre situation.
+                </CardContent>
+                <CardLink to="/debug">Choisir l'offre →</CardLink>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>⚙️</CardIcon>
+                  <CardTitle>Intégrations & automatisations</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  Airtable, Zapier, APIs et automatisation de processus. Optimisez vos workflows et gagnez du temps.
+                </CardContent>
+                <CardLink to="/automatisations">Choisir l'offre →</CardLink>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🧠</CardIcon>
+                  <CardTitle>Support technique produit</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  Investigations, corrections et mini-features. Gardez votre produit en parfait état de fonctionnement.
+                </CardContent>
+                <CardLink to="/support">Choisir l'offre →</CardLink>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
+
+        <Section id="process">
+          <Container>
+            <Title as="h2">Méthode Craftminds</Title>
+            <Grid>
+              <ProcessStep>
+                <StepNumber>1</StepNumber>
+                <CardTitle>Vous m'expliquez votre besoin</CardTitle>
+                <CardContent>Description claire de votre problématique ou objectif.</CardContent>
+              </ProcessStep>
+              <ProcessStep>
+                <StepNumber>2</StepNumber>
+                <CardTitle>Je vous propose un plan clair</CardTitle>
+                <CardContent>Solution concrète et estimation précise.</CardContent>
+              </ProcessStep>
+              <ProcessStep>
+                <StepNumber>3</StepNumber>
+                <CardTitle>On exécute efficacement</CardTitle>
+                <CardContent>Mise en œuvre rapide, sans blabla.</CardContent>
+              </ProcessStep>
+            </Grid>
+          </Container>
+        </Section>
+
+        <Section>
+          <Container>
+            <Title as="h2">Pourquoi Craftminds ?</Title>
+            <Subtitle>Une approche centrée sur vos besoins et vos objectifs</Subtitle>
+            <Grid>
+              <Card>
+                <CardIcon>⚡</CardIcon>
+                <CardTitle>Réactivité et transparence</CardTitle>
     <Main>
       <Hero>
         <Container>

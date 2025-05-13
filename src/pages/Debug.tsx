@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import SEO from '../components/SEO';
+import { seoConfig } from '../config/seo';
 import { Link } from 'react-router-dom';
 
 const Main = styled.main``;
@@ -240,220 +242,223 @@ const SubmitButton = styled.button`
 
 const Debug: React.FC = () => {
   return (
-    <Main>
-      <Hero>
-        <Container>
-          <Title>Debug Express</Title>
-          <Subtitle>
-            Résolution rapide de vos bugs et blocages techniques.<br />
-            Intervention sous 24-48h pour débloquer votre situation.
-          </Subtitle>
-          <Button to="#contact">Débloquer mon projet →</Button>
-        </Container>
-      </Hero>
+    <>
+      <SEO {...seoConfig.debug} />
+      <Main>
+        <Hero>
+          <Container>
+            <Title>Debug Express</Title>
+            <Subtitle>
+              Résolution rapide de vos bugs et blocages techniques.<br />
+              Intervention sous 24-48h pour débloquer votre situation.
+            </Subtitle>
+            <Button to="#contact">Débloquer mon projet →</Button>
+          </Container>
+        </Hero>
 
-      <Section id="features">
-        <Container>
-          <Title as="h2">Comment ça marche ?</Title>
-          <Grid>
-            <Card>
-              <CardHeader>
-                <CardIcon>📝</CardIcon>
-                <CardTitle>1. Décrivez votre bug</CardTitle>
-              </CardHeader>
-              <p>Expliquez-moi le problème rencontré et son contexte via le formulaire de contact.</p>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>🔍</CardIcon>
-                <CardTitle>2. Diagnostic rapide</CardTitle>
-              </CardHeader>
-              <p>Je vous recontacte sous 24h avec une première analyse et une estimation.</p>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>✅</CardIcon>
-                <CardTitle>3. Résolution express</CardTitle>
-              </CardHeader>
-              <p>Intervention rapide et ciblée pour résoudre votre problème.</p>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
+        <Section id="features">
+          <Container>
+            <Title as="h2">Comment ça marche ?</Title>
+            <Grid>
+              <Card>
+                <CardHeader>
+                  <CardIcon>📝</CardIcon>
+                  <CardTitle>1. Décrivez votre bug</CardTitle>
+                </CardHeader>
+                <p>Expliquez-moi le problème rencontré et son contexte via le formulaire de contact.</p>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🔍</CardIcon>
+                  <CardTitle>2. Diagnostic rapide</CardTitle>
+                </CardHeader>
+                <p>Je vous recontacte sous 24h avec une première analyse et une estimation.</p>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>✅</CardIcon>
+                  <CardTitle>3. Résolution express</CardTitle>
+                </CardHeader>
+                <p>Intervention rapide et ciblée pour résoudre votre problème.</p>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
 
-      <Section>
-        <Container>
-          <Title as="h2">Types de bugs traités</Title>
-          <Grid columns={2}>
-            <Card>
-              <CardHeader>
-                <CardIcon>🔧</CardIcon>
-                <CardTitle>Bugs techniques</CardTitle>
-              </CardHeader>
-              <IconList>
-                <li>Erreurs de code et exceptions</li>
-                <li>Problèmes de performance</li>
-                <li>Conflits de dépendances</li>
-                <li>Bugs d'intégration API</li>
-              </IconList>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>🔧</CardIcon>
-                <CardTitle>Blocages fonctionnels</CardTitle>
-              </CardHeader>
-              <IconList>
-                <li>Workflows cassés</li>
-                <li>Problèmes de déploiement</li>
-                <li>Erreurs de configuration</li>
-                <li>Bugs UI/UX</li>
-              </IconList>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
+        <Section>
+          <Container>
+            <Title as="h2">Types de bugs traités</Title>
+            <Grid columns={2}>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🔧</CardIcon>
+                  <CardTitle>Bugs techniques</CardTitle>
+                </CardHeader>
+                <IconList>
+                  <li>Erreurs de code et exceptions</li>
+                  <li>Problèmes de performance</li>
+                  <li>Conflits de dépendances</li>
+                  <li>Bugs d'intégration API</li>
+                </IconList>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🔧</CardIcon>
+                  <CardTitle>Blocages fonctionnels</CardTitle>
+                </CardHeader>
+                <IconList>
+                  <li>Workflows cassés</li>
+                  <li>Problèmes de déploiement</li>
+                  <li>Erreurs de configuration</li>
+                  <li>Bugs UI/UX</li>
+                </IconList>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
 
-      <Section>
-        <Container>
-          <Title as="h2">Nos tarifications</Title>
-          <Subtitle>
-            ✅ Paiement uniquement si le bug est corrigé.<br />
-            ⏱️ Résolution 2x plus rapide qu'une agence.
-          </Subtitle>
-          <Grid>
-            <Card>
-              <CardHeader>
-                <CardIcon>🔧</CardIcon>
-                <CardTitle>Bug unique</CardTitle>
-              </CardHeader>
-              <PriceContainer>
-                <Price>79€</Price>
-              </PriceContainer>
-              <IconList>
-                <li>Correction rapide</li>
-                <li>Bug bloquant</li>
-                <li>Support basique</li>
-              </IconList>
-              <Button to="#contact">Choisir cette offre</Button>
-            </Card>
-            <Card featured>
-              <CardHeader>
-                <CardIcon>⚡</CardIcon>
-                <CardTitle>Fix Prioritaire</CardTitle>
-              </CardHeader>
-              <PriceContainer>
-                <Price>149€</Price>
-              </PriceContainer>
-              <IconList>
-                <li>Résolution prioritaire</li>
-                <li>Suivi personnalisé</li>
-                <li>Support avancé</li>
-              </IconList>
-              <Button to="#contact">Choisir cette offre</Button>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>🚀</CardIcon>
-                <CardTitle>Pack Sérénité</CardTitle>
-              </CardHeader>
-              <PriceContainer>
-                <PriceHint>à partir de</PriceHint>
-                <Price>249€</Price>
-              </PriceContainer>
-              <IconList>
-                <li>Minimum 3 bugs</li>
-                <li>Audit complet</li>
-                <li>Conseils préventifs</li>
-              </IconList>
-              <Button to="#contact">Choisir cette offre</Button>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
+        <Section>
+          <Container>
+            <Title as="h2">Nos tarifications</Title>
+            <Subtitle>
+              ✅ Paiement uniquement si le bug est corrigé.<br />
+              ⏱️ Résolution 2x plus rapide qu'une agence.
+            </Subtitle>
+            <Grid>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🔧</CardIcon>
+                  <CardTitle>Bug unique</CardTitle>
+                </CardHeader>
+                <PriceContainer>
+                  <Price>79€</Price>
+                </PriceContainer>
+                <IconList>
+                  <li>Correction rapide</li>
+                  <li>Bug bloquant</li>
+                  <li>Support basique</li>
+                </IconList>
+                <Button to="#contact">Choisir cette offre</Button>
+              </Card>
+              <Card featured>
+                <CardHeader>
+                  <CardIcon>⚡</CardIcon>
+                  <CardTitle>Fix Prioritaire</CardTitle>
+                </CardHeader>
+                <PriceContainer>
+                  <Price>149€</Price>
+                </PriceContainer>
+                <IconList>
+                  <li>Résolution prioritaire</li>
+                  <li>Suivi personnalisé</li>
+                  <li>Support avancé</li>
+                </IconList>
+                <Button to="#contact">Choisir cette offre</Button>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🚀</CardIcon>
+                  <CardTitle>Pack Sérénité</CardTitle>
+                </CardHeader>
+                <PriceContainer>
+                  <PriceHint>à partir de</PriceHint>
+                  <Price>249€</Price>
+                </PriceContainer>
+                <IconList>
+                  <li>Minimum 3 bugs</li>
+                  <li>Audit complet</li>
+                  <li>Conseils préventifs</li>
+                </IconList>
+                <Button to="#contact">Choisir cette offre</Button>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
 
-      <Section>
-        <Container>
-          <Title as="h2">Mon engagement</Title>
-          <Subtitle>
-            Problème résolu ou remboursé à 100%.<br />
-            Pas de risque pour vous. Je m'engage à résoudre votre problème ou vous ne payez rien.
-          </Subtitle>
-          <Grid>
-            <Card>
-              <CardHeader>
-                <CardIcon>🎯</CardIcon>
-                <CardTitle>Diagnostic précis</CardTitle>
-              </CardHeader>
-              <p>Analyse approfondie du problème et estimation détaillée avant toute intervention</p>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>⚡</CardIcon>
-                <CardTitle>Solution testée</CardTitle>
-              </CardHeader>
-              <p>Tests rigoureux et validation complète de la solution avant livraison</p>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardIcon>🛡️</CardIcon>
-                <CardTitle>Garantie totale</CardTitle>
-              </CardHeader>
-              <p>Remboursement intégral si le problème n'est pas résolu comme convenu</p>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
+        <Section>
+          <Container>
+            <Title as="h2">Mon engagement</Title>
+            <Subtitle>
+              Problème résolu ou remboursé à 100%.<br />
+              Pas de risque pour vous. Je m'engage à résoudre votre problème ou vous ne payez rien.
+            </Subtitle>
+            <Grid>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🎯</CardIcon>
+                  <CardTitle>Diagnostic précis</CardTitle>
+                </CardHeader>
+                <p>Analyse approfondie du problème et estimation détaillée avant toute intervention</p>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>⚡</CardIcon>
+                  <CardTitle>Solution testée</CardTitle>
+                </CardHeader>
+                <p>Tests rigoureux et validation complète de la solution avant livraison</p>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🛡️</CardIcon>
+                  <CardTitle>Garantie totale</CardTitle>
+                </CardHeader>
+                <p>Remboursement intégral si le problème n'est pas résolu comme convenu</p>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
 
-      <Section>
-        <Container>
-          <Title as="h2">Un bug vous bloque ?</Title>
-          <Subtitle>Contactez-moi pour une intervention rapide et efficace.</Subtitle>
-          <Button to="#contact">Débloquer mon projet →</Button>
-        </Container>
-      </Section>
+        <Section>
+          <Container>
+            <Title as="h2">Un bug vous bloque ?</Title>
+            <Subtitle>Contactez-moi pour une intervention rapide et efficace.</Subtitle>
+            <Button to="#contact">Débloquer mon projet →</Button>
+          </Container>
+        </Section>
 
-      <Section id="contact">
-        <Container>
-          <Title as="h2">Décrivez votre bug</Title>
-          <Form>
-            <FormGroup>
-              <label htmlFor="name">Nom</label>
-              <input type="text" id="name" required />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" required />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="bug-description">Description du bug</label>
-              <textarea
-                id="bug-description"
-                required
-                placeholder="Décrivez le bug rencontré, son contexte et les étapes pour le reproduire."
-              />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="urgency">Niveau d'urgence</label>
-              <select id="urgency" required>
-                <option value="normal">Normal (48h)</option>
-                <option value="urgent">Urgent (24h)</option>
-                <option value="critical">Critique (ASAP)</option>
-              </select>
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="offer">Offre souhaitée</label>
-              <select id="offer" required>
-                <option value="">Choisissez une offre</option>
-                <option value="bug-unique">Bug unique (79€)</option>
-                <option value="fix-prioritaire">Fix Prioritaire (149€)</option>
-                <option value="pack-serenite">Pack Sérénité (à partir de 249€)</option>
-              </select>
-            </FormGroup>
-            <SubmitButton type="submit">Envoyer</SubmitButton>
-          </Form>
-        </Container>
-      </Section>
-    </Main>
+        <Section id="contact">
+          <Container>
+            <Title as="h2">Décrivez votre bug</Title>
+            <Form>
+              <FormGroup>
+                <label htmlFor="name">Nom</label>
+                <input type="text" id="name" required />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" required />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="bug-description">Description du bug</label>
+                <textarea
+                  id="bug-description"
+                  required
+                  placeholder="Décrivez le bug rencontré, son contexte et les étapes pour le reproduire."
+                />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="urgency">Niveau d'urgence</label>
+                <select id="urgency" required>
+                  <option value="normal">Normal (48h)</option>
+                  <option value="urgent">Urgent (24h)</option>
+                  <option value="critical">Critique (ASAP)</option>
+                </select>
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="offer">Offre souhaitée</label>
+                <select id="offer" required>
+                  <option value="">Choisissez une offre</option>
+                  <option value="bug-unique">Bug unique (79€)</option>
+                  <option value="fix-prioritaire">Fix Prioritaire (149€)</option>
+                  <option value="pack-serenite">Pack Sérénité (à partir de 249€)</option>
+                </select>
+              </FormGroup>
+              <SubmitButton type="submit">Envoyer</SubmitButton>
+            </Form>
+          </Container>
+        </Section>
+      </Main>
+    </>
   );
 };
 

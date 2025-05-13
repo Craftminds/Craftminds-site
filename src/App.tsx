@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { createGlobalStyle, styled } from 'styled-components';
 import Header from './components/Header.tsx';
 import Footer from './components/Footer.tsx';
+import SEO from './components/SEO';
+import './styles/main.css';
+import { HelmetProvider } from 'react-helmet-async';
 
 // Lazy loading des pages
 const Home = React.lazy(() => import('./pages/Home.tsx'));
@@ -144,25 +147,28 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { has
   }
 }
 
-function App() {
+const App: React.FC = () => {
   return (
     <ErrorBoundary>
-      <Router>
-        <ScrollToTop />
-        <GlobalStyle />
-        <Header />
-        <Suspense fallback={<LoadingSpinner />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/debug" element={<Debug />} />
-            <Route path="/automatisations" element={<Automatisations />} />
-            <Route path="/support" element={<Support />} />
-          </Routes>
-        </Suspense>
-        <Footer />
-      </Router>
+      <HelmetProvider>
+        <Router>
+          <SEO />
+          <ScrollToTop />
+          <GlobalStyle />
+          <Header />
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/debug" element={<Debug />} />
+              <Route path="/automatisations" element={<Automatisations />} />
+              <Route path="/support" element={<Support />} />
+            </Routes>
+          </Suspense>
+          <Footer />
+        </Router>
+      </HelmetProvider>
     </ErrorBoundary>
   );
-}
+};
 
 export default App; 

@@ -102,17 +102,17 @@ p.subtitle {
     font-size: clamp(0.9rem, 2vw, 1.25rem);
 }
 
-/* Suppression des styles spécifiques par section pour les paragraphes */ 
+/* Suppression des styles spécifiques par section pour les paragraphes */
 .services p,
 .about p,
 .hero p,
 .cta p,
 .footer p {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
 }
 
 .features p {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
 }
 
 /* Animations */
@@ -180,8 +180,23 @@ p.subtitle {
         justify-content: center;
     }
 
-    p {
-        font-size: 1.125rem;
+    /* Ajustements spécifiques pour les cartes et sections */
+    .service-card,
+    .feature-card,
+    .pricing-card {
+        padding: var(--spacing-md);
+    }
+
+    .service-card h3,
+    .feature-card h3,
+    .pricing-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .service-card p,
+    .feature-card p,
+    .pricing-card p {
+        font-size: 1rem;
     }
 }
 
@@ -216,5 +231,30 @@ p.subtitle {
 
     .card {
         padding: var(--spacing-sm);
+    }
+
+    /* Ajustements supplémentaires pour mobile */
+    .service-card,
+    .feature-card,
+    .pricing-card {
+        padding: var(--spacing-sm);
+    }
+
+    .service-card h3,
+    .feature-card h3,
+    .pricing-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .service-card p,
+    .feature-card p,
+    .pricing-card p {
+        font-size: 0.9rem;
+    }
+
+    .button,
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 0.9rem;
     }
 } 

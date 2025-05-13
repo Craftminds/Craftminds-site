@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { seoConfig } from '../config/seo';
 
 const Main = styled.main``;
 
@@ -240,6 +242,73 @@ const SubmitButton = styled.button`
 
 const Support: React.FC = () => {
   return (
+    <>
+      <SEO {...seoConfig.support} />
+      <Main>
+        <Hero>
+          <Container>
+            <Title>Support technique produit</Title>
+            <Subtitle>
+              Assistance technique réactive pour vos produits numériques.<br />
+              Accompagnement continu et support utilisateurs.
+            </Subtitle>
+            <Button to="#contact">Prendre contact →</Button>
+          </Container>
+        </Hero>
+
+        <Section id="features">
+          <Container>
+            <Title as="h2">Ce que je prends en charge</Title>
+            <Grid>
+              <Card>
+                <CardHeader>
+                  <CardIcon>💬</CardIcon>
+                  <CardTitle>Support utilisateurs</CardTitle>
+                </CardHeader>
+                <p>Gestion professionnelle des demandes utilisateurs et résolution des problèmes.</p>
+                <IconList>
+                  <li>Réponses personnalisées</li>
+                  <li>Suivi des tickets</li>
+                  <li>Documentation utilisateur</li>
+                  <li>Assistance technique</li>
+                </IconList>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>🛠</CardIcon>
+                  <CardTitle>Maintenance</CardTitle>
+                </CardHeader>
+                <p>Maintien et amélioration continue de votre produit pour une expérience optimale.</p>
+                <IconList>
+                  <li>Correction de bugs</li>
+                  <li>Évolutions simples</li>
+                  <li>Mises à jour techniques</li>
+                  <li>Optimisations régulières</li>
+                </IconList>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardIcon>📈</CardIcon>
+                  <CardTitle>Suivi produit</CardTitle>
+                </CardHeader>
+                <p>Analyse et amélioration continue basée sur les retours utilisateurs.</p>
+                <IconList>
+                  <li>Analyse des tickets</li>
+                  <li>Rapports mensuels</li>
+                  <li>Recommandations</li>
+                  <li>Plan d'amélioration</li>
+                </IconList>
+              </Card>
+            </Grid>
+          </Container>
+        </Section>
+
+        <Section>
+          <Container>
+            <Title as="h2">Formules proposées</Title>
+            <Subtitle>
+              ✅ Support réactif et professionnel<br />
+              ⚡ Intervention rapide garantie
     <Main>
       <Hero>
         <Container>

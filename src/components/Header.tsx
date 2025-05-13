@@ -119,8 +119,16 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <HeaderContent>
         <Logo to="/">
-          <img src={logoLong} alt="Craftminds" className="logo-long" />
-          <img src={logoShort} alt="Craftminds" className="logo-short" />
+          <img 
+            src={logoLong} 
+            alt="Craftminds - Services Tech Freelance Spécialisés" 
+            className="logo-long" 
+          />
+          <img 
+            src={logoShort} 
+            alt="Craftminds" 
+            className="logo-short" 
+          />
         </Logo>
         <Nav>
           <NavLink to="/">Accueil</NavLink>
