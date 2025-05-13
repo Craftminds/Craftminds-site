@@ -15,12 +15,20 @@ const initialFormData: ContactFormData = {
   name: '',
   email: '',
   message: '',
+  service: '',
+  urgency: '',
+  offer: '',
+  tools: '',
+  objective: '',
+  product: '',
+  needs: '',
+  volume: ''
 };
 
 export const useContactForm = (service?: string): UseContactFormReturn => {
   const [formData, setFormData] = useState<ContactFormData>({
     ...initialFormData,
-    service,
+    service: service || '',
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -54,7 +62,7 @@ export const useContactForm = (service?: string): UseContactFormReturn => {
   const resetForm = () => {
     setFormData({
       ...initialFormData,
-      service,
+      service: service || '',
     });
   };
 

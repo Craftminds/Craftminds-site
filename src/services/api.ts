@@ -14,6 +14,14 @@ export interface ContactFormData {
   name: string;
   email: string;
   message: string;
+  service?: string;
+  urgency?: string;
+  offer?: string;
+  tools?: string;
+  objective?: string;
+  product?: string;
+  needs?: string;
+  volume?: string;
 }
 
 export const submitContactForm = async (data: ContactFormData) => {
