@@ -95,7 +95,7 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <HeaderContent>
         <Logo to="/">
-          <img src="/logo_transparent_long.png" alt="Craftminds" />
+          <img src="assets/images/logo_transparent_long.png" alt="Craftminds" />
         </Logo>
         <Nav>
           <NavLink to="/">Accueil</NavLink>
