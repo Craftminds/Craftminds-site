@@ -41,6 +41,10 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
 `;
 
 const NavLink = styled(Link)`
@@ -88,6 +92,10 @@ const Button = styled(Link)`
 
   &:hover::before {
     transform: translate(-50%, -50%) scale(1);
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
