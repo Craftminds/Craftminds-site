@@ -46,14 +46,15 @@ export const handler: Handler = async (event) => {
     // Configuration de l'email
     const transporter = nodemailer.createTransport({
       host: 'mail.craftminds.fr',
-      port: 465,
-      secure: true,
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
       tls: {
-        rejectUnauthorized: false
+        rejectUnauthorized: false,
+        ciphers: 'SSLv3'
       },
       debug: true,
       logger: true
@@ -62,8 +63,8 @@ export const handler: Handler = async (event) => {
     // Vérifier la configuration
     console.log('Configuration email:', {
       host: 'mail.craftminds.fr',
-      port: 465,
-      secure: true,
+      port: 587,
+      secure: false,
       user: process.env.EMAIL_USER,
       hasPassword: !!process.env.EMAIL_PASS
     });
