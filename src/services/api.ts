@@ -14,21 +14,11 @@ export interface ContactFormData {
   name: string;
   email: string;
   message: string;
-  service?: string;
-  urgency?: string;
-  offer?: string;
-  tools?: string;
-  objective?: string;
-  product?: string;
-  needs?: string;
-  volume?: string;
 }
 
 export const submitContactForm = async (data: ContactFormData) => {
   try {
-    console.log('Envoi des données à:', `${API_URL}/contact`);
-    console.log('Données envoyées:', data);
-    
+    console.log('Envoi des données...');
     const response = await api.post('/contact', data);
     return response.data;
   } catch (error: any) {
