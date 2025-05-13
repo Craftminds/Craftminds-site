@@ -35,6 +35,7 @@ const FooterSection = styled.div`
     color: var(--color-text-light);
     margin-bottom: 1rem;
     line-height: 1.6;
+    font-size: 1.2rem;
   }
 `;
 
@@ -94,7 +95,7 @@ const Footer: React.FC = () => {
       <FooterContent>
         <FooterSection>
           <h4>Craftminds</h4>
-          <p>Services tech freelance spécialisés pour startups et indépendants. Débogage, automatisation et support technique.</p>
+          <p>Services tech freelance spécialisés pour startups et entreprises. Débogage, automatisation et support technique.</p>
           <SocialLinks>
             <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">Github</a>
             <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">Linkedin</a>
