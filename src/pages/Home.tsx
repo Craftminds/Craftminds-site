@@ -137,8 +137,31 @@ const Card = styled.div`
   ${baseCard}
 `;
 
-const StepCard = styled(Card)``;
-const WhyCard = styled(Card)``;
+const StepCard = styled(Card)`
+  background: linear-gradient(135deg, rgba(36,36,40,0.88) 60%, rgba(60,80,180,0.18) 100%);
+  border: 2.5px solid rgba(80,120,255,0.22);
+  box-shadow: 0 10px 40px 0 rgba(60,100,255,0.13), 0 2px 16px 0 rgba(0,0,0,0.18);
+  transition: transform 0.18s, box-shadow 0.18s, border 0.18s, background 0.18s;
+  &:hover {
+    transform: translateY(-14px) scale(1.045);
+    box-shadow: 0 22px 60px 0 rgba(80,120,255,0.22), 0 4px 24px 0 rgba(0,0,0,0.22);
+    border: 2.5px solid #5078ff;
+    background: linear-gradient(120deg, rgba(60,80,180,0.22) 0%, rgba(36,36,40,0.92) 100%);
+  }
+`;
+
+const WhyCard = styled(Card)`
+  background: linear-gradient(135deg, rgba(36,36,40,0.88) 60%, rgba(60,80,180,0.18) 100%);
+  border: 2.5px solid rgba(80,120,255,0.22);
+  box-shadow: 0 10px 40px 0 rgba(60,100,255,0.13), 0 2px 16px 0 rgba(0,0,0,0.18);
+  transition: transform 0.18s, box-shadow 0.18s, border 0.18s, background 0.18s;
+  &:hover {
+    transform: translateY(-14px) scale(1.045);
+    box-shadow: 0 22px 60px 0 rgba(80,120,255,0.22), 0 4px 24px 0 rgba(0,0,0,0.22);
+    border: 2.5px solid #5078ff;
+    background: linear-gradient(120deg, rgba(60,80,180,0.22) 0%, rgba(36,36,40,0.92) 100%);
+  }
+`;
 
 const StepNumber = styled.div`
   font-size: 2rem;
