@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import Footer from '../components/Footer';
 import PricingSection from '../components/PricingSection';
 import ContactForm from '../components/ContactForm';
+import { Helmet } from 'react-helmet-async';
 
 const Main = styled.main`
   min-height: 100vh;
@@ -250,6 +251,15 @@ const HeroImage = styled.img`
 
 const Home: React.FC = () => (
   <>
+    <Helmet>
+      <title>Craftminds – Dépannage, Automatisation & Outils sur-mesure</title>
+      <meta name="description" content="Support technique, automatisation et développement d'outils sur-mesure pour les pros. Dépannez, automatisez, concentrez-vous sur l'essentiel." />
+      <meta property="og:title" content="Craftminds – Dépannage, Automatisation & Outils sur-mesure" />
+      <meta property="og:description" content="Support technique, automatisation et développement d'outils sur-mesure pour les pros. Dépannez, automatisez, concentrez-vous sur l'essentiel." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://craftminds.fr/" />
+      <meta property="og:image" content="https://craftminds.fr/og-craftminds.png" />
+    </Helmet>
     <Main>
       <HeroImage src="/Logo_test.png" alt="Logo Craftminds" />
       <Title>

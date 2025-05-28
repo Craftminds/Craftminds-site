@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import styled, { css } from 'styled-components';
 import Footer from '../../components/Footer';
 import ContactForm from '../../components/ContactForm';
+import { Helmet } from 'react-helmet-async';
 
 const Page = styled.div`
   background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
@@ -211,78 +212,89 @@ const OutilsService: React.FC = () => {
   };
 
   return (
-    <Page>
-      <Section>
-        <SectionTitle>Ce que je propose</SectionTitle>
-        <CardGrid>
-          <Card>
-            <OfferTitle>Classique</OfferTitle>
-            <Price>45€ <span style={{fontSize:'1rem',fontWeight:400}}>/ h</span></Price>
-            <OfferDesc>Développement sur mesure, livrable clé en main, support inclus.</OfferDesc>
-            <CTAButton onClick={() => scrollToContact('Classique')}>Demander ce service</CTAButton>
-          </Card>
-          <Card>
-            <OfferTitle>Premium</OfferTitle>
-            <Price>70€ <span style={{fontSize:'1rem',fontWeight:400}}>/ h</span></Price>
-            <OfferDesc>Audit de besoin, proposition technique, suivi complet, accompagnement premium.</OfferDesc>
-            <CTAButton onClick={() => scrollToContact('Premium')}>Demander ce service</CTAButton>
-          </Card>
-        </CardGrid>
-      </Section>
-      <Section>
-        <SectionTitle>Cas d'usage</SectionTitle>
-        <CardGrid>
-          <Card>
-            <OfferTitle>Dashboard de suivi de tickets</OfferTitle>
-            <OfferDesc>Visualisation et suivi en temps réel de vos tickets et demandes.</OfferDesc>
-          </Card>
-          <Card>
-            <OfferTitle>Générateur d'export CSV</OfferTitle>
-            <OfferDesc>Export automatique de vos données pour un reporting simplifié.</OfferDesc>
-          </Card>
-          <Card>
-            <OfferTitle>Connecteurs API, outils back-office</OfferTitle>
-            <OfferDesc>Automatisation et intégration sur-mesure avec vos outils métiers.</OfferDesc>
-          </Card>
-        </CardGrid>
-      </Section>
-      <Section>
-        <SectionTitle>Pourquoi choisir ce service ?</SectionTitle>
-        <CardGrid>
-          <Card>
-            <OfferTitle>Réactivité & transparence</OfferTitle>
-            <WhyList>
-              <li>Réponse sous 24h</li>
-              <li>Communication directe</li>
-              <li>Suivi d'avancement</li>
-            </WhyList>
-          </Card>
-          <Card>
-            <OfferTitle>Résultats concrets</OfferTitle>
-            <WhyList>
-              <li>Diagnostic précis</li>
-              <li>Correction documentée</li>
-              <li>Améliorations mesurables</li>
-            </WhyList>
-          </Card>
-          <Card>
-            <OfferTitle>Vous gardez le contrôle</OfferTitle>
-            <WhyList>
-              <li>Processus transparent</li>
-              <li>Respect de vos contraintes</li>
-              <li>Transfert de connaissances</li>
-            </WhyList>
-          </Card>
-        </CardGrid>
-      </Section>
-      <Section>
-        <SectionTitle>Contact</SectionTitle>
-        <div ref={contactRef} style={{maxWidth:'520px',margin:'0 auto'}}>
-          <ContactForm service="Outils sur Mesure" />
-        </div>
-      </Section>
-      <Footer />
-    </Page>
+    <>
+      <Helmet>
+        <title>Outils sur Mesure – Craftminds</title>
+        <meta name="description" content="Développement d'outils personnalisés, connecteurs API et automatisations sur-mesure pour vos besoins métiers. Livraison rapide, accompagnement expert." />
+        <meta property="og:title" content="Outils sur Mesure – Craftminds" />
+        <meta property="og:description" content="Développement d'outils personnalisés, connecteurs API et automatisations sur-mesure pour vos besoins métiers. Livraison rapide, accompagnement expert." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://craftminds.fr/services/outils" />
+        <meta property="og:image" content="https://craftminds.fr/og-craftminds.png" />
+      </Helmet>
+      <Page>
+        <Section>
+          <SectionTitle>Ce que je propose</SectionTitle>
+          <CardGrid>
+            <Card>
+              <OfferTitle>Classique</OfferTitle>
+              <Price>45€ <span style={{fontSize:'1rem',fontWeight:400}}>/ h</span></Price>
+              <OfferDesc>Développement sur mesure, livrable clé en main, support inclus.</OfferDesc>
+              <CTAButton onClick={() => scrollToContact('Classique')}>Demander ce service</CTAButton>
+            </Card>
+            <Card>
+              <OfferTitle>Premium</OfferTitle>
+              <Price>70€ <span style={{fontSize:'1rem',fontWeight:400}}>/ h</span></Price>
+              <OfferDesc>Audit de besoin, proposition technique, suivi complet, accompagnement premium.</OfferDesc>
+              <CTAButton onClick={() => scrollToContact('Premium')}>Demander ce service</CTAButton>
+            </Card>
+          </CardGrid>
+        </Section>
+        <Section>
+          <SectionTitle>Cas d'usage</SectionTitle>
+          <CardGrid>
+            <Card>
+              <OfferTitle>Dashboard de suivi de tickets</OfferTitle>
+              <OfferDesc>Visualisation et suivi en temps réel de vos tickets et demandes.</OfferDesc>
+            </Card>
+            <Card>
+              <OfferTitle>Générateur d'export CSV</OfferTitle>
+              <OfferDesc>Export automatique de vos données pour un reporting simplifié.</OfferDesc>
+            </Card>
+            <Card>
+              <OfferTitle>Connecteurs API, outils back-office</OfferTitle>
+              <OfferDesc>Automatisation et intégration sur-mesure avec vos outils métiers.</OfferDesc>
+            </Card>
+          </CardGrid>
+        </Section>
+        <Section>
+          <SectionTitle>Pourquoi choisir ce service ?</SectionTitle>
+          <CardGrid>
+            <Card>
+              <OfferTitle>Réactivité & transparence</OfferTitle>
+              <WhyList>
+                <li>Réponse sous 24h</li>
+                <li>Communication directe</li>
+                <li>Suivi d'avancement</li>
+              </WhyList>
+            </Card>
+            <Card>
+              <OfferTitle>Résultats concrets</OfferTitle>
+              <WhyList>
+                <li>Diagnostic précis</li>
+                <li>Correction documentée</li>
+                <li>Améliorations mesurables</li>
+              </WhyList>
+            </Card>
+            <Card>
+              <OfferTitle>Vous gardez le contrôle</OfferTitle>
+              <WhyList>
+                <li>Processus transparent</li>
+                <li>Respect de vos contraintes</li>
+                <li>Transfert de connaissances</li>
+              </WhyList>
+            </Card>
+          </CardGrid>
+        </Section>
+        <Section>
+          <SectionTitle>Contact</SectionTitle>
+          <div ref={contactRef} style={{maxWidth:'520px',margin:'0 auto'}}>
+            <ContactForm service="Outils sur Mesure" />
+          </div>
+        </Section>
+        <Footer />
+      </Page>
+    </>
   );
 };
 

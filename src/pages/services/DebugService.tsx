@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import styled, { css } from 'styled-components';
 import Footer from '../../components/Footer';
 import ContactForm from '../../components/ContactForm';
+import { Helmet } from 'react-helmet-async';
 
 const Page = styled.div`
   background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
@@ -231,84 +232,95 @@ const DebugService: React.FC = () => {
   };
 
   return (
-    <Page>
-      <Section>
-        <SectionTitle>Ce que je propose</SectionTitle>
-        <CardGrid>
-          <PricingCard>
-            <OfferTitle>Bug simple</OfferTitle>
-            <Price>80€ <span style={{fontSize:'1rem',fontWeight:400}}>/ bug</span></Price>
-            <OfferDesc>Pour les petits blocages ou bugs isolés. Intervention rapide, correction efficace, sérénité garantie.</OfferDesc>
-            <CTAButton onClick={() => scrollToContact('Bug simple')}>Demander ce service</CTAButton>
-          </PricingCard>
-          <PricingCard>
-            <OfferTitle>Bug complexe</OfferTitle>
-            <Price>130€ <span style={{fontSize:'1rem',fontWeight:400}}>/ bug</span></Price>
-            <OfferDesc>Pour les problèmes techniques plus profonds ou multi-sources. Analyse poussée, résolution complète.</OfferDesc>
-            <CTAButton onClick={() => scrollToContact('Bug complexe')}>Demander ce service</CTAButton>
-          </PricingCard>
-          <PricingCard>
-            <OfferTitle>Blocage critique / urgent</OfferTitle>
-            <Price>180€ <span style={{fontSize:'1rem',fontWeight:400}}>/ bug</span></Price>
-            <OfferDesc>Pour les situations bloquantes ou urgentes. Priorité immédiate, retour à la normale au plus vite.</OfferDesc>
-            <CTAButton onClick={() => scrollToContact('Blocage critique / urgent')}>Demander ce service</CTAButton>
-          </PricingCard>
-        </CardGrid>
-      </Section>
-      <Section>
-        <SectionTitle>Cas d'usage</SectionTitle>
-        <CardGrid>
-          <NeonCard>
-            <OfferTitle>Crash Stripe lors du paiement</OfferTitle>
-            <OfferDesc>Résolution des erreurs de paiement, gestion des cas multi-navigateurs.</OfferDesc>
-          </NeonCard>
-          <NeonCard>
-            <OfferTitle>Formulaire inactif</OfferTitle>
-            <OfferDesc>Déblocage de formulaires d'inscription ou de commande qui ne répondent plus.</OfferDesc>
-          </NeonCard>
-          <NeonCard>
-            <OfferTitle>Bug d'affichage ou blocage</OfferTitle>
-            <OfferDesc>Correction de bugs visuels ou de blocages sur vos outils métiers.</OfferDesc>
-          </NeonCard>
-        </CardGrid>
-      </Section>
-      <Section>
-        <SectionTitle>Pourquoi choisir ce service ?</SectionTitle>
-        <CardGrid>
-          <NeonCard>
-            <OfferTitle>Réactivité & transparence</OfferTitle>
-            <WhyList>
-              <li>Réponse sous 24h</li>
-              <li>Communication directe</li>
-              <li>Suivi d'avancement</li>
-            </WhyList>
-          </NeonCard>
-          <NeonCard>
-            <OfferTitle>Résultats concrets</OfferTitle>
-            <WhyList>
-              <li>Diagnostic précis</li>
-              <li>Correction documentée</li>
-              <li>Améliorations mesurables</li>
-            </WhyList>
-          </NeonCard>
-          <NeonCard>
-            <OfferTitle>Vous gardez le contrôle</OfferTitle>
-            <WhyList>
-              <li>Processus transparent</li>
-              <li>Respect de vos contraintes</li>
-              <li>Transfert de connaissances</li>
-            </WhyList>
-          </NeonCard>
-        </CardGrid>
-      </Section>
-      <Section>
-        <SectionTitle>Contact</SectionTitle>
-        <div ref={contactRef} style={{maxWidth:'520px',margin:'0 auto'}}>
-          <ContactForm service="Débogage & Assistance" />
-        </div>
-      </Section>
-      <Footer />
-    </Page>
+    <>
+      <Helmet>
+        <title>Débogage & Assistance – Craftminds</title>
+        <meta name="description" content="Résolution rapide de bugs, blocages et incidents techniques sur vos outils métiers. Intervention prioritaire, correction efficace, sérénité garantie." />
+        <meta property="og:title" content="Débogage & Assistance – Craftminds" />
+        <meta property="og:description" content="Résolution rapide de bugs, blocages et incidents techniques sur vos outils métiers. Intervention prioritaire, correction efficace, sérénité garantie." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://craftminds.fr/services/debug" />
+        <meta property="og:image" content="https://craftminds.fr/og-craftminds.png" />
+      </Helmet>
+      <Page>
+        <Section>
+          <SectionTitle>Ce que je propose</SectionTitle>
+          <CardGrid>
+            <PricingCard>
+              <OfferTitle>Bug simple</OfferTitle>
+              <Price>100€ <span style={{fontSize:'1rem',fontWeight:400}}>/ bug</span></Price>
+              <OfferDesc>Pour les petits blocages ou bugs isolés. Intervention rapide, correction efficace, sérénité garantie.</OfferDesc>
+              <CTAButton onClick={() => scrollToContact('Bug simple')}>Demander ce service</CTAButton>
+            </PricingCard>
+            <PricingCard>
+              <OfferTitle>Bug complexe</OfferTitle>
+              <Price>150€ <span style={{fontSize:'1rem',fontWeight:400}}>/ bug</span></Price>
+              <OfferDesc>Pour les problèmes techniques plus profonds ou multi-sources. Analyse poussée, résolution complète.</OfferDesc>
+              <CTAButton onClick={() => scrollToContact('Bug complexe')}>Demander ce service</CTAButton>
+            </PricingCard>
+            <PricingCard>
+              <OfferTitle>Blocage critique / urgent</OfferTitle>
+              <Price>200€ <span style={{fontSize:'1rem',fontWeight:400}}>/ bug</span></Price>
+              <OfferDesc>Pour les situations bloquantes ou urgentes. Priorité immédiate, retour à la normale au plus vite.</OfferDesc>
+              <CTAButton onClick={() => scrollToContact('Blocage critique / urgent')}>Demander ce service</CTAButton>
+            </PricingCard>
+          </CardGrid>
+        </Section>
+        <Section>
+          <SectionTitle>Cas d'usage</SectionTitle>
+          <CardGrid>
+            <NeonCard>
+              <OfferTitle>Crash Stripe lors du paiement</OfferTitle>
+              <OfferDesc>Résolution des erreurs de paiement, gestion des cas multi-navigateurs.</OfferDesc>
+            </NeonCard>
+            <NeonCard>
+              <OfferTitle>Formulaire inactif</OfferTitle>
+              <OfferDesc>Déblocage de formulaires d'inscription ou de commande qui ne répondent plus.</OfferDesc>
+            </NeonCard>
+            <NeonCard>
+              <OfferTitle>Bug d'affichage ou blocage</OfferTitle>
+              <OfferDesc>Correction de bugs visuels ou de blocages sur vos outils métiers.</OfferDesc>
+            </NeonCard>
+          </CardGrid>
+        </Section>
+        <Section>
+          <SectionTitle>Pourquoi choisir ce service ?</SectionTitle>
+          <CardGrid>
+            <NeonCard>
+              <OfferTitle>Réactivité & transparence</OfferTitle>
+              <WhyList>
+                <li>Réponse sous 24h</li>
+                <li>Communication directe</li>
+                <li>Suivi d'avancement</li>
+              </WhyList>
+            </NeonCard>
+            <NeonCard>
+              <OfferTitle>Résultats concrets</OfferTitle>
+              <WhyList>
+                <li>Diagnostic précis</li>
+                <li>Correction documentée</li>
+                <li>Améliorations mesurables</li>
+              </WhyList>
+            </NeonCard>
+            <NeonCard>
+              <OfferTitle>Vous gardez le contrôle</OfferTitle>
+              <WhyList>
+                <li>Processus transparent</li>
+                <li>Respect de vos contraintes</li>
+                <li>Transfert de connaissances</li>
+              </WhyList>
+            </NeonCard>
+          </CardGrid>
+        </Section>
+        <Section>
+          <SectionTitle>Contact</SectionTitle>
+          <div ref={contactRef} style={{maxWidth:'520px',margin:'0 auto'}}>
+            <ContactForm service="Débogage & Assistance" />
+          </div>
+        </Section>
+        <Footer />
+      </Page>
+    </>
   );
 };
 

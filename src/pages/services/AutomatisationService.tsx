@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import styled, { css } from 'styled-components';
 import Footer from '../../components/Footer';
 import ContactForm from '../../components/ContactForm';
+import { Helmet } from 'react-helmet-async';
 
 const Page = styled.div`
   background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
@@ -211,84 +212,95 @@ const AutomatisationService: React.FC = () => {
   };
 
   return (
-    <Page>
-      <Section>
-        <SectionTitle>Ce que je propose</SectionTitle>
-        <CardGrid>
-          <Card>
-            <OfferTitle>Règle simple ou macro</OfferTitle>
-            <Price>90€ <span style={{fontSize:'1rem',fontWeight:400}}>/ automatisation</span></Price>
-            <OfferDesc>Pour automatiser une tâche simple ou une réponse fréquente. Gain de temps immédiat.</OfferDesc>
-            <CTAButton onClick={() => scrollToContact('Règle simple ou macro')}>Demander ce service</CTAButton>
-          </Card>
-          <Card>
-            <OfferTitle>Scénario multi-étapes / API</OfferTitle>
-            <Price>160€ <span style={{fontSize:'1rem',fontWeight:400}}>/ automatisation</span></Price>
-            <OfferDesc>Pour des automatisations avancées ou intégrations API. Scénarios personnalisés.</OfferDesc>
-            <CTAButton onClick={() => scrollToContact('Scénario multi-étapes / API')}>Demander ce service</CTAButton>
-          </Card>
-          <Card>
-            <OfferTitle>Audit + optimisation (5h)</OfferTitle>
-            <Price>À partir de 260€</Price>
-            <OfferDesc>Analyse de vos process, recommandations et optimisation sur-mesure (5h incluses).</OfferDesc>
-            <CTAButton onClick={() => scrollToContact('Audit + optimisation (5h)')}>Demander ce service</CTAButton>
-          </Card>
-        </CardGrid>
-      </Section>
-      <Section>
-        <SectionTitle>Cas d'usage</SectionTitle>
-        <CardGrid>
-          <Card>
-            <OfferTitle>Réponses automatiques FAQ</OfferTitle>
-            <OfferDesc>Automatisation des réponses aux questions fréquentes pour libérer du temps.</OfferDesc>
-          </Card>
-          <Card>
-            <OfferTitle>Tri des tickets par client/canal</OfferTitle>
-            <OfferDesc>Classement automatique des tickets pour une gestion plus efficace.</OfferDesc>
-          </Card>
-          <Card>
-            <OfferTitle>Alertes internes sur tickets sensibles</OfferTitle>
-            <OfferDesc>Détection et notification automatique des cas urgents ou sensibles.</OfferDesc>
-          </Card>
-        </CardGrid>
-      </Section>
-      <Section>
-        <SectionTitle>Pourquoi choisir ce service ?</SectionTitle>
-        <CardGrid>
-          <Card>
-            <OfferTitle>Réactivité & transparence</OfferTitle>
-            <WhyList>
-              <li>Réponse sous 24h</li>
-              <li>Communication directe</li>
-              <li>Suivi d'avancement</li>
-            </WhyList>
-          </Card>
-          <Card>
-            <OfferTitle>Résultats concrets</OfferTitle>
-            <WhyList>
-              <li>Diagnostic précis</li>
-              <li>Correction documentée</li>
-              <li>Améliorations mesurables</li>
-            </WhyList>
-          </Card>
-          <Card>
-            <OfferTitle>Vous gardez le contrôle</OfferTitle>
-            <WhyList>
-              <li>Processus transparent</li>
-              <li>Respect de vos contraintes</li>
-              <li>Transfert de connaissances</li>
-            </WhyList>
-          </Card>
-        </CardGrid>
-      </Section>
-      <Section>
-        <SectionTitle>Contact</SectionTitle>
-        <div ref={contactRef} style={{maxWidth:'520px',margin:'0 auto'}}>
-          <ContactForm service="Automatisation du Support" />
-        </div>
-      </Section>
-      <Footer />
-    </Page>
+    <>
+      <Helmet>
+        <title>Automatisation du Support – Craftminds</title>
+        <meta name="description" content="Automatisez vos réponses, triez vos tickets et gagnez du temps sur la gestion du support. Mise en place rapide, gain de productivité garanti." />
+        <meta property="og:title" content="Automatisation du Support – Craftminds" />
+        <meta property="og:description" content="Automatisez vos réponses, triez vos tickets et gagnez du temps sur la gestion du support. Mise en place rapide, gain de productivité garanti." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://craftminds.fr/services/automatisation" />
+        <meta property="og:image" content="https://craftminds.fr/og-craftminds.png" />
+      </Helmet>
+      <Page>
+        <Section>
+          <SectionTitle>Ce que je propose</SectionTitle>
+          <CardGrid>
+            <Card>
+              <OfferTitle>Règle simple ou macro</OfferTitle>
+              <Price>150€ <span style={{fontSize:'1rem',fontWeight:400}}>/ automatisation</span></Price>
+              <OfferDesc>Pour automatiser une tâche simple ou une réponse fréquente. Gain de temps immédiat.</OfferDesc>
+              <CTAButton onClick={() => scrollToContact('Règle simple ou macro')}>Demander ce service</CTAButton>
+            </Card>
+            <Card>
+              <OfferTitle>Scénario multi-étapes / API</OfferTitle>
+              <Price>230€ <span style={{fontSize:'1rem',fontWeight:400}}>/ automatisation</span></Price>
+              <OfferDesc>Pour des automatisations avancées ou intégrations API. Scénarios personnalisés.</OfferDesc>
+              <CTAButton onClick={() => scrollToContact('Scénario multi-étapes / API')}>Demander ce service</CTAButton>
+            </Card>
+            <Card>
+              <OfferTitle>Audit + optimisation (5h)</OfferTitle>
+              <Price>À partir de 390€</Price>
+              <OfferDesc>Analyse de vos process, recommandations et optimisation sur-mesure (5h incluses).</OfferDesc>
+              <CTAButton onClick={() => scrollToContact('Audit + optimisation (5h)')}>Demander ce service</CTAButton>
+            </Card>
+          </CardGrid>
+        </Section>
+        <Section>
+          <SectionTitle>Cas d'usage</SectionTitle>
+          <CardGrid>
+            <Card>
+              <OfferTitle>Réponses automatiques FAQ</OfferTitle>
+              <OfferDesc>Automatisation des réponses aux questions fréquentes pour libérer du temps.</OfferDesc>
+            </Card>
+            <Card>
+              <OfferTitle>Tri des tickets par client/canal</OfferTitle>
+              <OfferDesc>Classement automatique des tickets pour une gestion plus efficace.</OfferDesc>
+            </Card>
+            <Card>
+              <OfferTitle>Alertes internes sur tickets sensibles</OfferTitle>
+              <OfferDesc>Détection et notification automatique des cas urgents ou sensibles.</OfferDesc>
+            </Card>
+          </CardGrid>
+        </Section>
+        <Section>
+          <SectionTitle>Pourquoi choisir ce service ?</SectionTitle>
+          <CardGrid>
+            <Card>
+              <OfferTitle>Réactivité & transparence</OfferTitle>
+              <WhyList>
+                <li>Réponse sous 24h</li>
+                <li>Communication directe</li>
+                <li>Suivi d'avancement</li>
+              </WhyList>
+            </Card>
+            <Card>
+              <OfferTitle>Résultats concrets</OfferTitle>
+              <WhyList>
+                <li>Diagnostic précis</li>
+                <li>Correction documentée</li>
+                <li>Améliorations mesurables</li>
+              </WhyList>
+            </Card>
+            <Card>
+              <OfferTitle>Vous gardez le contrôle</OfferTitle>
+              <WhyList>
+                <li>Processus transparent</li>
+                <li>Respect de vos contraintes</li>
+                <li>Transfert de connaissances</li>
+              </WhyList>
+            </Card>
+          </CardGrid>
+        </Section>
+        <Section>
+          <SectionTitle>Contact</SectionTitle>
+          <div ref={contactRef} style={{maxWidth:'520px',margin:'0 auto'}}>
+            <ContactForm service="Automatisation du Support" />
+          </div>
+        </Section>
+        <Footer />
+      </Page>
+    </>
   );
 };
 
