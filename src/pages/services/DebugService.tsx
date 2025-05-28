@@ -5,8 +5,8 @@ import ContactForm from '../../components/ContactForm';
 
 const Page = styled.div`
   background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
-  min-height: 100vh;
-  padding-top: 4rem;
+  min-height: 100dvh;
+  min-width: 100dvw;
 `;
 const Section = styled.section`
   width: 100%;
@@ -59,16 +59,6 @@ const baseCard = css`
 `;
 const Card = styled.div`
   ${baseCard}
-  background: linear-gradient(135deg, rgba(36,36,40,0.88) 60%, rgba(60,80,180,0.18) 100%);
-  border: 2.5px solid rgba(80,120,255,0.22);
-  box-shadow: 0 10px 40px 0 rgba(60,100,255,0.13), 0 2px 16px 0 rgba(0,0,0,0.18);
-  transition: transform 0.18s, box-shadow 0.18s, border 0.18s, background 0.18s;
-  &:hover {
-    transform: translateY(-14px) scale(1.045);
-    box-shadow: 0 22px 60px 0 rgba(80,120,255,0.22), 0 4px 24px 0 rgba(0,0,0,0.22);
-    border: 2.5px solid #5078ff;
-    background: linear-gradient(120deg, rgba(60,80,180,0.22) 0%, rgba(36,36,40,0.92) 100%);
-  }
 `;
 const Hero = styled.section`
   display: flex;
@@ -196,21 +186,47 @@ const WhyList = styled.ul`
 const ContactCard = styled(Card)`
   max-width: 520px;
 `;
+const PricingCard = styled.div`
+  ${baseCard}
+  background: linear-gradient(135deg, rgba(36,36,40,0.88) 60%, rgba(60,80,180,0.18) 100%);
+  border: 2.5px solid rgba(80,120,255,0.22);
+  box-shadow: 0 10px 40px 0 rgba(60,100,255,0.13), 0 2px 16px 0 rgba(0,0,0,0.18);
+  transition: transform 0.18s, box-shadow 0.18s, border 0.18s, background 0.18s;
+  &:hover {
+    transform: translateY(-14px) scale(1.045);
+    box-shadow: 0 22px 60px 0 rgba(80,120,255,0.22), 0 4px 24px 0 rgba(0,0,0,0.22);
+    border: 2.5px solid #5078ff;
+    background: linear-gradient(120deg, rgba(60,80,180,0.22) 0%, rgba(36,36,40,0.92) 100%);
+  }
+`;
+const NeonCard = styled.div`
+  ${baseCard}
+  background: linear-gradient(135deg, rgba(36,36,40,0.88) 60%, rgba(60,80,180,0.18) 100%);
+  border: 2.5px solid rgba(80,120,255,0.22);
+  box-shadow: 0 10px 40px 0 rgba(60,100,255,0.13), 0 2px 16px 0 rgba(0,0,0,0.18);
+  transition: transform 0.18s, box-shadow 0.18s, border 0.18s, background 0.18s;
+  &:hover {
+    transform: translateY(-14px) scale(1.045);
+    box-shadow: 0 22px 60px 0 rgba(80,120,255,0.22), 0 4px 24px 0 rgba(0,0,0,0.22);
+    border: 2.5px solid #5078ff;
+    background: linear-gradient(120deg, rgba(60,80,180,0.22) 0%, rgba(36,36,40,0.92) 100%);
+  }
+`;
 
 const DebugService: React.FC = () => {
   const contactRef = useRef<HTMLDivElement>(null);
   const scrollToContact = (offer: string) => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => {
-      if (contactRef.current) {
-        const textarea = contactRef.current.querySelector('textarea');
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        const textarea = contactRef.current?.querySelector('textarea');
         if (textarea) {
           textarea.focus();
           textarea.value = `Je souhaite bénéficier de l'offre : ${offer}\n`;
           textarea.dispatchEvent(new Event('input', { bubbles: true }));
         }
-      }
-    }, 600);
+      }, 600);
+    }
   };
 
   return (
@@ -218,64 +234,70 @@ const DebugService: React.FC = () => {
       <Section>
         <SectionTitle>Ce que je propose</SectionTitle>
         <CardGrid>
-          <Card>
-            <OfferTitle>Diagnostic rapide</OfferTitle>
-            <Price>45€ <span style={{fontSize:'1rem',fontWeight:400}}>/ h</span></Price>
-            <OfferDesc>Analyse et résolution de problèmes techniques urgents. Réponse sous 24h.</OfferDesc>
-            <CTAButton onClick={() => scrollToContact('Diagnostic rapide')}>Demander ce service</CTAButton>
-          </Card>
-          <Card>
-            <OfferTitle>Accompagnement complet</OfferTitle>
-            <Price>70€ <span style={{fontSize:'1rem',fontWeight:400}}>/ h</span></Price>
-            <OfferDesc>Support technique approfondi, formation et documentation incluse.</OfferDesc>
-            <CTAButton onClick={() => scrollToContact('Accompagnement complet')}>Demander ce service</CTAButton>
-          </Card>
+          <PricingCard>
+            <OfferTitle>Bug simple</OfferTitle>
+            <Price>80€ <span style={{fontSize:'1rem',fontWeight:400}}>/ bug</span></Price>
+            <OfferDesc>Pour les petits blocages ou bugs isolés. Intervention rapide, correction efficace, sérénité garantie.</OfferDesc>
+            <CTAButton onClick={() => scrollToContact('Bug simple')}>Demander ce service</CTAButton>
+          </PricingCard>
+          <PricingCard>
+            <OfferTitle>Bug complexe</OfferTitle>
+            <Price>130€ <span style={{fontSize:'1rem',fontWeight:400}}>/ bug</span></Price>
+            <OfferDesc>Pour les problèmes techniques plus profonds ou multi-sources. Analyse poussée, résolution complète.</OfferDesc>
+            <CTAButton onClick={() => scrollToContact('Bug complexe')}>Demander ce service</CTAButton>
+          </PricingCard>
+          <PricingCard>
+            <OfferTitle>Blocage critique / urgent</OfferTitle>
+            <Price>180€ <span style={{fontSize:'1rem',fontWeight:400}}>/ bug</span></Price>
+            <OfferDesc>Pour les situations bloquantes ou urgentes. Priorité immédiate, retour à la normale au plus vite.</OfferDesc>
+            <CTAButton onClick={() => scrollToContact('Blocage critique / urgent')}>Demander ce service</CTAButton>
+          </PricingCard>
         </CardGrid>
       </Section>
       <Section>
         <SectionTitle>Cas d'usage</SectionTitle>
         <CardGrid>
-          <Card>
-            <OfferTitle>Résolution de bugs critiques</OfferTitle>
-            <OfferDesc>Analyse et correction rapide des problèmes bloquants en production.</OfferDesc>
-          </Card>
-          <Card>
-            <OfferTitle>Optimisation de performance</OfferTitle>
-            <OfferDesc>Amélioration des temps de réponse et de la stabilité de vos outils.</OfferDesc>
-          </Card>
-          <Card>
-            <OfferTitle>Migration et mise à jour</OfferTitle>
-            <OfferDesc>Accompagnement sécurisé pour vos évolutions techniques.</OfferDesc>
-          </Card>
+          <NeonCard>
+            <OfferTitle>Crash Stripe lors du paiement</OfferTitle>
+            <OfferDesc>Résolution des erreurs de paiement, gestion des cas multi-navigateurs.</OfferDesc>
+          </NeonCard>
+          <NeonCard>
+            <OfferTitle>Formulaire inactif</OfferTitle>
+            <OfferDesc>Déblocage de formulaires d'inscription ou de commande qui ne répondent plus.</OfferDesc>
+          </NeonCard>
+          <NeonCard>
+            <OfferTitle>Bug d'affichage ou blocage</OfferTitle>
+            <OfferDesc>Correction de bugs visuels ou de blocages sur vos outils métiers.</OfferDesc>
+          </NeonCard>
         </CardGrid>
       </Section>
       <Section>
         <SectionTitle>Pourquoi choisir ce service ?</SectionTitle>
         <CardGrid>
-          <Card>
+          <NeonCard>
             <OfferTitle>Réactivité & transparence</OfferTitle>
             <WhyList>
               <li>Réponse sous 24h</li>
               <li>Communication directe</li>
               <li>Suivi d'avancement</li>
             </WhyList>
-          </Card>
-          <Card>
+          </NeonCard>
+          <NeonCard>
             <OfferTitle>Résultats concrets</OfferTitle>
             <WhyList>
               <li>Diagnostic précis</li>
               <li>Correction documentée</li>
               <li>Améliorations mesurables</li>
             </WhyList>
-          </Card>
-          <Card>
+          </NeonCard>
+          <NeonCard>
             <OfferTitle>Vous gardez le contrôle</OfferTitle>
             <WhyList>
               <li>Processus transparent</li>
               <li>Respect de vos contraintes</li>
               <li>Transfert de connaissances</li>
             </WhyList>
-          </Card>
+          </NeonCard>
         </CardGrid>
       </Section>
       <Section>
