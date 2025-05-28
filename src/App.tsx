@@ -1,45 +1,29 @@
-import React, { Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import styled from 'styled-components';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Loading from './components/Loading';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Home from './pages/Home';
+import DebugService from './pages/services/DebugService';
+import AutomatisationService from './pages/services/AutomatisationService';
+import OutilsService from './pages/services/OutilsService';
+import './styles/global.css';
 
-// Lazy loading des pages
-const Home = React.lazy(() => import('./pages/Home'));
-const Contact = React.lazy(() => import('./pages/Contact'));
-const Debug = React.lazy(() => import('./pages/Debug'));
-const Automatisations = React.lazy(() => import('./pages/Automatisations'));
-const Support = React.lazy(() => import('./pages/Support'));
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [pathname]);
+  return null;
+}
 
-const AppContainer = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Main = styled.main`
-  flex: 1;
-`;
-
-const App: React.FC = () => {
-  return (
-    <AppContainer>
-      <Header />
-      <Main>
-        <Suspense fallback={<Loading />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/debug" element={<Debug />} />
-            <Route path="/automatisations" element={<Automatisations />} />
-            <Route path="/support" element={<Support />} />
-          </Routes>
-        </Suspense>
-      </Main>
-      <Footer />
-    </AppContainer>
-  );
-};
+const App: React.FC = () => (
+  <Router>
+    <ScrollToTop />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/services/debug" element={<DebugService />} />
+      <Route path="/services/automatisation" element={<AutomatisationService />} />
+      <Route path="/services/outils" element={<OutilsService />} />
+    </Routes>
+  </Router>
+);
 
 export default App; 
