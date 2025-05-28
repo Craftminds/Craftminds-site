@@ -7,6 +7,7 @@ const Page = styled.div`
   background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
   min-height: 100dvh;
   min-width: 100dvw;
+  padding-top: 3rem;
 `;
 const Section = styled.section`
   width: 100%;
