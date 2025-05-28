@@ -10,7 +10,7 @@ const Page = styled.div`
 `;
 const Section = styled.section`
   width: 100%;
-  max-width: 1100px;
+  max-width: 1335px;
   margin: 0 auto 5rem auto;
   padding: 0 1rem;
 `;
