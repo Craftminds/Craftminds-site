@@ -1,508 +1,305 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { useContactForm } from '../hooks/useContactForm';
-import Notification from '../components/Notification';
-import SEO from '../components/SEO';
-import { seoConfig } from '../config/seo';
+import styled, { css } from 'styled-components';
+import Footer from '../components/Footer';
+import PricingSection from '../components/PricingSection';
+import ContactForm from '../components/ContactForm';
 
-const Main = styled.main``;
-
-const Hero = styled.section`
-  padding-top: 140px;
-  padding-bottom: 80px;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: var(--color-pastel-1);
-    opacity: 0.15;
-    border-radius: 20%;
-    transform: rotate(15deg);
-    top: -200px;
-    right: -200px;
-    z-index: -1;
-    animation: float 8s ease-in-out infinite;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: var(--color-pastel-2);
-    opacity: 0.2;
-    border-radius: 15%;
-    transform: rotate(-10deg);
-    bottom: -150px;
-    left: -150px;
-    z-index: -1;
-    animation: float 6s ease-in-out infinite reverse;
-  }
-`;
-
-const Container = styled.div`
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+const Main = styled.main`
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
+`;
+
+const Label = styled.div`
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.08em;
+  text-align: center;
 `;
 
 const Title = styled.h1`
-  font-size: 3.5rem;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  color: var(--color-text);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  color: #fff;
   text-align: center;
-  width: 100%;
-  animation: slideIn 1s ease-out;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.03em;
 `;
 
 const Subtitle = styled.p`
+  color: #cbd5e1;
   font-size: 1.25rem;
-  max-width: 800px;
-  margin: 0 auto;
-  color: var(--color-text-light);
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
   text-align: center;
-  margin-bottom: 2rem;
-  animation: slideIn 1s ease-out 0.2s backwards;
+  font-weight: 400;
 `;
 
-const Button = styled(Link)`
-  background: var(--color-primary);
-  color: var(--color-white);
-  border: none;
-  padding: 20px 40px;
-  border-radius: 30px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+const Buttons = styled.div`
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-bottom: 3.5rem;
+`;
+
+const PrimaryBtn = styled.a`
+  background: #fff;
+  color: #111;
+  border-radius: 9999px;
+  padding: 0.9rem 2.2rem;
+  font-weight: 700;
+  font-size: 1.1rem;
   text-decoration: none;
-  font-size: 1.2rem;
-  position: relative;
-  overflow: hidden;
-  animation: slideIn 1s ease-out 0.4s backwards;
-
+  border: none;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    background: var(--color-accent);
+    background: #e5e5e5;
+    color: #111;
   }
+`;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%;
-    height: 150%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
-    transition: transform 0.6s ease;
-  }
-
-  &:hover::before {
-    transform: translate(-50%, -50%) scale(1);
+const OutlineBtn = styled.a`
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  padding: 0.9rem 2.2rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  &:hover {
+    background: #fff;
+    color: #111;
   }
 `;
 
 const Section = styled.section`
-  padding: 6rem 0;
+  width: 100%;
+  margin: 0 auto 6rem auto;
+  padding: 0 1rem;
 `;
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 4rem;
+const SectionTitle = styled.h2`
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2.2rem;
+  letter-spacing: -0.01em;
+`;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+const CardGrid = styled.div`
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+
+const baseCard = css`
+  background: rgba(36, 36, 40, 0.78);
+  border-radius: 2.4rem;
+  box-shadow: 0 10px 40px 0 rgba(0,0,0,0.19);
+  padding: 2.7rem 2.2rem 2.2rem 2.2rem;
+  width: 100%;
+  max-width: 500px;
+  min-width: 260px;
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
+  &:hover {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 0 18px 60px 0 rgba(0,0,0,0.28);
+    border: 2px solid rgba(255,255,255,0.22);
+  }
+  @media (max-width: 900px) {
+    min-width: unset;
+    max-width: unset;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
 const Card = styled.div`
-  background: var(--color-card);
-  border-radius: var(--border-radius);
-  padding: 2.5rem;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-sm);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--color-primary);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-
-    &::before {
-      opacity: 1;
-    }
-  }
+  ${baseCard}
 `;
 
-const CardHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-`;
-
-const CardIcon = styled.div`
-  font-size: 2.5rem;
-`;
-
-const CardTitle = styled.h3`
-  font-size: 1.5rem;
-  color: var(--color-text);
-  margin: 0;
-`;
-
-const CardContent = styled.p`
-  color: var(--color-text-light);
-  margin-bottom: 2rem;
-  flex-grow: 1;
-`;
-
-const CardLink = styled(Link)`
-  color: var(--color-primary);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  display: inline-block;
-  margin-top: 2rem;
-
-  &:hover {
-    color: var(--color-accent);
-  }
-`;
-
-const ProcessStep = styled.div`
-  text-align: center;
-  padding: 2rem;
-  background: var(--color-white);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-  }
-`;
+const StepCard = styled(Card)``;
+const WhyCard = styled(Card)``;
 
 const StepNumber = styled.div`
-  width: 50px;
-  height: 50px;
-  background: var(--color-primary);
-  color: var(--color-white);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
   border-radius: 50%;
+  width: 3.2rem;
+  height: 3.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+const StepTitle = styled.h3`
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 900;
+  margin-bottom: 0.7rem;
+  text-align: center;
+  letter-spacing: -0.01em;
+`;
+const StepDesc = styled.p`
+  color: #e5e7eb;
+  font-size: 1.18rem;
+  text-align: center;
+  margin-bottom: 0.2rem;
+  max-width: 90%;
+`;
+
+const WhyIcon = styled.div`
+  font-size: 2.8rem;
+  margin-bottom: 1.3rem;
+`;
+const WhyCardTitle = styled.h3`
+  color: #fff;
   font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 auto 1.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: -0.01em;
 `;
-
-const Form = styled.form`
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
+const WhyList = styled.ul`
+  color: #e5e7eb;
+  font-size: 1.12rem;
+  margin: 0;
+  padding-left: 1.3em;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
 `;
-
-const FormGroup = styled.div`
-  margin-bottom: 1.5rem;
-
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--color-text);
-    font-weight: 500;
-  }
-
-  input, textarea, select {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    font-family: inherit;
-
-    &:focus {
-      outline: none;
-      border-color: var(--color-primary);
-    }
-  }
-
-  textarea {
-    min-height: 150px;
-  }
+const CTASection = styled(Section)`
+  max-width: 700px;
+  text-align: center;
+  margin: 0 auto 6rem auto;
 `;
-
-const SubmitButton = styled.button`
-  background: var(--color-primary);
-  color: var(--color-white);
-  border: none;
-  padding: 20px 40px;
-  border-radius: 30px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+const CTATitle = styled.h2`
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+`;
+const CTAButton = styled.a`
+  background: #fff;
+  color: #111;
+  border-radius: 9999px;
+  padding: 1rem 2.2rem;
+  font-weight: 700;
+  font-size: 1.15rem;
   text-decoration: none;
-  font-size: 1.2rem;
-  position: relative;
-  overflow: hidden;
-  animation: slideIn 1s ease-out 0.4s backwards;
-
+  border: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    background: var(--color-accent);
-  }
-
-  &:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
+    background: #e5e5e5;
+    color: #111;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
   }
 `;
 
-const Home: React.FC = () => {
-  const {
-    formData,
-    loading,
-    error,
-    success,
-    handleChange,
-    handleSubmit,
-  } = useContactForm('general');
+const HeroImage = styled.img`
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13);
+`;
 
-  return (
-    <>
-      <SEO {...seoConfig.home} />
-      <Main>
-        <Hero>
-          <Container>
-            <Title>Du bug au build, Craftminds vous accompagne à chaque étape.</Title>
-            <Subtitle>
-              Développeur freelance, j'interviens rapidement pour résoudre vos blocages techniques,
-              améliorer vos produits, ou accélérer vos projets.
-            </Subtitle>
-            <Button to="/#contact">Discutons de votre besoin →</Button>
-          </Container>
-        </Hero>
-
-        <Section id="about">
-          <Container>
-            <Title as="h2">Qui je suis</Title>
-            <Subtitle>
-              Je suis Enzo, développeur freelance spécialisé en debugging, no-code et développement sur-mesure.<br />
-              J'aide les fondateurs, freelances et PM à livrer plus vite en réglant les problèmes qui bloquent.
-            </Subtitle>
-          </Container>
-        </Section>
-
-        <Section id="services">
-          <Container>
-            <Title>Nos Services</Title>
-            <Subtitle>Des solutions techniques adaptées à vos besoins</Subtitle>
-            <Grid>
-              <Card>
-                <CardHeader>
-                  <CardIcon>🔧</CardIcon>
-                  <CardTitle>Debug express</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  Résolution rapide de bugs et blocages techniques. Intervention sous 24-48h pour débloquer votre situation.
-                </CardContent>
-                <CardLink to="/debug">Choisir l'offre →</CardLink>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardIcon>⚙️</CardIcon>
-                  <CardTitle>Intégrations & automatisations</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  Airtable, Zapier, APIs et automatisation de processus. Optimisez vos workflows et gagnez du temps.
-                </CardContent>
-                <CardLink to="/automatisations">Choisir l'offre →</CardLink>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardIcon>🧠</CardIcon>
-                  <CardTitle>Support technique produit</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  Investigations, corrections et mini-features. Gardez votre produit en parfait état de fonctionnement.
-                </CardContent>
-                <CardLink to="/support">Choisir l'offre →</CardLink>
-              </Card>
-            </Grid>
-          </Container>
-        </Section>
-
-        <Section id="process">
-          <Container>
-            <Title as="h2">Méthode Craftminds</Title>
-            <Grid>
-              <ProcessStep>
-                <StepNumber>1</StepNumber>
-                <CardTitle>Vous m'expliquez votre besoin</CardTitle>
-                <CardContent>Description claire de votre problématique ou objectif.</CardContent>
-              </ProcessStep>
-              <ProcessStep>
-                <StepNumber>2</StepNumber>
-                <CardTitle>Je vous propose un plan clair</CardTitle>
-                <CardContent>Solution concrète et estimation précise.</CardContent>
-              </ProcessStep>
-              <ProcessStep>
-                <StepNumber>3</StepNumber>
-                <CardTitle>On exécute efficacement</CardTitle>
-                <CardContent>Mise en œuvre rapide, sans blabla.</CardContent>
-              </ProcessStep>
-            </Grid>
-          </Container>
-        </Section>
-
-        <Section>
-          <Container>
-            <Title as="h2">Pourquoi Craftminds ?</Title>
-            <Subtitle>Une approche centrée sur vos besoins et vos objectifs</Subtitle>
-            <Grid>
-              <Card>
-                <CardIcon>⚡</CardIcon>
-                <CardTitle>Réactivité et transparence</CardTitle>
-                <CardContent>
-                  Communication claire et réponse rapide à chaque étape. Vous êtes toujours informé de l'avancement de votre projet.
-                </CardContent>
-                <ul>
-                  <li>Réponse sous 24h maximum</li>
-                  <li>Points d'avancement réguliers</li>
-                  <li>Communication directe et efficace</li>
-                </ul>
-              </Card>
-              <Card>
-                <CardIcon>📈</CardIcon>
-                <CardTitle>Résultats mesurables</CardTitle>
-                <CardContent>
-                  Des objectifs clairs et des résultats concrets. Chaque intervention est orientée vers des améliorations tangibles.
-                </CardContent>
-                <ul>
-                  <li>Métriques de performance</li>
-                  <li>Solutions documentées</li>
-                  <li>Suivi des améliorations</li>
-                </ul>
-              </Card>
-              <Card>
-                <CardIcon>🎯</CardIcon>
-                <CardTitle>Vous gardez le contrôle</CardTitle>
-                <CardContent>
-                  Votre projet reste votre projet. Je m'adapte à vos méthodes et vos outils pour une collaboration fluide.
-                </CardContent>
-                <ul>
-                  <li>Processus transparent</li>
-                  <li>Respect de vos contraintes</li>
-                  <li>Transfert de connaissances</li>
-                </ul>
-              </Card>
-            </Grid>
-          </Container>
-        </Section>
-
-        <Section>
-          <Container>
-            <Title as="h2">Besoin d'un coup de main rapide et efficace ?</Title>
-            <Subtitle>Discutons de votre projet et trouvons la meilleure solution ensemble.</Subtitle>
-            <Button to="/#contact">Discutons de votre besoin →</Button>
-          </Container>
-        </Section>
-
-        <Section id="contact">
-          <Container>
-            <Title>Contactez-nous</Title>
-            <Subtitle>Discutons de votre projet</Subtitle>
-            <Form onSubmit={handleSubmit}>
-              <FormGroup>
-                <label htmlFor="name">Nom</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </FormGroup>
-              <FormGroup>
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </FormGroup>
-              <FormGroup>
-                <label htmlFor="message">Votre besoin technique</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                />
-              </FormGroup>
-              <SubmitButton type="submit" disabled={loading}>
-                {loading ? 'Envoi en cours...' : 'Envoyer'}
-              </SubmitButton>
-            </Form>
-          </Container>
-        </Section>
-
-        {error && (
-          <Notification
-            message={error}
-            type="error"
-            onClose={() => {}}
-          />
-        )}
-
-        {success && (
-          <Notification
-            message="Votre message a été envoyé avec succès !"
-            type="success"
-            onClose={() => {}}
-          />
-        )}
-      </Main>
-    </>
-  );
-};
+const Home: React.FC = () => (
+  <>
+    <Main>
+      <HeroImage src="/Logo_test.png" alt="Logo Craftminds" />
+      <Title>
+        Dépannez. <br />
+        Automatisez.<br />
+        Concentrez-vous sur l'essentiel.
+      </Title>
+      <Buttons>
+        <PrimaryBtn href="#contact">Prendre contact</PrimaryBtn>
+        <OutlineBtn href="#services">Découvrir les services</OutlineBtn>
+      </Buttons>
+    </Main>
+    <PricingSection id="services" />
+    <Section>
+      <SectionTitle>Méthode Craftminds</SectionTitle>
+      <CardGrid>
+        <StepCard>
+          <StepNumber>1</StepNumber>
+          <StepTitle>Vous m'expliquez.</StepTitle>
+          <StepDesc>Description claire de votre problématique ou objectif.</StepDesc>
+        </StepCard>
+        <StepCard>
+          <StepNumber>2</StepNumber>
+          <StepTitle>Je vous propose un plan.</StepTitle>
+          <StepDesc>Solution concrète et estimation précise.</StepDesc>
+        </StepCard>
+        <StepCard>
+          <StepNumber>3</StepNumber>
+          <StepTitle>On exécute.</StepTitle>
+          <StepDesc>Mise en œuvre rapide, sans blabla.</StepDesc>
+        </StepCard>
+      </CardGrid>
+    </Section>
+    <Section>
+      <SectionTitle>Pourquoi Craftminds&nbsp;?</SectionTitle>
+      <CardGrid>
+        <WhyCard>
+          <WhyIcon>⚡</WhyIcon>
+          <WhyCardTitle>Réactivité et transparence</WhyCardTitle>
+          <WhyList>
+            <li>Réponse sous 24h maximum</li>
+            <li>Points d'avancement réguliers</li>
+            <li>Communication directe et efficace</li>
+          </WhyList>
+        </WhyCard>
+        <WhyCard>
+          <WhyIcon>📈</WhyIcon>
+          <WhyCardTitle>Résultats mesurables</WhyCardTitle>
+          <WhyList>
+            <li>Métriques de performance</li>
+            <li>Solutions documentées</li>
+            <li>Suivi des améliorations</li>
+          </WhyList>
+        </WhyCard>
+        <WhyCard>
+          <WhyIcon>🎯</WhyIcon>
+          <WhyCardTitle>Vous gardez le contrôle</WhyCardTitle>
+          <WhyList>
+            <li>Processus transparent</li>
+            <li>Respect de vos contraintes</li>
+            <li>Transfert de connaissances</li>
+          </WhyList>
+        </WhyCard>
+      </CardGrid>
+    </Section>
+    <Section id="contact">
+      <SectionTitle>Contact</SectionTitle>
+      <div style={{maxWidth:'500px',margin:'0 auto'}}>
+        <ContactForm service="Contact page d'accueil" />
+      </div>
+    </Section>
+    <Footer />
+  </>
+);
 
 export default Home; 
