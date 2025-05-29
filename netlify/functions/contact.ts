@@ -44,6 +44,7 @@ const transporter = nodemailer.createTransport({
 
 const handler: Handler = async (event) => {
   if (event.httpMethod !== 'POST') {
+    console.log('Méthode non autorisée:', event.httpMethod);
     return {
       statusCode: 405,
       body: JSON.stringify({ error: 'Méthode non autorisée' })
@@ -51,11 +52,13 @@ const handler: Handler = async (event) => {
   }
 
   try {
+    console.log('Body reçu:', event.body);
     const data: ContactData = JSON.parse(event.body || '{}');
-    console.log('Données reçues:', { name: data.name, email: data.email });
+    console.log('Données parsées:', data);
 
     const validationError = validateContactData(data);
     if (validationError) {
+      console.log('Erreur de validation:', validationError);
       return {
         statusCode: 400,
         body: JSON.stringify({ error: validationError })

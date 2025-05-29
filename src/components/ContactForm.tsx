@@ -79,12 +79,24 @@ const ContactForm: React.FC<Props> = ({ service }) => {
     e.preventDefault();
     setStatus('sending');
     setFeedback('');
+    
+    const formData = { name, email, message, service };
+    console.log('Envoi des données:', formData);
+    
     try {
       const res = await fetch('/.netlify/functions/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message, service }),
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData),
       });
+      
+      console.log('Réponse reçue:', res.status);
+      const data = await res.json();
+      console.log('Données reçues:', data);
+      
       if (res.ok) {
         setStatus('success');
         setFeedback('Message envoyé ! Je vous réponds rapidement.');
@@ -93,9 +105,10 @@ const ContactForm: React.FC<Props> = ({ service }) => {
         setMessage('');
       } else {
         setStatus('error');
-        setFeedback("Erreur lors de l'envoi. Veuillez réessayer ou me contacter par email.");
+        setFeedback(data.error || "Erreur lors de l'envoi. Veuillez réessayer ou me contacter par email.");
       }
-    } catch {
+    } catch (error) {
+      console.error('Erreur complète:', error);
       setStatus('error');
       setFeedback("Erreur lors de l'envoi. Veuillez réessayer ou me contacter par email.");
     }
