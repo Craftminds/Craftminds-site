@@ -6,13 +6,6 @@ interface ContactData {
   email: string;
   message: string;
   service?: string;
-  urgency?: string;
-  offer?: string;
-  tools?: string;
-  objective?: string;
-  product?: string;
-  needs?: string;
-  volume?: string;
 }
 
 const validateContactData = (data: ContactData): string | null => {
@@ -32,13 +25,13 @@ const validateContactData = (data: ContactData): string | null => {
 const transporter = nodemailer.createTransport({
   host: 'ssl0.ovh.net',
   port: 465,
-  secure: true, // true pour le port 465, false pour les autres ports
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   },
   tls: {
-    rejectUnauthorized: true // OVH utilise des certificats valides
+    rejectUnauthorized: true
   }
 });
 
@@ -74,13 +67,6 @@ const handler: Handler = async (event) => {
         Nom: ${data.name}
         Email: ${data.email}
         Service: ${data.service || 'Non spécifié'}
-        Urgence: ${data.urgency || 'Non spécifiée'}
-        Offre: ${data.offer || 'Non spécifiée'}
-        Outils: ${data.tools || 'Non spécifiés'}
-        Objectif: ${data.objective || 'Non spécifié'}
-        Produit: ${data.product || 'Non spécifié'}
-        Besoins: ${data.needs || 'Non spécifiés'}
-        Volume: ${data.volume || 'Non spécifié'}
         
         Message:
         ${data.message}
@@ -90,13 +76,6 @@ const handler: Handler = async (event) => {
         <p><strong>Nom:</strong> ${data.name}</p>
         <p><strong>Email:</strong> ${data.email}</p>
         <p><strong>Service:</strong> ${data.service || 'Non spécifié'}</p>
-        <p><strong>Urgence:</strong> ${data.urgency || 'Non spécifiée'}</p>
-        <p><strong>Offre:</strong> ${data.offer || 'Non spécifiée'}</p>
-        <p><strong>Outils:</strong> ${data.tools || 'Non spécifiés'}</p>
-        <p><strong>Objectif:</strong> ${data.objective || 'Non spécifié'}</p>
-        <p><strong>Produit:</strong> ${data.product || 'Non spécifié'}</p>
-        <p><strong>Besoins:</strong> ${data.needs || 'Non spécifiés'}</p>
-        <p><strong>Volume:</strong> ${data.volume || 'Non spécifié'}</p>
         <h3>Message:</h3>
         <p>${data.message.replace(/\n/g, '<br>')}</p>
       `
