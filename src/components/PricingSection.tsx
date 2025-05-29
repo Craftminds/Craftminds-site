@@ -108,7 +108,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ id }) => (
       </Card>
       <Card>
         <Icon>⚙️</Icon>
-        <CardTitle>Automatisation du Support</CardTitle>
+        <CardTitle>Automatisation</CardTitle>
         <Desc>Automatisez vos réponses, triez vos tickets et gagnez du temps sur la gestion du support.</Desc>
         <DetailBtn to="/services/automatisation">Choisir cette offre <span style={{fontSize:'1.2em'}}>→</span></DetailBtn>
       </Card>

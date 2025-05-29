@@ -214,9 +214,9 @@ const AutomatisationService: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Automatisation du Support – Craftminds</title>
+        <title>Automatisation – Craftminds</title>
         <meta name="description" content="Automatisez vos réponses, triez vos tickets et gagnez du temps sur la gestion du support. Mise en place rapide, gain de productivité garanti." />
-        <meta property="og:title" content="Automatisation du Support – Craftminds" />
+        <meta property="og:title" content="Automatisation – Craftminds" />
         <meta property="og:description" content="Automatisez vos réponses, triez vos tickets et gagnez du temps sur la gestion du support. Mise en place rapide, gain de productivité garanti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://craftminds.fr/services/automatisation" />
@@ -295,7 +295,7 @@ const AutomatisationService: React.FC = () => {
         <Section>
           <SectionTitle>Contact</SectionTitle>
           <div ref={contactRef} style={{maxWidth:'520px',margin:'0 auto'}}>
-            <ContactForm service="Automatisation du Support" />
+            <ContactForm service="Automatisation" />
           </div>
         </Section>
         <Footer />
