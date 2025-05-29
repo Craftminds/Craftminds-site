@@ -239,7 +239,7 @@ const AutomatisationService: React.FC = () => {
               <CTAButton onClick={() => scrollToContact('Scénario multi-étapes / API')}>Demander ce service</CTAButton>
             </Card>
             <Card>
-              <OfferTitle>Audit + optimisation (5h)</OfferTitle>
+              <OfferTitle>Audit + optimisation</OfferTitle>
               <Price>À partir de 390€</Price>
               <OfferDesc>Analyse de vos process, recommandations et optimisation sur-mesure (5h incluses).</OfferDesc>
               <CTAButton onClick={() => scrollToContact('Audit + optimisation (5h)')}>Demander ce service</CTAButton>
