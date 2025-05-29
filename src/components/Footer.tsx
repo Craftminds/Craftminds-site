@@ -41,6 +41,7 @@ const FooterLinks = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  text-align: center;
 `;
 
 const FooterLink = styled(Link)`
