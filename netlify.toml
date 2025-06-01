@@ -23,6 +23,13 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
+# Servir les fichiers XML directement
+[[redirects]]
+  from = "/*.xml"
+  to = "/:file"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
