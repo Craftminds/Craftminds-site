@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import Footer from '../components/Footer';
 import PricingSection from '../components/PricingSection';
 import ContactForm from '../components/ContactForm';
+import SEO from '../components/SEO';
 import { Helmet } from 'react-helmet-async';
 
 const Main = styled.main`
@@ -251,6 +252,12 @@ const HeroImage = styled.img`
 
 const Home: React.FC = () => (
   <>
+    <SEO
+      title="Accueil"
+      description="Craftminds - Solutions d'automatisation et de développement web innovantes pour votre entreprise. Optimisez vos processus et boostez votre productivité."
+      keywords="automatisation, développement web, solutions digitales, optimisation, productivité"
+      url="https://craftminds.fr"
+    />
     <Helmet>
       <title>Craftminds – Dépannage, Automatisation & Outils sur-mesure</title>
       <meta name="description" content="Support technique, automatisation et développement d'outils sur-mesure pour les pros. Dépannez, automatisez, concentrez-vous sur l'essentiel." />
