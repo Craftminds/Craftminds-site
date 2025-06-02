@@ -72,41 +72,43 @@ const Hero = styled.section`
   background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
 `;
 const HeroImage = styled.img`
-  width: 120px;
-  height: 120px;
+  width: clamp(80px, 20vw, 120px);
+  height: clamp(80px, 20vw, 120px);
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13);
 `;
 const HeroTitle = styled.h1`
   color: #fff;
-  font-size: 2.4rem;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
   font-weight: 900;
   text-align: center;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1rem;
   max-width: 600px;
 `;
 const HeroDesc = styled.p`
   color: #e5e7eb;
-  font-size: 1.18rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.18rem);
   text-align: center;
-  margin-bottom: 1.7rem;
+  margin-bottom: 1.5rem;
   max-width: 600px;
 `;
 const HeroButtons = styled.div`
   display: flex;
-  gap: 1.2rem;
+  gap: 1rem;
   justify-content: center;
   margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
 `;
 const PrimaryBtn = styled.a`
   background: #fff;
   color: #111;
   border-radius: 9999px;
-  padding: 0.9rem 2.2rem;
+  padding: 0.8rem 1.8rem;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   text-decoration: none;
   border: none;
   transition: background 0.2s, color 0.2s;
@@ -121,9 +123,9 @@ const OutlineBtn = styled.a`
   color: #fff;
   border: 2px solid #fff;
   border-radius: 9999px;
-  padding: 0.9rem 2.2rem;
+  padding: 0.8rem 1.8rem;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
   &:hover {
@@ -132,34 +134,34 @@ const OutlineBtn = styled.a`
   }
 `;
 const Price = styled.div`
-  font-size: 2.1rem;
+  font-size: clamp(1.8rem, 4vw, 2.1rem);
   font-weight: 800;
   color: #fff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   letter-spacing: -0.02em;
 `;
 const OfferTitle = styled.h3`
   color: #fff;
-  font-size: 1.18rem;
+  font-size: clamp(1rem, 2.5vw, 1.18rem);
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   text-align: center;
 `;
 const OfferDesc = styled.p`
   color: #cbd5e1;
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
   text-align: center;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 `;
 const CTAButton = styled.button`
   background: #fff;
   color: #111;
   border-radius: 9999px;
-  padding: 0.7rem 1.6rem;
+  padding: 0.7rem 1.4rem;
   font-weight: 700;
-  font-size: 1.08rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.08rem);
   border: none;
-  margin-top: 0.7rem;
+  margin-top: 0.5rem;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
@@ -171,18 +173,18 @@ const CTAButton = styled.button`
 `;
 const UseCaseList = styled.ul`
   color: #e5e7eb;
-  font-size: 1.13rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.13rem);
   margin: 0;
   padding-left: 1.3em;
-  line-height: 1.7;
+  line-height: 1.6;
   letter-spacing: -0.01em;
 `;
 const WhyList = styled.ul`
   color: #e5e7eb;
-  font-size: 1.13rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.13rem);
   margin: 0;
   padding-left: 1.3em;
-  line-height: 1.7;
+  line-height: 1.6;
   letter-spacing: -0.01em;
 `;
 const ContactCard = styled(Card)`

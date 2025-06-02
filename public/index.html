@@ -28,9 +28,9 @@
     <meta property="twitter:image" content="%PUBLIC_URL%/logo.svg" />
     
     <!-- Favicon -->
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/site-icon.svg" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.svg" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    
+
     <!-- Preload critical assets -->
     <link rel="preload" href="%PUBLIC_URL%/logo.svg" as="image" />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" />
@@ -45,6 +45,22 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+    <!-- Font loading detection -->
+    <script>
+      document.fonts.ready.then(() => {
+        document.documentElement.classList.add('fonts-loaded');
+      });
+
+      // Désactiver le service worker existant
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+    </script>
   </head>
   <body>
     <noscript>Vous devez activer JavaScript pour utiliser cette application.</noscript>

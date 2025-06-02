@@ -25,38 +25,40 @@ const Label = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-size: clamp(2rem, 5vw, 4.5rem);
   font-weight: 800;
   line-height: 1.08;
   color: #fff;
   text-align: center;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1.2rem 0;
   letter-spacing: -0.03em;
 `;
 
 const Subtitle = styled.p`
   color: #cbd5e1;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   max-width: 600px;
-  margin: 0 auto 2.5rem auto;
+  margin: 0 auto 2rem auto;
   text-align: center;
   font-weight: 400;
 `;
 
 const Buttons = styled.div`
   display: flex;
-  gap: 1.2rem;
+  gap: 1rem;
   justify-content: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
 `;
 
 const PrimaryBtn = styled.a`
   background: #fff;
   color: #111;
   border-radius: 9999px;
-  padding: 0.9rem 2.2rem;
+  padding: 0.8rem 1.8rem;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   text-decoration: none;
   border: none;
   transition: background 0.2s, color 0.2s;
@@ -72,9 +74,9 @@ const OutlineBtn = styled.a`
   color: #fff;
   border: 2px solid #fff;
   border-radius: 9999px;
-  padding: 0.9rem 2.2rem;
+  padding: 0.8rem 1.8rem;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
   &:hover {
@@ -85,31 +87,32 @@ const OutlineBtn = styled.a`
 
 const Section = styled.section`
   width: 100%;
-  margin: 0 auto 6rem auto;
+  margin: 0 auto 4rem auto;
   padding: 0 1rem;
 `;
 
 const SectionTitle = styled.h2`
   color: #fff;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 800;
   text-align: center;
-  margin-bottom: 2.2rem;
+  margin-bottom: 1.8rem;
   letter-spacing: -0.01em;
 `;
 
 const CardGrid = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 0 0.5rem;
 `;
 
 const baseCard = css`
   background: rgba(36, 36, 40, 0.78);
-  border-radius: 2.4rem;
+  border-radius: 1.8rem;
   box-shadow: 0 10px 40px 0 rgba(0,0,0,0.19);
-  padding: 2.7rem 2.2rem 2.2rem 2.2rem;
+  padding: 2rem 1.5rem 1.8rem 1.5rem;
   width: 100%;
   max-width: 500px;
   min-width: 260px;
@@ -129,9 +132,10 @@ const baseCard = css`
   @media (max-width: 900px) {
     min-width: unset;
     max-width: unset;
-    width: 80vw;
+    width: 90vw;
     margin-left: auto;
     margin-right: auto;
+    padding: 1.5rem 1.2rem 1.2rem 1.2rem;
   }
 `;
 
@@ -178,15 +182,15 @@ const StepNumber = styled.div`
 `;
 const StepTitle = styled.h3`
   color: #fff;
-  font-size: 1.45rem;
+  font-size: clamp(1.2rem, 3vw, 1.45rem);
   font-weight: 900;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.5rem;
   text-align: center;
   letter-spacing: -0.01em;
 `;
 const StepDesc = styled.p`
   color: #e5e7eb;
-  font-size: 1.18rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.18rem);
   text-align: center;
   margin-bottom: 0.2rem;
   max-width: 90%;
@@ -198,18 +202,18 @@ const WhyIcon = styled.div`
 `;
 const WhyCardTitle = styled.h3`
   color: #fff;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   font-weight: 900;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   text-align: center;
   letter-spacing: -0.01em;
 `;
 const WhyList = styled.ul`
   color: #e5e7eb;
-  font-size: 1.12rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.12rem);
   margin: 0;
   padding-left: 1.3em;
-  line-height: 1.7;
+  line-height: 1.6;
   letter-spacing: -0.01em;
 `;
 const CTASection = styled(Section)`
@@ -242,11 +246,11 @@ const CTAButton = styled.a`
 `;
 
 const HeroImage = styled.img`
-  width: 120px;
-  height: 120px;
+  width: clamp(80px, 20vw, 120px);
+  height: clamp(80px, 20vw, 120px);
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13);
 `;
 

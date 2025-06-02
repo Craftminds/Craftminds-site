@@ -5,52 +5,55 @@ const Form = styled.form`
   background: rgba(24,24,27,0.92);
   border-radius: 1.2rem;
   box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
   width: 100%;
-  margin: 2rem auto 0 auto;
+  margin: 1.5rem auto 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 0.9rem;
 `;
 
 const Label = styled.label`
   color: #fff;
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
   font-weight: 500;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 `;
 
 const Input = styled.input`
-  padding: 0.7rem 1rem;
+  padding: 0.7rem 0.9rem;
   border-radius: 0.7rem;
   border: 1px solid #232323;
   background: #18181b;
   color: #fff;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
 `;
 
 const Textarea = styled.textarea`
-  padding: 0.7rem 1rem;
+  padding: 0.7rem 0.9rem;
   border-radius: 0.7rem;
   border: 1px solid #232323;
   background: #18181b;
   color: #fff;
-  font-size: 1rem;
-  min-height: 15dvh;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  min-height: 12dvh;
 `;
 
 const Button = styled.button`
   background: #fff;
   color: #111;
   border-radius: 9999px;
-  padding: 0.8rem 1.7rem;
+  padding: 0.7rem 1.5rem;
   font-weight: 700;
-  font-size: 1.08rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.08rem);
   border: none;
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
-  width: 40%;
+  width: 100%;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
   &:hover {
     background: #e5e5e5;
     color: #111;
@@ -59,8 +62,8 @@ const Button = styled.button`
 
 const Message = styled.div<{ success?: boolean }>`
   color: ${({ success }) => (success ? '#22c55e' : '#f87171')};
-  font-size: 1.05rem;
-  margin-top: 0.7rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  margin-top: 0.5rem;
   text-align: center;
 `;
 
