@@ -131,13 +131,35 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-  /* Supprimer seulement le scroll horizontal sur mobile */
+  /* Supprimer le scroll horizontal et forcer l'alignement vertical */
+  * {
+    box-sizing: border-box;
+  }
+  
   body {
     overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Forcer tous les conteneurs à respecter la largeur */
+  .container, .section, .hero-section, .service-section, 
+  .testimonials, .about-us, .contact-section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Forcer tous les éléments à ne pas déborder */
+  img, video, iframe, object, embed {
+    max-width: 100%;
+    height: auto;
   }
   
   .navbar {
     padding: 0;
+    width: 100%;
   }
   
   .nav-links {
@@ -145,12 +167,14 @@
   }
   
   .hero-section {
-    padding: 100px 20px 60px;
+    padding: 100px 15px 60px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    width: 100%;
+    max-width: 100%;
   }
   
   .hero-section h1 {
@@ -183,19 +207,24 @@
   }
   
   .service-section {
-    padding: 60px 20px;
+    padding: 60px 15px;
+    width: 100%;
+    max-width: 100%;
   }
   
   .service-title {
     font-size: 2rem;
     margin-bottom: 40px;
     text-align: center;
+    width: 100%;
   }
   
   .service-content {
     flex-direction: column;
     gap: 40px;
     text-align: center;
+    width: 100%;
+    max-width: 100%;
   }
   
   .service-icon-large {
@@ -230,6 +259,8 @@
     gap: 1rem;
     align-items: center;
     margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
   }
   
   .btn-primary, .btn-secondary {
@@ -238,15 +269,20 @@
     padding: 1rem 2rem;
     font-size: 1rem;
     text-align: center;
+    box-sizing: border-box;
   }
   
   .testimonials {
     padding: 60px 15px;
+    width: 100%;
+    max-width: 100%;
   }
   
   .testimonials h2 {
     font-size: 2rem;
     margin-bottom: 40px;
+    text-align: center;
+    width: 100%;
   }
   
   .testimonial-content {
@@ -254,6 +290,8 @@
     gap: 30px;
     height: auto;
     text-align: center;
+    width: 100%;
+    max-width: 100%;
   }
   
   .testimonial-image {
@@ -272,10 +310,14 @@
   
   .about-us {
     padding: 60px 0;
+    width: 100%;
+    max-width: 100%;
   }
   
   .about-container {
-    padding: 0 20px;
+    padding: 0 15px;
+    width: 100%;
+    max-width: 100%;
   }
   
   .about-content {
