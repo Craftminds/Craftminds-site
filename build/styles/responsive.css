@@ -16,12 +16,12 @@
   }
   
   .tools-static {
-    gap: 25px;
+    gap: 30px;
     flex-wrap: nowrap;
   }
   
   .tools-static img {
-    height: 35px;
+    height: 40px;
   }
   
   .service-title {
@@ -171,6 +171,34 @@
     height: auto;
   }
   
+  /* Désactiver tous les boutons et liens sur mobile */
+  .btn-primary, .btn-secondary, a, button {
+    pointer-events: none !important;
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+  }
+  
+  /* Désactiver la navbar */
+  .navbar .nav-links a,
+  .navbar .btn-primary {
+    pointer-events: none !important;
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+  }
+  
+  /* Désactiver le menu hamburger */
+  .hamburger {
+    pointer-events: none !important;
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+  }
+  
+  /* Désactiver les outils */
+  .tools-static img {
+    pointer-events: none !important;
+    opacity: 0.3 !important;
+  }
+  
   .navbar {
     padding: 0;
     width: 100%;
@@ -209,14 +237,14 @@
   }
   
   .tools-static {
-    gap: 10px;
+    gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
     margin: 2rem 0;
   }
   
   .tools-static img {
-    height: 20px;
+    height: 30px;
     opacity: 0.8;
   }
   

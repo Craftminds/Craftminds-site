@@ -77,3 +77,62 @@
 .tools-static img:hover {
   opacity: 1;
 }
+
+/* Mobile hint - Version en cours de fabrication */
+.mobile-hint {
+  display: none;
+  margin-top: 40px;
+  padding: 20px;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 1px solid #f59e0b;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2);
+}
+
+.mobile-hint-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.mobile-hint-icon {
+  width: 40px;
+  height: 40px;
+  background: #f59e0b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mobile-hint-icon svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+.mobile-hint-text h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #92400e;
+  margin: 0 0 5px 0;
+}
+
+.mobile-hint-text p {
+  font-size: 0.9rem;
+  color: #a16207;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Afficher le hint seulement sur mobile */
+@media (max-width: 768px) {
+  .mobile-hint {
+    display: block;
+  }
+}
