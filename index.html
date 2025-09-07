@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CraftMinds</title>
+  <meta name="description" content="CraftMinds transforme vos idées en réalité avec nos solutions no-code, automatisation et intégration. Développement d'applications personnalisées sans programmation complexe.">
+  <meta name="keywords" content="no-code, automatisation, intégration, développement application, solutions digitales, CraftMinds">
+  <meta name="author" content="CraftMinds">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://craftminds.fr/">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://craftminds.fr/">
+  <meta property="og:title" content="CraftMinds - Solutions No-Code, Automatisation et Intégration">
+  <meta property="og:description" content="Transformez vos idées en réalité avec nos solutions no-code, automatisation et intégration. Développement d'applications personnalisées sans programmation complexe.">
+  <meta property="og:image" content="https://craftminds.fr/assets/logo_long.png">
+  <meta property="og:site_name" content="CraftMinds">
+  <meta property="og:locale" content="fr_FR">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://craftminds.fr/">
+  <meta property="twitter:title" content="CraftMinds - Solutions No-Code, Automatisation et Intégration">
+  <meta property="twitter:description" content="Transformez vos idées en réalité avec nos solutions no-code, automatisation et intégration.">
+  <meta property="twitter:image" content="https://craftminds.fr/assets/logo_long.png">
+  <link rel="stylesheet" href="styles/main.css?v=123456789">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Données structurées JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CraftMinds",
+    "url": "https://craftminds.fr",
+    "logo": "https://craftminds.fr/assets/logo_long.png",
+    "description": "CraftMinds transforme vos idées en réalité avec nos solutions no-code, automatisation et intégration.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Avenue des Champs-Élysées",
+      "addressLocality": "Paris",
+      "postalCode": "75008",
+      "addressCountry": "FR"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+33-6-15-75-65-49",
+      "contactType": "customer service",
+      "email": "enzo.monnier@craftminds.fr"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/craftminds",
+      "https://twitter.com/craftminds"
+    ],
+    "foundingDate": "2024",
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "Enzo Monnier",
+        "jobTitle": "Fondateur & Développeur No-Code"
+      }
+    ],
+    "services": [
+      {
+        "@type": "Service",
+        "name": "Création d'outil no-code",
+        "description": "Développement d'applications personnalisées sans programmation complexe"
+      },
+      {
+        "@type": "Service", 
+        "name": "Automatisation",
+        "description": "Optimisation de vos processus métier et automatisation des tâches répétitives"
+      },
+      {
+        "@type": "Service",
+        "name": "Intégration", 
+        "description": "Connexion fluide entre vos outils et plateformes"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+
+  <!-- Container principal horizontal -->
+  <div class="main-container" id="main-container">
+    <!-- Les sections seront chargées ici -->
+  </div>
+
+  <!-- Sections avec scroll vertical normal -->
+  <div id="testimonials-container"></div>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script>
+    // Charger les composants
+    async function loadComponent(containerId, filePath) {
+      try {
+        const response = await fetch(filePath);
+        const html = await response.text();
+        document.getElementById(containerId).innerHTML = html;
+      } catch (error) {
+        console.error(`Erreur lors du chargement de ${filePath}:`, error);
+      }
+    }
+
+    // Charger tous les composants
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Charger la navbar et le footer
+      await Promise.all([
+        loadComponent('navbar-container', 'components/navbar.html'),
+        loadComponent('footer-container', 'components/footer.html')
+      ]);
+      
+      // Charger les sections dans le main-container
+      const heroResponse = await fetch('sections/hero-section.html');
+      const heroHtml = await heroResponse.text();
+      
+      const servicesResponse = await fetch('sections/services-section.html');
+      const servicesHtml = await servicesResponse.text();
+      
+      document.getElementById('main-container').innerHTML = heroHtml + servicesHtml;
+      
+      // Charger les témoignages
+      await loadComponent('testimonials-container', 'sections/testimonials-section.html');
+    });
+  </script>
+  <script src="js/main.js"></script>
+  <script src="js/testimonials.js"></script>
+</body>
+</html>

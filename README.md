@@ -1,146 +1,131 @@
-# CraftMinds - Documentation Technique
+# CraftMinds - Structure du Projet
 
-## Table des matières
-1. [Présentation](#présentation)
-2. [Architecture](#architecture)
-3. [Installation](#installation)
-4. [Configuration](#configuration)
-5. [Développement](#développement)
-6. [Déploiement](#déploiement)
-7. [Maintenance](#maintenance)
-
-## Présentation
-
-CraftMinds est un site vitrine présentant des services de développement et d'automatisation. Le site est construit avec React, TypeScript et Styled Components, et déployé sur Netlify.
-
-### Technologies utilisées
-- React 18
-- TypeScript
-- Styled Components
-- React Router
-- React Helmet Async
-- Axios
-- Netlify Functions
-
-## Architecture
+## 📁 Organisation des fichiers
 
 ### Structure des dossiers
 ```
-craftminds-site/
-├── src/
-│   ├── components/     # Composants réutilisables
-│   ├── pages/         # Pages du site
-│   ├── hooks/         # Hooks personnalisés
-│   ├── services/      # Services (API, etc.)
-│   ├── config/        # Configuration (SEO, etc.)
-│   ├── styles/        # Styles globaux
-│   └── types/         # Types TypeScript
-├── netlify/
-│   └── functions/     # Fonctions Netlify
-├── public/            # Assets statiques
-└── package.json       # Dépendances
+├── components/          # Composants réutilisables
+│   ├── navbar.html     # Barre de navigation
+│   └── footer.html     # Pied de page
+├── sections/           # Sections de contenu
+│   ├── hero-section.html
+│   ├── services-section.html
+│   ├── services-page-section.html
+│   ├── testimonials-section.html
+│   ├── about-section.html
+│   └── mission-section.html
+├── styles/             # Fichiers CSS modulaires
+│   ├── main.css        # Fichier principal (imports)
+│   ├── base.css        # Reset et styles de base
+│   ├── components.css  # Styles des composants
+│   ├── layout.css      # Layout et scroll horizontal
+│   ├── hero.css        # Section hero
+│   ├── services.css    # Sections services
+│   ├── services-page.css # Page services
+│   ├── testimonials.css # Section témoignages
+│   ├── about.css       # Section à propos
+│   ├── mission.css     # Section mission
+│   └── responsive.css  # Media queries
+├── js/                 # Fichiers JavaScript
+│   ├── main.js         # Logique principale
+│   └── testimonials.js # Carousel témoignages
+├── assets/             # Images et ressources
+├── pages/              # Pages principales
+│   ├── index.html      # Page d'accueil
+│   ├── about.html      # Page à propos
+│   └── services.html   # Page services
+└── README.md           # Documentation
 ```
 
-### Composants principaux
-- `App.tsx` : Point d'entrée de l'application
-- `Layout.tsx` : Layout principal avec header et footer
-- `SEO.tsx` : Gestion du SEO
-- `Notification.tsx` : Système de notification
-- `ContactForm.tsx` : Formulaire de contact réutilisable
+## 🎨 Architecture CSS
 
-## Installation
+### Modularité
+- **Séparation des responsabilités** : Chaque fichier CSS a un rôle spécifique
+- **Import centralisé** : `main.css` importe tous les modules
+- **Réutilisabilité** : Composants et styles modulaires
 
-1. Cloner le repository :
-```bash
-git clone https://github.com/votre-username/craftminds-site.git
-cd craftminds-site
-```
+### Fichiers CSS
+- `base.css` : Reset, typography, utilitaires
+- `components.css` : Navbar, footer, boutons
+- `layout.css` : Scroll horizontal, containers
+- `hero.css` : Section d'accueil
+- `services.css` : Sections services (page d'accueil)
+- `services-page.css` : Page services dédiée
+- `testimonials.css` : Carousel témoignages
+- `about.css` : Section à propos
+- `mission.css` : Section mission
+- `responsive.css` : Media queries pour tous les écrans
 
-2. Installer les dépendances :
-```bash
-npm install
-```
+## 🔧 Architecture JavaScript
 
-3. Créer un fichier `.env` à la racine :
-```env
-REACT_APP_API_URL=/.netlify/functions
-```
+### Modularité
+- **Séparation des fonctionnalités** : Chaque fichier JS a un rôle spécifique
+- **Chargement dynamique** : Composants HTML chargés via fetch
+- **Maintenance facilitée** : Code organisé et commenté
 
-## Configuration
+### Fichiers JS
+- `main.js` : Scroll horizontal, navigation
+- `testimonials.js` : Carousel des témoignages
 
-### Variables d'environnement Netlify
-Dans le dashboard Netlify, configurer les variables suivantes :
-- `EMAIL_USER` : Adresse email pour recevoir les contacts
-- `EMAIL_PASS` : Mot de passe de l'email
+## 📱 Responsive Design
 
-### Configuration SEO
-Le fichier `src/config/seo.ts` contient la configuration SEO pour chaque page :
-- Titres
-- Descriptions
-- Images
-- Mots-clés
+### Breakpoints
+- **Desktop** : > 1024px
+- **Tablet** : 768px - 1024px
+- **Mobile** : < 768px
+- **Small Mobile** : < 480px
 
-## Développement
+### Approche
+- **Mobile First** : Styles de base pour mobile
+- **Progressive Enhancement** : Améliorations pour écrans plus grands
+- **Flexible Layout** : Flexbox et Grid pour l'adaptabilité
 
-### Lancer le serveur de développement
-```bash
-npm start
-```
+## 🚀 Fonctionnalités
 
-### Commandes disponibles
-- `npm start` : Lance le serveur de développement
-- `npm build` : Crée une version de production
-- `npm test` : Lance les tests
-- `npm run lint` : Vérifie le code avec ESLint
+### Page d'accueil
+- **Scroll horizontal** : Navigation entre sections
+- **Scroll vertical** : Témoignages et footer
+- **Carousel** : Témoignages clients
 
-### Bonnes pratiques
-1. Utiliser TypeScript pour tout nouveau code
-2. Suivre la structure de dossiers existante
-3. Documenter les nouveaux composants
-4. Tester les modifications localement avant de déployer
+### Page Services
+- **Sections pleine hauteur** : Chaque service = 1 page
+- **Scroll vertical** : Navigation entre services
 
-## Déploiement
+### Page À propos
+- **Deux sections** : Profils + Mission
+- **Scroll vertical** : Navigation fluide
 
-Le site est automatiquement déployé sur Netlify à chaque push sur la branche main.
+## 🛠️ Maintenance
 
-### Configuration Netlify
-- Build command : `npm run build`
-- Publish directory : `build`
-- Node version : 18.x
+### Ajout d'une nouvelle section
+1. Créer le fichier HTML dans `sections/`
+2. Créer le fichier CSS correspondant dans `styles/`
+3. Ajouter l'import dans `main.css`
+4. Mettre à jour la page HTML concernée
 
-### Fonctions Netlify
-Les fonctions sont dans le dossier `netlify/functions/` :
-- `contact.ts` : Gère l'envoi des emails de contact
+### Modification d'un composant
+1. Éditer le fichier dans `components/`
+2. Les changements s'appliquent automatiquement à toutes les pages
 
-## Maintenance
+### Ajout d'une nouvelle page
+1. Créer le fichier HTML dans le dossier racine
+2. Importer `styles/main.css`
+3. Charger les composants nécessaires via JavaScript
 
-### Mise à jour des dépendances
-```bash
-npm update
-```
+## 📋 Avantages de cette structure
 
-### Vérification de sécurité
-```bash
-npm audit
-```
+### Pour le développement
+- **Code organisé** et facile à maintenir
+- **Réutilisabilité** des composants
+- **Séparation des responsabilités**
+- **Facilité de débogage**
 
-### Sauvegarde
-- Sauvegarder régulièrement la base de code
-- Documenter les modifications importantes
-- Maintenir à jour le fichier CHANGELOG.md
+### Pour la performance
+- **Chargement modulaire** des styles
+- **Cache optimisé** par fichier
+- **Code JavaScript minimal**
 
-### Monitoring
-- Vérifier régulièrement les logs Netlify
-- Surveiller les performances du site
-- Tester régulièrement les formulaires de contact
-
-## Support
-
-Pour toute question ou problème :
-1. Consulter la documentation
-2. Vérifier les issues GitHub
-3. Contacter l'équipe de développement
-
-## Licence
-
-Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
+### Pour l'équipe
+- **Collaboration facilitée** : Chaque développeur peut travailler sur un module
+- **Documentation claire** de l'architecture
+- **Évolutivité** du projet

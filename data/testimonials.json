@@ -1,0 +1,14 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Jean Martin",
+      "company": "TechCorp",
+      "role": "Directeur Technique",
+      "date": "22 Février 2024",
+      "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
+      "quote": "L'automatisation de nos processus nous a fait gagner un temps précieux. Nous recommandons vivement leurs services.",
+      "rating": 5
+    }
+  ]
+}

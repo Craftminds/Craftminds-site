@@ -1,0 +1,18 @@
+/* Layout et scroll horizontal */
+.main-container {
+  display: flex;
+  width: 400vw;
+  height: 100vh;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.main-container > * {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+/* Page spécifique pour about */
+body.about-page-body {
+  overflow: auto !important;
+}
