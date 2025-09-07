@@ -131,6 +131,11 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+  /* Supprimer le scroll vertical sur mobile */
+  body {
+    overflow-x: hidden;
+  }
+  
   .navbar {
     padding: 1rem;
   }
@@ -141,6 +146,10 @@
   
   .hero-section {
     padding: 0 15px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .hero-section h1 {
