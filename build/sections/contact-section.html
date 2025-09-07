@@ -18,7 +18,7 @@
           <div class="contact-details">
             <h3>Email</h3>
             <p>enzo.monnier@craftminds.fr</p>
-            <a href="mailto:enzo.monnier@craftminds.fr?subject=Demande de devis - CraftMinds&body=Bonjour,%0D%0A%0D%0AJe souhaite obtenir un devis pour vos services.%0D%0A%0D%0A---%0D%0A%0D%0AInformation personnelle :%0D%0A- Nom :%0D%0A- Entreprise :%0D%0A- Téléphone :%0D%0A%0D%0AService demandé :%0D%0A- [ ] Création d'outil no-code%0D%0A- [ ] Automatisation%0D%0A- [ ] Intégration%0D%0A- [ ] Consulting%0D%0A- [ ] Autre :%0D%0A%0D%0ABudget estimé :%0D%0A- [ ] Moins de 5 000€%0D%0A- [ ] 5 000€ - 10 000€%0D%0A- [ ] 10 000€ - 25 000€%0D%0A- [ ] 25 000€ - 50 000€%0D%0A- [ ] Plus de 50 000€%0D%0A%0D%0AMessage :%0D%0A%0D%0A%0D%0A%0D%0A---%0D%0A%0D%0AMerci pour votre attention.%0D%0A%0D%0ACordialement,">Envoyer un email</a>
+            <a href="#" id="gmail-link">Envoyer un email</a>
           </div>
         </div>
         
@@ -67,4 +67,64 @@
     </div>
   </div>
 </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const gmailLink = document.getElementById('gmail-link');
+  
+  if (gmailLink) {
+    gmailLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const subject = 'Demande de devis - CraftMinds';
+      const body = `Bonjour,
+
+Je souhaite obtenir un devis pour vos services.
+
+---
+
+Information personnelle :
+- Nom :
+- Entreprise :
+- Téléphone :
+
+Service demandé :
+- [ ] Création d'outil no-code
+- [ ] Automatisation
+- [ ] Intégration
+- [ ] Consulting
+- [ ] Autre :
+
+Budget estimé :
+- [ ] Moins de 5 000€
+- [ ] 5 000€ - 10 000€
+- [ ] 10 000€ - 25 000€
+- [ ] 25 000€ - 50 000€
+- [ ] Plus de 50 000€
+
+Message :
+
+
+
+---
+
+Merci pour votre attention.
+
+Cordialement,`;
+
+      // Essayer d'ouvrir Gmail directement
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=enzo.monnier@craftminds.fr&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Ouvrir Gmail dans un nouvel onglet
+      window.open(gmailUrl, '_blank');
+      
+      // Fallback : si Gmail ne s'ouvre pas, utiliser mailto
+      setTimeout(() => {
+        const mailtoUrl = `mailto:enzo.monnier@craftminds.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoUrl;
+      }, 1000);
+    });
+  }
+});
+</script>
 
