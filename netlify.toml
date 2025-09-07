@@ -12,7 +12,7 @@
 
 # Configuration des formulaires Netlify
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
 # Headers de sécurité
 [[headers]]
