@@ -10,7 +10,7 @@
     to = "/index.html"
     status = 200
 
-# Configuration des formulaires Netlify
+# Configuration pour un site statique (pas de Node.js nécessaire)
 [build.environment]
   NODE_VERSION = "20"
 
