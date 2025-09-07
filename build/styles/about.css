@@ -74,6 +74,7 @@
 
 .about-page .person-description p:last-child {
   margin-bottom: 0;
+  text-align: center;
 }
 
 .about-divider {
