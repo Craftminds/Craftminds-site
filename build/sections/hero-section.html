@@ -39,4 +39,94 @@
       </div>
     </div>
   </div>
+  
+  <!-- Script pour bloquer toutes les interactions sur mobile -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Vérifier si on est sur mobile
+    function isMobile() {
+      return window.innerWidth <= 768;
+    }
+    
+    if (isMobile()) {
+      // Bloquer tous les clics
+      document.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }, true);
+      
+      // Bloquer tous les touches
+      document.addEventListener('keydown', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }, true);
+      
+      // Bloquer tous les événements de touch
+      document.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }, true);
+      
+      document.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }, true);
+      
+      document.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }, true);
+      
+      // Bloquer le scroll
+      document.addEventListener('scroll', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }, true);
+      
+      // Bloquer le wheel
+      document.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }, true);
+      
+      // Bloquer le context menu
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }, true);
+      
+      // Bloquer le drag
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }, true);
+      
+      // Bloquer le select
+      document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }, true);
+    }
+  });
+  </script>
 </section>
