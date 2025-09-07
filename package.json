@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Site web CraftMinds - Services Tech Freelance",
   "main": "index.html",
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "scripts": {
     "build": "echo 'No build needed for static site'"
   },

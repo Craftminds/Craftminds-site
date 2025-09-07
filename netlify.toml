@@ -12,7 +12,7 @@
 
 # Configuration pour un site statique (pas de Node.js nécessaire)
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "18.18.0"
 
 # Headers de sécurité
 [[headers]]
