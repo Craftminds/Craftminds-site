@@ -146,9 +146,23 @@
   /* Forcer tous les conteneurs à respecter la largeur */
   .container, .section, .hero-section, .service-section, 
   .testimonials, .about-us, .contact-section {
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     overflow-x: hidden;
+  }
+  
+  /* Forcer le main-container à ne pas déborder */
+  .main-container {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Forcer tous les éléments enfants */
+  .main-container > * {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
   }
   
   /* Forcer tous les éléments à ne pas déborder */

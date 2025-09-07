@@ -12,6 +12,22 @@
   flex-shrink: 0;
 }
 
+/* Mobile : empêcher le scroll horizontal */
+@media (max-width: 768px) {
+  .main-container {
+    width: 100vw;
+    height: auto;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  
+  .main-container > * {
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
 /* Page spécifique pour about */
 body.about-page-body {
   overflow: auto !important;

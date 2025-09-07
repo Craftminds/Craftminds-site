@@ -13,6 +13,14 @@ body {
   overflow: hidden; /* Initialement masqué pour le scroll horizontal */
 }
 
+/* Mobile : permettre le scroll vertical */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
