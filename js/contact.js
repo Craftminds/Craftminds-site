@@ -4,22 +4,19 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
       // Récupérer les données du formulaire
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData);
       
       // Validation côté client
       if (!validateForm(data)) {
+        e.preventDefault();
         return;
       }
       
-      // Afficher un message de succès (simulation)
-      showSuccessMessage();
-      
-      // Réinitialiser le formulaire
-      contactForm.reset();
+      // Si la validation passe, laisser Netlify gérer la soumission
+      // Afficher un message de chargement
+      showLoadingMessage();
     });
   }
 });
@@ -54,6 +51,43 @@ function validateForm(data) {
   }
   
   return true;
+}
+
+function showLoadingMessage() {
+  // Supprimer les anciens messages
+  const existingMessage = document.querySelector('.form-message');
+  if (existingMessage) {
+    existingMessage.remove();
+  }
+  
+  // Créer un message de chargement
+  const loadingDiv = document.createElement('div');
+  loadingDiv.className = 'form-message loading';
+  loadingDiv.innerHTML = `
+    <div class="message-content">
+      <svg class="spinner" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-dasharray="31.416" stroke-dashoffset="31.416">
+          <animate attributeName="stroke-dasharray" dur="2s" values="0 31.416;15.708 15.708;0 31.416" repeatCount="indefinite"/>
+          <animate attributeName="stroke-dashoffset" dur="2s" values="0;-15.708;-31.416" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+      <div>
+        <h3>Envoi en cours...</h3>
+        <p>Veuillez patienter pendant l'envoi de votre message.</p>
+      </div>
+    </div>
+  `;
+  
+  // Insérer le message avant le formulaire
+  const form = document.getElementById('contactForm');
+  form.parentNode.insertBefore(loadingDiv, form);
+  
+  // Désactiver le bouton de soumission
+  const submitBtn = form.querySelector('button[type="submit"]');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi en cours...';
+  }
 }
 
 function showSuccessMessage() {

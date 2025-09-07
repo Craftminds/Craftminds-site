@@ -68,6 +68,12 @@
         <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <h2>Envoyez-nous un message</h2>
           
+          <!-- Champ caché pour la redirection -->
+          <input type="hidden" name="form-name" value="contact" />
+          <div style="display: none;">
+            <label>Ne pas remplir ce champ : <input name="bot-field" /></label>
+          </div>
+          
           <div class="form-group">
             <label for="name">Nom complet *</label>
             <input type="text" id="name" name="name" required>
