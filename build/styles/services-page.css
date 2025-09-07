@@ -1,0 +1,150 @@
+/* Page Services - Sections séparées */
+.services-page-separated {
+  padding-top: 80px;
+}
+
+.service-section-separated {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+
+.service-section-separated:nth-child(even) {
+  background: #f8fafe;
+}
+
+.service-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+}
+
+.service-icon-section {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #4f4f6c 0%, #3d3d54 100%);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 20px 40px rgba(79, 79, 108, 0.3);
+}
+
+.service-icon-section svg {
+  width: 80px;
+  height: 80px;
+}
+
+.service-icon-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+}
+
+.service-content-section {
+  flex: 1;
+}
+
+.service-content-section h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.service-content-section h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4f4f6c;
+  margin-bottom: 24px;
+}
+
+.service-content-section p {
+  font-size: 1.2rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.service-content-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.service-content-section li {
+  color: #4f4f6c;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 12px 0;
+  position: relative;
+  padding-left: 32px;
+}
+
+.service-content-section li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #4f4f6c;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.services-cta {
+  background: linear-gradient(135deg, #4f4f6c 0%, #3d3d54 100%);
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-container p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-buttons .btn-primary {
+  background: #fff;
+  color: #4f4f6c;
+}
+
+.cta-buttons .btn-primary:hover {
+  background: #f8f9fa;
+  transform: translateY(-2px);
+}
+
+.cta-buttons .btn-secondary {
+  border-color: #fff;
+  color: #fff;
+}
+
+.cta-buttons .btn-secondary:hover {
+  background: #fff;
+  color: #4f4f6c;
+}

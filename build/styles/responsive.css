@@ -1,0 +1,365 @@
+/* Responsive Design */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero-section h1 {
+    font-size: 3rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tools-static {
+    gap: 30px;
+    flex-wrap: nowrap;
+  }
+  
+  .tools-static img {
+    height: 40px;
+  }
+  
+  .service-title {
+    font-size: 2.5rem;
+  }
+  
+  .service-content {
+    gap: 60px;
+  }
+  
+  .service-icon-large {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .service-icon-large svg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .service-text h3 {
+    font-size: 1.5rem;
+  }
+  
+  .service-text p {
+    font-size: 1.1rem;
+  }
+  
+  .testimonials {
+    padding: 80px 20px;
+  }
+  
+  .testimonials h2 {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+  }
+  
+  .testimonial-content {
+    gap: 40px;
+    height: 250px;
+  }
+  
+  .testimonial-image {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .testimonial-text {
+    padding: 25px;
+    min-height: 150px;
+  }
+  
+  .testimonial-quote p {
+    font-size: 1.1rem;
+  }
+  
+  .about-us {
+    padding: 80px 0;
+  }
+  
+  .about-content {
+    gap: 60px;
+  }
+  
+  .person-photo img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .person-description h2 {
+    font-size: 1.8rem;
+  }
+  
+  .person-description h3 {
+    font-size: 1.2rem;
+  }
+  
+  .about-divider {
+    height: 250px;
+  }
+  
+  .about-page h1 {
+    font-size: 3rem;
+  }
+  
+  .mission-stats {
+    gap: 40px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  /* Contact Page Responsive */
+  .contact-header h1 {
+    font-size: 3rem;
+  }
+  
+  .contact-content {
+    gap: 60px;
+  }
+  
+  .contact-container {
+    padding: 50px 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .hero-section {
+    padding: 0 15px;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero-logo img {
+    height: 60px;
+  }
+  
+  .tools-static {
+    gap: 20px;
+    flex-wrap: nowrap;
+  }
+  
+  .tools-static img {
+    height: 35px;
+  }
+  
+  .service-section {
+    padding: 0 20px;
+  }
+  
+  .service-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  
+  .service-content {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .service-icon-large {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .service-icon-large svg {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .service-text {
+    text-align: center;
+  }
+  
+  .service-text h3 {
+    font-size: 1.3rem;
+  }
+  
+  .service-text p {
+    font-size: 1rem;
+  }
+  
+  .testimonials {
+    padding: 60px 15px;
+  }
+  
+  .testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  
+  .testimonial-content {
+    flex-direction: column;
+    gap: 30px;
+    height: auto;
+    text-align: center;
+  }
+  
+  .testimonial-image {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .testimonial-text {
+    padding: 20px;
+    min-height: auto;
+  }
+  
+  .testimonial-quote p {
+    font-size: 1rem;
+  }
+  
+  .about-us {
+    padding: 60px 0;
+  }
+  
+  .about-container {
+    padding: 0 20px;
+  }
+  
+  .about-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .about-divider {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #4f4f6c, transparent);
+  }
+  
+  .person-photo img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .person-description h2 {
+    font-size: 1.6rem;
+  }
+  
+  .person-description h3 {
+    font-size: 1.1rem;
+  }
+  
+  .about-page .about-container {
+    padding: 20px 20px;
+  }
+  
+  .mission-container {
+    padding: 0 20px;
+  }
+  
+  .mission-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .mission-section p {
+    font-size: 1.1rem;
+  }
+  
+  .mission-stats {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .stat-label {
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .tools-static {
+    gap: 15px;
+    flex-wrap: nowrap;
+  }
+  
+  .tools-static img {
+    height: 30px;
+  }
+  
+  .service-title {
+    font-size: 1.8rem;
+  }
+  
+  .testimonials h2 {
+    font-size: 1.8rem;
+  }
+  
+  .testimonial-photo {
+    width: 100px;
+  }
+  
+  .testimonial-image {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .mission-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  /* Contact Page Responsive */
+  .contact-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .contact-header p {
+    font-size: 1.1rem;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .contact-container {
+    padding: 40px 20px;
+  }
+  
+  .contact-form-container {
+    padding: 30px 20px;
+  }
+  
+  .contact-form h2 {
+    font-size: 1.8rem;
+  }
+}

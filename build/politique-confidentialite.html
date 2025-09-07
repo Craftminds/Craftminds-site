@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politique de Confidentialité - CraftMinds</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="styles/main.css?v=123456789">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="about-page-body">
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+
+  <!-- Section Politique de Confidentialité -->
+  <div id="privacy-container"></div>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script>
+    // Charger les composants
+    async function loadComponent(containerId, filePath) {
+      try {
+        const response = await fetch(filePath);
+        const html = await response.text();
+        document.getElementById(containerId).innerHTML = html;
+      } catch (error) {
+        console.error(`Erreur lors du chargement de ${filePath}:`, error);
+      }
+    }
+
+    // Charger tous les composants
+    document.addEventListener('DOMContentLoaded', async () => {
+      await Promise.all([
+        loadComponent('navbar-container', 'components/navbar.html'),
+        loadComponent('privacy-container', 'sections/privacy-section.html'),
+        loadComponent('footer-container', 'components/footer.html')
+      ]);
+    });
+  </script>
+</body>
+</html>

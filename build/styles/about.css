@@ -1,0 +1,78 @@
+/* About Section */
+.about-page {
+  padding-top: 80px;
+  background: #fff;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+}
+
+.about-page .about-container {
+  padding: 40px 40px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.about-person {
+  flex: 1;
+  text-align: center;
+}
+
+.person-photo {
+  margin-bottom: 30px;
+}
+
+.person-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4f4f6c;
+  box-shadow: 0 10px 30px rgba(79, 79, 108, 0.3);
+}
+
+.person-description h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.person-description h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #4f4f6c;
+  margin-bottom: 20px;
+}
+
+.person-description p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.about-page .person-description p {
+  margin-bottom: 20px;
+}
+
+.about-page .person-description p:last-child {
+  margin-bottom: 0;
+}
+
+.about-divider {
+  width: 2px;
+  height: 300px;
+  background: linear-gradient(to bottom, transparent, #4f4f6c, transparent);
+  flex-shrink: 0;
+}
