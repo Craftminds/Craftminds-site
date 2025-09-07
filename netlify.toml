@@ -1,8 +1,8 @@
 [build]
   # Pas de commande de build nécessaire pour un site statique
   command = ""
-  # Dossier à publier (racine du projet)
-  publish = "."
+  # Dossier à publier (dossier build)
+  publish = "build"
   
   # Redirections pour les routes SPA si nécessaire
   [[redirects]]
