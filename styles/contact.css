@@ -5,88 +5,99 @@
   min-height: 100vh;
 }
 
-/* Messages de formulaire */
-.form-message {
+/* Contact CTA Section */
+.contact-cta {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  color: white;
+  margin-top: 2rem;
+}
+
+.contact-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.contact-cta p {
+  font-size: 1.2rem;
   margin-bottom: 2rem;
-  padding: 1.5rem;
-  border-radius: 12px;
-  border: 2px solid;
-  animation: slideDown 0.3s ease-out;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.form-message.success {
-  background: #f0fdf4;
-  border-color: #10b981;
-  color: #065f46;
-}
-
-.form-message.error {
-  background: #fef2f2;
-  border-color: #ef4444;
-  color: #991b1b;
-}
-
-.form-message.loading {
-  background: #eff6ff;
-  border-color: #3b82f6;
-  color: #1e40af;
-}
-
-.message-content {
+.cta-buttons {
   display: flex;
-  align-items: flex-start;
   gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.message-content svg {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.message-content .spinner {
-  animation: spin 1s linear infinite;
-}
-
-.message-content h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
+.cta-buttons .btn-primary,
+.cta-buttons .btn-secondary {
+  padding: 15px 30px;
+  border-radius: 12px;
+  text-decoration: none;
   font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  min-width: 200px;
 }
 
-.message-content p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.4;
+.cta-buttons .btn-primary {
+  background: white;
+  color: #667eea;
+  border: 2px solid white;
 }
 
-.message-content ul {
-  margin: 0.5rem 0 0 0;
-  padding-left: 1.2rem;
+.cta-buttons .btn-primary:hover {
+  background: transparent;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.message-content li {
-  margin-bottom: 0.25rem;
+.cta-buttons .btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+.cta-buttons .btn-secondary:hover {
+  background: white;
+  color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .contact-cta {
+    padding: 2rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .contact-cta h2 {
+    font-size: 2rem;
   }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
+  
+  .contact-cta p {
+    font-size: 1.1rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-secondary {
+    width: 100%;
+    max-width: 300px;
   }
 }
 
