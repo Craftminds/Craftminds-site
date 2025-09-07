@@ -1,0 +1,15 @@
+{
+  "forms": {
+    "contact": {
+      "name": "contact",
+      "action": "/contact-success.html",
+      "notifications": {
+        "email": {
+          "to": "enzo.monnier@craftminds.fr",
+          "subject": "Nouveau message depuis le site CraftMinds",
+          "template": "default"
+        }
+      }
+    }
+  }
+}
