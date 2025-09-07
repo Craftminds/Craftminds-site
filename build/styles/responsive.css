@@ -131,7 +131,7 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-  /* Supprimer le scroll vertical sur mobile */
+  /* Supprimer seulement le scroll horizontal sur mobile */
   body {
     overflow-x: hidden;
   }
@@ -145,7 +145,7 @@
   }
   
   .hero-section {
-    padding: 0 15px;
+    padding: 100px 15px 60px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
