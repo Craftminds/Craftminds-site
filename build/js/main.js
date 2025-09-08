@@ -9,9 +9,60 @@ function hideNavbarOnMobile() {
   }
 }
 
+// Empêcher le scroll horizontal sur mobile/tablette
+function preventHorizontalScroll() {
+  if (window.innerWidth <= 1024) {
+    // Empêcher le scroll horizontal
+    document.addEventListener('scroll', function(e) {
+      if (window.scrollX !== 0) {
+        window.scrollTo(0, window.scrollY);
+      }
+    });
+    
+    // Empêcher le scroll horizontal avec les gestes tactiles
+    let startX = 0;
+    let startY = 0;
+    
+    document.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+    
+    document.addEventListener('touchmove', function(e) {
+      const currentX = e.touches[0].clientX;
+      const currentY = e.touches[0].clientY;
+      const diffX = Math.abs(currentX - startX);
+      const diffY = Math.abs(currentY - startY);
+      
+      // Si le mouvement horizontal est plus important que le vertical, empêcher
+      if (diffX > diffY) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+    
+    // Forcer la largeur complète
+    document.body.style.width = '100vw';
+    document.body.style.maxWidth = '100vw';
+    document.body.style.overflowX = 'hidden';
+    
+    const mainContainer = document.querySelector('.main-container');
+    if (mainContainer) {
+      mainContainer.style.width = '100vw';
+      mainContainer.style.maxWidth = '100vw';
+      mainContainer.style.overflowX = 'hidden';
+    }
+  }
+}
+
 // Appliquer immédiatement et au redimensionnement
-document.addEventListener('DOMContentLoaded', hideNavbarOnMobile);
-window.addEventListener('resize', hideNavbarOnMobile);
+document.addEventListener('DOMContentLoaded', function() {
+  hideNavbarOnMobile();
+  preventHorizontalScroll();
+});
+window.addEventListener('resize', function() {
+  hideNavbarOnMobile();
+  preventHorizontalScroll();
+});
 
 // Conversion du scroll vertical en scroll horizontal pour les 4 premières sections
 let currentSection = 0;

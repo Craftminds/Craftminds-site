@@ -4,18 +4,28 @@
 html {
   overflow-x: hidden !important;
   max-width: 100vw !important;
+  width: 100% !important;
 }
 
 body {
   overflow-x: hidden !important;
   max-width: 100vw !important;
   width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Empêcher le débordement horizontal de tous les éléments */
 * {
   max-width: 100% !important;
   box-sizing: border-box !important;
+}
+
+/* Forcer tous les conteneurs à ne pas déborder */
+.container, .main-container, .section, .hero-section, .service-section, 
+.testimonials, .about-us, .contact-section {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
 }
 
 /* Tablet */
@@ -194,12 +204,23 @@ body {
   
   html, body {
     overflow-x: hidden !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
     margin: 0 !important;
     padding: 0 !important;
-    position: relative !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
     -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Forcer la largeur complète sur tous les éléments */
+  .main-container, .hero-section, .testimonials {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 0 !important;
+    right: 0 !important;
   }
   
   /* Empêcher le zoom sur les éléments */
@@ -274,12 +295,23 @@ body {
     opacity: 0.3 !important;
   }
   
-  /* Bloquer le scroll */
+  /* Bloquer le scroll horizontal et forcer le scroll vertical uniquement */
   body {
-    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
     position: fixed !important;
-    width: 100% !important;
-    height: 100% !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+  
+  /* Forcer le scroll vertical uniquement sur le contenu */
+  .main-container {
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    width: 100vw !important;
+    height: auto !important;
   }
   
   .navbar {
@@ -298,8 +330,12 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    width: 100%;
-    max-width: 100%;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    position: relative !important;
   }
   
   .hero-section h1 {
