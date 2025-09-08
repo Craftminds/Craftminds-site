@@ -1,5 +1,23 @@
 /* Responsive Design */
 
+/* Règles globales pour désactiver le scroll horizontal sur tous les appareils */
+html {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
+/* Empêcher le débordement horizontal de tous les éléments */
+* {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
 /* Tablet */
 @media (max-width: 1024px) {
   /* Masquer navbar, footer et services sur tablette */
@@ -9,6 +27,20 @@
   section.service-section {
     display: none !important;
     visibility: hidden !important;
+  }
+  
+  /* Désactiver le scroll horizontal sur tablette */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  * {
+    -webkit-user-scalable: no;
+    -moz-user-scalable: no;
+    -ms-user-scalable: no;
+    user-scalable: no;
   }
   
   .hero-section h1 {
@@ -149,16 +181,33 @@
     visibility: hidden !important;
   }
   
-  /* Supprimer le scroll horizontal et forcer l'alignement vertical */
+  /* Désactiver complètement le scroll horizontal et le zoom */
   * {
     box-sizing: border-box;
+    -webkit-user-scalable: no;
+    -moz-user-scalable: no;
+    -ms-user-scalable: no;
+    user-scalable: no;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
   }
   
-  body {
-    overflow-x: hidden;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Empêcher le zoom sur les éléments */
+  input, textarea, select {
+    font-size: 16px !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
   
   /* Forcer tous les conteneurs à respecter la largeur */

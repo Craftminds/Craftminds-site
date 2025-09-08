@@ -1,3 +1,18 @@
+// Masquer la navbar sur mobile et tablette
+function hideNavbarOnMobile() {
+  if (window.innerWidth <= 1024) {
+    const navbar = document.querySelector('#navbar-container');
+    if (navbar) {
+      navbar.style.display = 'none';
+      navbar.style.visibility = 'hidden';
+    }
+  }
+}
+
+// Appliquer immédiatement et au redimensionnement
+document.addEventListener('DOMContentLoaded', hideNavbarOnMobile);
+window.addEventListener('resize', hideNavbarOnMobile);
+
 // Conversion du scroll vertical en scroll horizontal pour les 4 premières sections
 let currentSection = 0;
 const totalSections = 4; // Hero + 3 sections de services
