@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Version - CraftMinds</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .btn {
+      background: #4f4f6c;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px 5px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: #3d3d54;
+    }
+    .info {
+      background: #e3f2fd;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 20px 0;
+      border-left: 4px solid #2196f3;
+    }
+    .success {
+      background: #e8f5e8;
+      border-left-color: #4caf50;
+    }
+    .error {
+      background: #ffebee;
+      border-left-color: #f44336;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 Test du système de versioning</h1>
+    
+    <div class="info">
+      <strong>Version actuelle :</strong> <span id="current-version">Chargement...</span><br>
+      <strong>Dernière version stockée :</strong> <span id="stored-version">Chargement...</span><br>
+      <strong>Force reload activé :</strong> <span id="force-reload">Chargement...</span>
+    </div>
+    
+    <h2>Actions de test :</h2>
+    
+    <button class="btn" onclick="checkVersion()">🔍 Vérifier la version</button>
+    <button class="btn" onclick="forceReload()">🔄 Forcer le rechargement</button>
+    <button class="btn" onclick="clearStorage()">🗑️ Vider le stockage</button>
+    <button class="btn" onclick="testHamburger()">🍔 Tester le menu hamburger</button>
+    
+    <div id="test-results"></div>
+    
+    <h3>Instructions :</h3>
+    <ol>
+      <li>Cliquez sur "Vérifier la version" pour voir l'état actuel</li>
+      <li>Cliquez sur "Forcer le rechargement" pour programmer un refresh</li>
+      <li>Rechargez la page pour voir le système en action</li>
+      <li>Testez le menu hamburger en mode mobile</li>
+    </ol>
+    
+    <div class="info success">
+      <strong>✅ Système de versioning actif !</strong><br>
+      Le site se mettra automatiquement à jour à chaque nouvelle version.
+    </div>
+  </div>
+  
+  <script src="js/version-manager.js"></script>
+  <script>
+    // Afficher les informations de version
+    function updateVersionInfo() {
+      document.getElementById('current-version').textContent = '1.0.0';
+      document.getElementById('stored-version').textContent = localStorage.getItem('craftminds_version') || 'Aucune';
+      document.getElementById('force-reload').textContent = localStorage.getItem('force_reload') || 'Non';
+    }
+    
+    // Tester le menu hamburger
+    function testHamburger() {
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+      
+      if (hamburger && navMenu) {
+        showResult('✅ Menu hamburger trouvé !', 'success');
+      } else {
+        showResult('❌ Menu hamburger non trouvé', 'error');
+      }
+    }
+    
+    // Vider le stockage
+    function clearStorage() {
+      localStorage.removeItem('craftminds_version');
+      localStorage.removeItem('force_reload');
+      updateVersionInfo();
+      showResult('🗑️ Stockage vidé', 'info');
+    }
+    
+    // Afficher un résultat
+    function showResult(message, type = 'info') {
+      const results = document.getElementById('test-results');
+      const div = document.createElement('div');
+      div.className = `info ${type}`;
+      div.textContent = message;
+      results.appendChild(div);
+      
+      setTimeout(() => {
+        div.remove();
+      }, 3000);
+    }
+    
+    // Initialiser
+    updateVersionInfo();
+    
+    // Mettre à jour toutes les 2 secondes
+    setInterval(updateVersionInfo, 2000);
+  </script>
+</body>
+</html>
