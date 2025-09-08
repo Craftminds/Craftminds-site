@@ -1,89 +1,56 @@
-/* Responsive Design */
+/* Responsive Design - Version propre et fonctionnelle */
 
-/* Règles globales pour désactiver le scroll horizontal sur tous les appareils */
-html {
-  overflow-x: hidden !important;
-  max-width: 100vw !important;
-  width: 100% !important;
+/* Règles de base pour tous les appareils */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  overflow-x: hidden !important;
-  max-width: 100vw !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Empêcher le débordement horizontal de tous les éléments */
 * {
-  max-width: 100% !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
 
-/* Forcer tous les conteneurs à ne pas déborder */
-.container, .main-container, .section, .hero-section, .service-section, 
-.testimonials, .about-us, .contact-section {
-  max-width: 100vw !important;
-  overflow-x: hidden !important;
-}
-
-/* Desktop - S'assurer que les éléments sont visibles */
-@media (min-width: 1025px) {
-  #navbar-container,
-  #footer-container,
-  .service-section,
-  section.service-section {
-    display: block !important;
-    visibility: visible !important;
-  }
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  /* Masquer navbar, footer et services sur tablette */
-  #navbar-container,
-  #footer-container,
-  .service-section,
-  section.service-section {
-    display: none !important;
-    visibility: hidden !important;
+/* Desktop - Écrans larges (1200px et plus) */
+@media (min-width: 1200px) {
+  .navbar-container {
+    padding: 1rem 2rem;
   }
   
-  /* Désactiver le scroll horizontal sur tablette */
-  html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    max-width: 100% !important;
+  .footer-container {
+    padding: 0 40px;
   }
   
-  * {
-    -webkit-user-scalable: no;
-    -moz-user-scalable: no;
-    -ms-user-scalable: no;
-    user-scalable: no;
+  .service-section {
+    padding: 0 40px;
+  }
+  
+  .hero-section h1 {
+    font-size: 3.5rem;
+  }
+  
+  .service-title {
+    font-size: 3rem;
+  }
+}
+
+/* Desktop - Écrans moyens (1024px à 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .navbar-container {
+    padding: 1rem 1.5rem;
+  }
+  
+  .footer-container {
+    padding: 0 30px;
+  }
+  
+  .service-section {
+    padding: 0 30px;
   }
   
   .hero-section h1 {
     font-size: 3rem;
-  }
-  
-  .subtitle {
-    font-size: 1.2rem;
-  }
-  
-  .hero-cta {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .tools-static {
-    gap: 30px;
-    flex-wrap: nowrap;
-  }
-  
-  .tools-static img {
-    height: 40px;
   }
   
   .service-title {
@@ -103,306 +70,145 @@ body {
     width: 60px;
     height: 60px;
   }
-  
-  .service-text h3 {
-    font-size: 1.5rem;
-  }
-  
-  .service-text p {
-    font-size: 1.1rem;
-  }
-  
-  .testimonials {
-    padding: 80px 20px;
-  }
-  
-  .testimonials h2 {
-    font-size: 2.5rem;
-    margin-bottom: 60px;
-  }
-  
-  .testimonial-content {
-    gap: 40px;
-    height: 250px;
-  }
-  
-  .testimonial-image {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .testimonial-text {
-    padding: 25px;
-    min-height: 150px;
-  }
-  
-  .testimonial-quote p {
-    font-size: 1.1rem;
-  }
-  
-  .about-us {
-    padding: 80px 0;
-  }
-  
-  .about-content {
-    gap: 60px;
-  }
-  
-  .person-photo img {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .person-description h2 {
-    font-size: 1.8rem;
-  }
-  
-  .person-description h3 {
-    font-size: 1.2rem;
-  }
-  
-  .about-divider {
-    height: 250px;
-  }
-  
-  .about-page h1 {
-    font-size: 3rem;
-  }
-  
-  .mission-stats {
-    gap: 40px;
-  }
-  
-  .stat-number {
-    font-size: 2.5rem;
-  }
-  
-  /* Contact Page Responsive */
-  .contact-header h1 {
-    font-size: 3rem;
-  }
-  
-  .contact-content {
-    gap: 60px;
-  }
-  
-  .contact-container {
-    padding: 50px 30px;
-  }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  /* Masquer navbar, footer et services sur mobile */
-  #navbar-container,
-  #footer-container,
-  .service-section,
-  section.service-section {
-    display: none !important;
-    visibility: hidden !important;
+/* Tablet - Écrans moyens (768px à 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .navbar-container {
+    padding: 1rem;
   }
   
-  /* Désactiver complètement le scroll horizontal et le zoom */
-  * {
-    box-sizing: border-box;
-    -webkit-user-scalable: no;
-    -moz-user-scalable: no;
-    -ms-user-scalable: no;
-    user-scalable: no;
-    -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-  
-  html, body {
-    overflow-x: hidden !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  /* Forcer la largeur complète sur tous les éléments */
-  .main-container, .hero-section, .testimonials {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    left: 0 !important;
-    right: 0 !important;
-  }
-  
-  /* Empêcher le zoom sur les éléments */
-  input, textarea, select {
-    font-size: 16px !important;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-  
-  /* Forcer tous les conteneurs à respecter la largeur */
-  .container, .section, .hero-section, .service-section, 
-  .testimonials, .about-us, .contact-section {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden;
-  }
-  
-  /* Forcer le main-container à ne pas déborder */
-  .main-container {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
-  }
-  
-  /* Forcer tous les éléments enfants */
-  .main-container > * {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
-  }
-  
-  /* Forcer tous les éléments à ne pas déborder */
-  img, video, iframe, object, embed {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  /* Bloquer complètement toutes les interactions sur mobile */
-  * {
-    pointer-events: none !important;
-    user-select: none !important;
-    -webkit-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    -webkit-touch-callout: none !important;
-    -webkit-tap-highlight-color: transparent !important;
-  }
-  
-  
-  /* Désactiver tous les boutons et liens sur mobile */
-  .btn-primary, .btn-secondary, a, button {
-    opacity: 0.5 !important;
-    cursor: not-allowed !important;
-  }
-  
-  /* Désactiver la navbar */
-  .navbar .nav-links a,
-  .navbar .btn-primary {
-    opacity: 0.5 !important;
-    cursor: not-allowed !important;
-  }
-  
-  /* Désactiver le menu hamburger */
-  .hamburger {
-    opacity: 0.5 !important;
-    cursor: not-allowed !important;
-  }
-  
-  /* Désactiver les outils */
-  .tools-static img {
-    opacity: 0.3 !important;
-  }
-  
-  /* Bloquer le scroll horizontal et forcer le scroll vertical uniquement */
-  body {
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    position: fixed !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    top: 0 !important;
-    left: 0 !important;
-  }
-  
-  /* Forcer le scroll vertical uniquement sur le contenu */
-  .main-container {
-    overflow-x: hidden !important;
-    overflow-y: visible !important;
-    width: 100vw !important;
-    height: auto !important;
-  }
-  
-  .navbar {
-    padding: 0;
-    width: 100%;
-  }
-  
-  .nav-links {
-    gap: 1rem;
-  }
-  
-  .hero-section {
-    padding: 100px 15px 60px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    position: relative !important;
-  }
-  
-  .hero-section h1 {
-    font-size: 2.2rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-  }
-  
-  .subtitle {
-    font-size: 1.1rem;
-    line-height: 1.4;
-    margin-bottom: 2rem;
-  }
-  
-  .hero-logo img {
-    height: 60px;
-    margin-bottom: 2rem;
-  }
-  
-  .tools-static {
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 2rem 0;
-  }
-  
-  .tools-static img {
-    height: 30px;
-    opacity: 0.8;
+  .footer-container {
+    padding: 0 20px;
   }
   
   .service-section {
-    padding: 60px 15px;
-    width: 100%;
-    max-width: 100%;
+    padding: 0 20px;
+  }
+  
+  .hero-section {
+    padding: 0 20px;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
   }
   
   .service-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    text-align: center;
-    width: 100%;
+    font-size: 2.2rem;
   }
   
   .service-content {
     flex-direction: column;
     gap: 40px;
     text-align: center;
-    width: 100%;
-    max-width: 100%;
+  }
+  
+  .service-icon-large {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+  
+  .service-icon-large svg {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .service-text h3 {
+    font-size: 1.4rem;
+  }
+  
+  .service-text p {
+    font-size: 1.1rem;
+  }
+  
+  .tools-static {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .tools-static img {
+    height: 35px;
+  }
+  
+  .testimonials {
+    padding: 60px 20px;
+  }
+  
+  .testimonials h2 {
+    font-size: 2.2rem;
+  }
+  
+  .testimonial-content {
+    flex-direction: column;
+    gap: 30px;
+    height: auto;
+    text-align: center;
+  }
+  
+  .testimonial-image {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* Mobile - Écrans petits (jusqu'à 767px) */
+@media (max-width: 767px) {
+  .navbar-container {
+    padding: 1rem;
+  }
+  
+  .footer-container {
+    padding: 0 15px;
+  }
+  
+  .service-section {
+    padding: 0 15px;
+  }
+  
+  .hero-section {
+    padding: 0 15px;
+    min-height: 100vh;
+  }
+  
+  .hero-section h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .hero-logo img {
+    height: 50px;
+  }
+  
+  .service-title {
+    font-size: 1.8rem;
+  }
+  
+  .service-content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
   }
   
   .service-icon-large {
     width: 100px;
     height: 100px;
-    margin: 0 auto 1rem;
+    margin: 0 auto;
   }
   
   .service-icon-large svg {
@@ -410,29 +216,28 @@ body {
     height: 40px;
   }
   
-  .service-text {
-    text-align: center;
-    max-width: 100%;
-  }
-  
   .service-text h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
   }
   
   .service-text p {
     font-size: 1rem;
-    line-height: 1.5;
   }
   
-  /* Boutons responsive */
+  .tools-static {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .tools-static img {
+    height: 30px;
+  }
+  
   .hero-cta {
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-    margin-top: 2rem;
-    width: 100%;
-    max-width: 100%;
   }
   
   .btn-primary, .btn-secondary {
@@ -440,141 +245,21 @@ body {
     max-width: 280px;
     padding: 1rem 2rem;
     font-size: 1rem;
-    text-align: center;
-    box-sizing: border-box;
   }
   
   .testimonials {
-    padding: 60px 15px;
-    width: 100%;
-    max-width: 100%;
+    padding: 40px 15px;
   }
   
   .testimonials h2 {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    text-align: center;
-    width: 100%;
+    font-size: 1.8rem;
   }
   
   .testimonial-content {
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
     height: auto;
     text-align: center;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .testimonial-image {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .testimonial-text {
-    padding: 20px;
-    min-height: auto;
-  }
-  
-  .testimonial-quote p {
-    font-size: 1rem;
-  }
-  
-  .about-us {
-    padding: 60px 0;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .about-container {
-    padding: 0 15px;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .about-content {
-    flex-direction: column;
-    gap: 40px;
-  }
-  
-  .about-divider {
-    width: 200px;
-    height: 2px;
-    background: linear-gradient(to right, transparent, #4f4f6c, transparent);
-  }
-  
-  .person-photo img {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .person-description h2 {
-    font-size: 1.6rem;
-  }
-  
-  .person-description h3 {
-    font-size: 1.1rem;
-  }
-  
-  .about-page .about-container {
-    padding: 20px 20px;
-  }
-  
-  .mission-container {
-    padding: 0 20px;
-  }
-  
-  .mission-section h2 {
-    font-size: 2.2rem;
-  }
-  
-  .mission-section p {
-    font-size: 1.1rem;
-  }
-  
-  .mission-stats {
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .stat-number {
-    font-size: 2.5rem;
-  }
-  
-  .stat-label {
-    font-size: 1rem;
-  }
-}
-
-/* Small Mobile */
-@media (max-width: 480px) {
-  .hero-section h1 {
-    font-size: 2rem;
-  }
-  
-  .subtitle {
-    font-size: 1rem;
-  }
-  
-  .tools-static {
-    gap: 15px;
-    flex-wrap: nowrap;
-  }
-  
-  .tools-static img {
-    height: 30px;
-  }
-  
-  .service-title {
-    font-size: 1.8rem;
-  }
-  
-  .testimonials h2 {
-    font-size: 1.8rem;
-  }
-  
-  .testimonial-photo {
-    width: 100px;
   }
   
   .testimonial-image {
@@ -582,37 +267,188 @@ body {
     height: 100px;
   }
   
-  .mission-section h2 {
-    font-size: 1.8rem;
+  .testimonial-text {
+    padding: 15px;
   }
   
-  .stat-number {
-    font-size: 2rem;
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    text-align: center;
   }
   
-  /* Contact Page Responsive */
-  .contact-header h1 {
-    font-size: 2.5rem;
-  }
-  
-  .contact-header p {
+  .footer-section h3 {
     font-size: 1.1rem;
   }
   
-  .contact-content {
-    grid-template-columns: 1fr;
-    gap: 60px;
+  .footer-section ul li {
+    margin-bottom: 8px;
   }
-  
-  .contact-container {
-    padding: 40px 20px;
-  }
-  
-  .contact-form-container {
-    padding: 30px 20px;
-  }
-  
-  .contact-form h2 {
+}
+
+/* Très petits mobiles (jusqu'à 480px) */
+@media (max-width: 480px) {
+  .hero-section h1 {
     font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .service-title {
+    font-size: 1.6rem;
+  }
+  
+  .testimonials h2 {
+    font-size: 1.6rem;
+  }
+  
+  .tools-static img {
+    height: 25px;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Page Services - Responsive spécifique */
+@media (max-width: 1023px) {
+  .service-wrapper {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .service-icon-section {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+  
+  .service-content-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .service-content-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  .service-content-section p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-wrapper {
+    padding: 0 15px;
+    gap: 30px;
+  }
+  
+  .service-icon-section {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .service-content-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .service-content-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  .service-content-section p {
+    font-size: 1rem;
+  }
+  
+  .services-cta {
+    padding: 60px 15px;
+  }
+  
+  .cta-container h2 {
+    font-size: 2rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Navigation responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .nav-links a {
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    color: #1e293b;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    display: block;
+    min-width: 200px;
+  }
+  
+  .nav-links a:hover {
+    background: rgba(79, 79, 108, 0.1);
+    color: #4f4f6c;
+    transform: translateY(-2px);
+  }
+  
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
   }
 }
