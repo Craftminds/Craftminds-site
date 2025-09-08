@@ -28,8 +28,14 @@
 </nav>
 
 <script>
-// Menu hamburger - Version simplifiée
+// Menu hamburger - Désactivé sur mobile
 function initHamburgerMenu() {
+  // Vérifier si on est sur desktop
+  if (window.innerWidth <= 767) {
+    console.log('🍔 Menu hamburger désactivé sur mobile');
+    return;
+  }
+  
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('nav-menu');
   const body = document.body;
@@ -39,7 +45,7 @@ function initHamburgerMenu() {
     return;
   }
   
-  console.log('🍔 Initialisation du menu hamburger');
+  console.log('🍔 Initialisation du menu hamburger (desktop uniquement)');
   
   // Toggle du menu
   hamburger.addEventListener('click', function(e) {
