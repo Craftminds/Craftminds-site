@@ -6,10 +6,11 @@
 }
 
 .service-section-separated {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   background: #fff;
+  padding: 40px 0;
 }
 
 .service-section-separated:nth-child(even) {
@@ -230,5 +231,16 @@
   .cta-buttons .btn-secondary {
     width: 100%;
     max-width: 280px;
+  }
+  
+  /* Corrections pour le scroll sur mobile */
+  .service-section-separated {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 40px 0 !important;
+  }
+  
+  .services-page-separated {
+    padding-top: 60px;
   }
 }
