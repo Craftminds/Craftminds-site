@@ -133,7 +133,7 @@
       
       // Forcer le masquage des éléments sur mobile/tablette après chargement
       function hideElementsOnMobile() {
-        if (window.innerWidth <= 1024) {
+        if (window.innerWidth <= 768) {
           const elementsToHide = [
             '#navbar-container',
             '#footer-container', 
@@ -146,6 +146,22 @@
             elements.forEach(el => {
               el.style.display = 'none';
               el.style.visibility = 'hidden';
+            });
+          });
+        } else {
+          // Réafficher les éléments sur desktop
+          const elementsToShow = [
+            '#navbar-container',
+            '#footer-container', 
+            '.service-section',
+            'section.service-section'
+          ];
+          
+          elementsToShow.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(el => {
+              el.style.display = '';
+              el.style.visibility = '';
             });
           });
         }

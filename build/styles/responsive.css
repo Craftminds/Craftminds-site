@@ -28,6 +28,17 @@ body {
   overflow-x: hidden !important;
 }
 
+/* Desktop - S'assurer que les éléments sont visibles */
+@media (min-width: 1025px) {
+  #navbar-container,
+  #footer-container,
+  .service-section,
+  section.service-section {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
 /* Tablet */
 @media (max-width: 1024px) {
   /* Masquer navbar, footer et services sur tablette */
