@@ -11,7 +11,7 @@
   margin: 0 auto;
   padding: 80px 40px;
   height: 90dvh;
-  align-items: center;
+  align-content: center;
 }
 
 .about-page h1 {
