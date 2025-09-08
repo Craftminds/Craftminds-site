@@ -1,7 +1,80 @@
 /* Responsive Design */
 
-/* Tablet */
+/* Section mobile/tablette - visible uniquement sur ces appareils */
+.mobile-construction-section {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.mobile-construction-content {
+  text-align: center;
+  color: white;
+  padding: 40px 20px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.mobile-logo img {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 40px;
+  filter: brightness(0) invert(1);
+}
+
+.mobile-message h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.mobile-message p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.mobile-icon {
+  margin-top: 20px;
+  opacity: 0.8;
+}
+
+.mobile-icon svg {
+  color: white;
+}
+
+/* Afficher la section mobile uniquement sur mobile et tablette */
 @media (max-width: 1024px) {
+  .mobile-construction-section {
+    display: flex;
+  }
+  
+  /* Masquer tout le contenu desktop */
+  #navbar-container,
+  #main-container,
+  #testimonials-container,
+  #footer-container {
+    display: none !important;
+  }
+  
+  /* Masquer le body scroll */
+  body {
+    overflow: hidden !important;
+  }
+}
+
+/* Styles desktop uniquement - masqués sur mobile/tablette */
+@media (min-width: 1025px) {
   .hero-section h1 {
     font-size: 3rem;
   }
@@ -129,384 +202,27 @@
   }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  /* Supprimer le scroll horizontal et forcer l'alignement vertical */
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    overflow-x: hidden;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Forcer tous les conteneurs à respecter la largeur */
-  .container, .section, .hero-section, .service-section, 
-  .testimonials, .about-us, .contact-section {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden;
-  }
-  
-  /* Forcer le main-container à ne pas déborder */
-  .main-container {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
-  }
-  
-  /* Forcer tous les éléments enfants */
-  .main-container > * {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
-  }
-  
-  /* Forcer tous les éléments à ne pas déborder */
-  img, video, iframe, object, embed {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  /* Bloquer complètement toutes les interactions sur mobile */
-  * {
-    pointer-events: none !important;
-    user-select: none !important;
-    -webkit-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    -webkit-touch-callout: none !important;
-    -webkit-tap-highlight-color: transparent !important;
-  }
-  
-  /* Permettre seulement le hint mobile */
-  .mobile-hint {
-    pointer-events: auto !important;
-    user-select: text !important;
-    -webkit-user-select: text !important;
-    -moz-user-select: text !important;
-    -ms-user-select: text !important;
-  }
-  
-  /* Désactiver tous les boutons et liens sur mobile */
-  .btn-primary, .btn-secondary, a, button {
-    opacity: 0.5 !important;
-    cursor: not-allowed !important;
-  }
-  
-  /* Désactiver la navbar */
-  .navbar .nav-links a,
-  .navbar .btn-primary {
-    opacity: 0.5 !important;
-    cursor: not-allowed !important;
-  }
-  
-  /* Désactiver le menu hamburger */
-  .hamburger {
-    opacity: 0.5 !important;
-    cursor: not-allowed !important;
-  }
-  
-  /* Désactiver les outils */
-  .tools-static img {
-    opacity: 0.3 !important;
-  }
-  
-  /* Bloquer le scroll */
-  body {
-    overflow: hidden !important;
-    position: fixed !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-  
-  .navbar {
-    padding: 0;
-    width: 100%;
-  }
-  
-  .nav-links {
-    gap: 1rem;
-  }
-  
-  .hero-section {
-    padding: 100px 15px 60px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .hero-section h1 {
-    font-size: 2.2rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-  }
-  
-  .subtitle {
-    font-size: 1.1rem;
-    line-height: 1.4;
-    margin-bottom: 2rem;
-  }
-  
-  .hero-logo img {
-    height: 60px;
-    margin-bottom: 2rem;
-  }
-  
-  .tools-static {
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 2rem 0;
-  }
-  
-  .tools-static img {
-    height: 30px;
-    opacity: 0.8;
-  }
-  
-  .service-section {
-    padding: 60px 15px;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .service-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    text-align: center;
-    width: 100%;
-  }
-  
-  .service-content {
-    flex-direction: column;
-    gap: 40px;
-    text-align: center;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .service-icon-large {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 1rem;
-  }
-  
-  .service-icon-large svg {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .service-text {
-    text-align: center;
-    max-width: 100%;
-  }
-  
-  .service-text h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .service-text p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-  
-  /* Boutons responsive */
-  .hero-cta {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    margin-top: 2rem;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .btn-primary, .btn-secondary {
-    width: 100%;
-    max-width: 280px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    text-align: center;
-    box-sizing: border-box;
-  }
-  
-  .testimonials {
-    padding: 60px 15px;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .testimonials h2 {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    text-align: center;
-    width: 100%;
-  }
-  
-  .testimonial-content {
-    flex-direction: column;
-    gap: 30px;
-    height: auto;
-    text-align: center;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .testimonial-image {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .testimonial-text {
-    padding: 20px;
-    min-height: auto;
-  }
-  
-  .testimonial-quote p {
-    font-size: 1rem;
-  }
-  
-  .about-us {
-    padding: 60px 0;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .about-container {
-    padding: 0 15px;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .about-content {
-    flex-direction: column;
-    gap: 40px;
-  }
-  
-  .about-divider {
-    width: 200px;
-    height: 2px;
-    background: linear-gradient(to right, transparent, #4f4f6c, transparent);
-  }
-  
-  .person-photo img {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .person-description h2 {
-    font-size: 1.6rem;
-  }
-  
-  .person-description h3 {
-    font-size: 1.1rem;
-  }
-  
-  .about-page .about-container {
-    padding: 20px 20px;
-  }
-  
-  .mission-container {
-    padding: 0 20px;
-  }
-  
-  .mission-section h2 {
-    font-size: 2.2rem;
-  }
-  
-  .mission-section p {
-    font-size: 1.1rem;
-  }
-  
-  .mission-stats {
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .stat-number {
-    font-size: 2.5rem;
-  }
-  
-  .stat-label {
-    font-size: 1rem;
-  }
-}
-
-/* Small Mobile */
+/* Styles pour les très petits écrans mobiles */
 @media (max-width: 480px) {
-  .hero-section h1 {
-    font-size: 2rem;
+  .mobile-construction-content {
+    padding: 30px 15px;
   }
   
-  .subtitle {
+  .mobile-logo img {
+    max-width: 150px;
+    margin-bottom: 30px;
+  }
+  
+  .mobile-message h1 {
+    font-size: 1.5rem;
+  }
+  
+  .mobile-message p {
     font-size: 1rem;
   }
   
-  .tools-static {
-    gap: 15px;
-    flex-wrap: nowrap;
-  }
-  
-  .tools-static img {
-    height: 30px;
-  }
-  
-  .service-title {
-    font-size: 1.8rem;
-  }
-  
-  .testimonials h2 {
-    font-size: 1.8rem;
-  }
-  
-  .testimonial-photo {
-    width: 100px;
-  }
-  
-  .testimonial-image {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .mission-section h2 {
-    font-size: 1.8rem;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
-  }
-  
-  /* Contact Page Responsive */
-  .contact-header h1 {
-    font-size: 2.5rem;
-  }
-  
-  .contact-header p {
-    font-size: 1.1rem;
-  }
-  
-  .contact-content {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-  
-  .contact-container {
-    padding: 40px 20px;
-  }
-  
-  .contact-form-container {
-    padding: 30px 20px;
-  }
-  
-  .contact-form h2 {
-    font-size: 1.8rem;
+  .mobile-icon svg {
+    width: 48px;
+    height: 48px;
   }
 }
