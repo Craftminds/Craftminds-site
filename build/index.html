@@ -26,7 +26,7 @@
   <meta property="twitter:title" content="CraftMinds - Solutions No-Code, Automatisation et Intégration">
   <meta property="twitter:description" content="Transformez vos idées en réalité avec nos solutions no-code, automatisation et intégration.">
   <meta property="twitter:image" content="https://craftminds.fr/assets/logo_long.png">
-  <link rel="stylesheet" href="styles/main.css?v=123456789">
+  <link rel="stylesheet" href="styles/main.css?v=123456791">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Données structurées JSON-LD -->
@@ -130,6 +130,32 @@
       
       // Charger les témoignages
       await loadComponent('testimonials-container', 'sections/testimonials-section.html');
+      
+      // Forcer le masquage des éléments sur mobile/tablette après chargement
+      function hideElementsOnMobile() {
+        if (window.innerWidth <= 1024) {
+          const elementsToHide = [
+            '#navbar-container',
+            '#footer-container', 
+            '.service-section',
+            'section.service-section'
+          ];
+          
+          elementsToHide.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(el => {
+              el.style.display = 'none';
+              el.style.visibility = 'hidden';
+            });
+          });
+        }
+      }
+      
+      // Appliquer immédiatement
+      hideElementsOnMobile();
+      
+      // Réappliquer au redimensionnement
+      window.addEventListener('resize', hideElementsOnMobile);
     });
   </script>
   <script src="js/main.js"></script>

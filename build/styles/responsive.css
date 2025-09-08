@@ -5,8 +5,10 @@
   /* Masquer navbar, footer et services sur tablette */
   #navbar-container,
   #footer-container,
-  .service-section {
+  .service-section,
+  section.service-section {
     display: none !important;
+    visibility: hidden !important;
   }
   
   .hero-section h1 {
@@ -141,8 +143,10 @@
   /* Masquer navbar, footer et services sur mobile */
   #navbar-container,
   #footer-container,
-  .service-section {
+  .service-section,
+  section.service-section {
     display: none !important;
+    visibility: hidden !important;
   }
   
   /* Supprimer le scroll horizontal et forcer l'alignement vertical */
