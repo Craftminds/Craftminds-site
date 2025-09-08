@@ -157,7 +157,7 @@ html, body {
   text-align: center;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   position: relative;
-  padding: 0 20px;
+  padding: 80px 20px 0; /* Compenser la navbar fixe */
 }
 
 .hero-content {
@@ -671,7 +671,7 @@ html, body {
   
   /* Hero sur mobile */
   .hero-section {
-    padding: 0 15px;
+    padding: 60px 15px 0; /* Compenser la navbar fixe sur mobile */
     min-height: 100vh;
   }
   
@@ -765,8 +765,6 @@ html, body {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
-    background: rgba(255, 0, 0, 0.1) !important; /* Debug: fond rouge léger */
-    border: 2px solid red !important; /* Debug: bordure rouge */
   }
   
   .nav-menu {

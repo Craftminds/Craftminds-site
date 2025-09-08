@@ -29,16 +29,26 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
-  const body = document.body;
-  
-  if (hamburger && navMenu) {
+  // Délai pour s'assurer que tout est chargé
+  setTimeout(function() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const body = document.body;
+    
+    console.log('🍔 Hamburger menu init:', { hamburger, navMenu });
+    
+    if (hamburger && navMenu) {
     // Toggle du menu
     hamburger.addEventListener('click', function(e) {
       e.stopPropagation();
+      console.log('🍔 Hamburger clicked!');
       hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
+      
+      console.log('🍔 Menu state:', {
+        hamburgerActive: hamburger.classList.contains('active'),
+        navMenuActive: navMenu.classList.contains('active')
+      });
       
       // Empêcher le scroll du body quand le menu est ouvert
       if (navMenu.classList.contains('active')) {
@@ -94,6 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
         body.style.overflow = '';
       }
     });
-  }
+    } else {
+      console.error('🍔 Hamburger menu elements not found!', { hamburger, navMenu });
+    }
+  }, 100); // Délai de 100ms
 });
 </script>
