@@ -1,13 +1,10 @@
 /* Services Sections */
 .service-section {
-  min-height: 100vh;
-  display: flex !important;
+  height: 100vh;
+  display: flex;
   align-items: center;
   background: #fff;
-  padding: 80px 40px;
-  position: relative;
-  visibility: visible !important;
-  opacity: 1 !important;
+  padding: 0 40px;
 }
 
 .service-section:nth-child(even) {
@@ -18,8 +15,6 @@
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  position: relative;
-  z-index: 1;
 }
 
 .service-title {

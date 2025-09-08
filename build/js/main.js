@@ -53,11 +53,11 @@ window.addEventListener('resize', function() {
   preventHorizontalScroll();
 });
 
-// Système de scroll horizontal temporairement désactivé pour debug
+// Système de scroll horizontal pour desktop uniquement
 let currentSection = 0;
 const totalSections = 4; // Hero + 3 sections de services
 let isScrolling = false;
-let horizontalScrollEnabled = false; // Désactivé temporairement
+let horizontalScrollEnabled = true;
 
 // Fonction pour activer/désactiver le scroll horizontal
 function toggleHorizontalScroll(enable) {
@@ -70,8 +70,23 @@ function toggleHorizontalScroll(enable) {
   }
 }
 
-// Initialiser avec scroll vertical normal
-toggleHorizontalScroll(false);
+// Initialiser avec scroll horizontal sur desktop uniquement
+function initScrollMode() {
+  if (window.innerWidth > 1024) {
+    toggleHorizontalScroll(true);
+  } else {
+    toggleHorizontalScroll(false);
+  }
+}
+
+// Initialiser au chargement
+initScrollMode();
+
+// Réinitialiser au redimensionnement
+window.addEventListener('resize', function() {
+  initScrollMode();
+  preventHorizontalScroll();
+});
 
 window.addEventListener('wheel', function(e) {
   // Si on est dans les sections horizontales
