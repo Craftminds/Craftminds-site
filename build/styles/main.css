@@ -23,6 +23,41 @@ html, body {
   overflow-x: hidden;
 }
 
+/* ===== PRÉVENTION SCROLL LATERAL ET DÉZOOM MOBILE ===== */
+@media (max-width: 767px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    position: relative !important;
+  }
+  
+  * {
+    -webkit-user-scalable: no !important;
+    -moz-user-scalable: no !important;
+    -ms-user-scalable: no !important;
+    user-scalable: no !important;
+    -webkit-touch-callout: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  input, textarea, select {
+    font-size: 16px !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+  }
+  
+  /* Empêcher le zoom sur les éléments */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
 /* ===== LAYOUT PRINCIPAL - DESKTOP ===== */
 .main-container {
   display: flex;
@@ -558,6 +593,7 @@ html, body {
     height: auto !important;
     flex-direction: column !important;
     display: block !important;
+    overflow-x: hidden !important;
   }
   
   .main-container > * {
@@ -565,6 +601,20 @@ html, body {
     height: auto !important;
     min-height: 100vh !important;
     display: block !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Empêcher le débordement horizontal de tous les éléments */
+  * {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Forcer tous les conteneurs à ne pas déborder */
+  .container, .main-container, .section, .hero-section, .service-section, 
+  .testimonials, .about-us, .contact-section, .contact-page {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
   }
   
   /* Services sur mobile */

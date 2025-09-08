@@ -45,12 +45,46 @@ function preventHorizontalScroll() {
   }
 }
 
+// Empêcher le zoom sur mobile
+function preventZoom() {
+  if (window.innerWidth <= 767) {
+    // Empêcher le zoom avec les gestes
+    document.addEventListener('gesturestart', function(e) {
+      e.preventDefault();
+    });
+    
+    document.addEventListener('gesturechange', function(e) {
+      e.preventDefault();
+    });
+    
+    document.addEventListener('gestureend', function(e) {
+      e.preventDefault();
+    });
+    
+    // Empêcher le zoom avec la molette
+    document.addEventListener('wheel', function(e) {
+      if (e.ctrlKey) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+    
+    // Empêcher le zoom avec les touches
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '0')) {
+        e.preventDefault();
+      }
+    });
+  }
+}
+
 // Appliquer immédiatement et au redimensionnement
 document.addEventListener('DOMContentLoaded', function() {
   preventHorizontalScroll();
+  preventZoom();
 });
 window.addEventListener('resize', function() {
   preventHorizontalScroll();
+  preventZoom();
 });
 
 // Système de scroll horizontal pour desktop uniquement

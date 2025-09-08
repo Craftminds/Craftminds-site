@@ -4,12 +4,13 @@
   padding-top: 80px;
   min-height: 100vh;
   background: #f8fafe;
+  align-items: center;
 }
 
 .about-container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 80px 40px;
+  width: 100%;
 }
 
 .about-page h1 {
@@ -26,7 +27,7 @@
   align-items: center;
   justify-content: center;
   gap: 80px;
-  margin-bottom: 100px;
+  width: 100%;
 }
 
 .about-text {
@@ -182,13 +183,8 @@
 }
 
 .about-person {
-  background: #fff;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(79, 79, 108, 0.1);
   text-align: center;
   flex: 1;
-  max-width: 300px;
 }
 
 .about-divider {
