@@ -3,7 +3,7 @@
 .contact-page {
   padding-top: 80px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,52 +18,50 @@
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  max-width: 1200px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  max-width: 1000px;
   margin: 0 auto;
-  align-items: stretch;
+  align-items: start;
 }
 
 .contact-card {
-  background: #fff;
-  padding: 50px 40px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(79, 79, 108, 0.1);
+  background: transparent;
+  padding: 40px 0;
   text-align: center;
   transition: all 0.3s ease;
-  border: 1px solid rgba(79, 79, 108, 0.05);
+  border: none;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 300px;
+  justify-content: flex-start;
+  min-height: auto;
 }
 
 .contact-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(79, 79, 108, 0.15);
+  transform: translateY(-5px);
 }
 
 .contact-icon {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, #4f4f6c 0%, #3d3d54 100%);
-  border-radius: 20px;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 30px;
-  color: #fff;
-  font-size: 2rem;
+  margin: 0 auto 25px;
+  color: #4f4f6c;
+  font-size: 1.5rem;
+  border: 2px solid #4f4f6c;
 }
 
 .contact-icon svg {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 .contact-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 15px;
@@ -78,21 +76,21 @@
 
 .contact-link {
   display: inline-block;
-  background: linear-gradient(135deg, #4f4f6c 0%, #3d3d54 100%);
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 12px;
+  background: transparent;
+  color: #4f4f6c;
+  padding: 8px 16px;
+  border-radius: 6px;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(79, 79, 108, 0.2);
+  border: 1px solid #4f4f6c;
 }
 
 .contact-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(79, 79, 108, 0.3);
+  background: #4f4f6c;
   color: #fff;
+  transform: translateY(-2px);
 }
 
 .contact-info {
@@ -111,31 +109,27 @@
   
   .contact-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    align-items: stretch;
+    gap: 40px;
+    align-items: start;
   }
   
   .contact-card {
-    min-height: 280px;
-  }
-  
-  .contact-card {
-    padding: 40px 30px;
+    padding: 30px 0;
   }
   
   .contact-icon {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 25px;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
   }
   
   .contact-icon svg {
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
   }
   
   .contact-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   
   .contact-card p {
@@ -155,31 +149,27 @@
   
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
-    align-items: stretch;
+    gap: 30px;
+    align-items: start;
   }
   
   .contact-card {
-    min-height: 250px;
-  }
-  
-  .contact-card {
-    padding: 30px 25px;
+    padding: 25px 0;
   }
   
   .contact-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 20px;
+    width: 45px;
+    height: 45px;
+    margin-bottom: 18px;
   }
   
   .contact-icon svg {
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
   }
   
   .contact-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   
   .contact-card p {
@@ -187,7 +177,7 @@
   }
   
   .contact-link {
-    padding: 10px 20px;
+    padding: 8px 16px;
     font-size: 0.9rem;
   }
 }
