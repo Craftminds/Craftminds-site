@@ -1,13 +1,4 @@
-// Masquer la navbar sur mobile et tablette
-function hideNavbarOnMobile() {
-  if (window.innerWidth <= 1024) {
-    const navbar = document.querySelector('#navbar-container');
-    if (navbar) {
-      navbar.style.display = 'none';
-      navbar.style.visibility = 'hidden';
-    }
-  }
-}
+// La navbar est maintenant gérée par CSS responsive uniquement
 
 // Empêcher le scroll horizontal sur mobile/tablette
 function preventHorizontalScroll() {
@@ -56,19 +47,17 @@ function preventHorizontalScroll() {
 
 // Appliquer immédiatement et au redimensionnement
 document.addEventListener('DOMContentLoaded', function() {
-  hideNavbarOnMobile();
   preventHorizontalScroll();
 });
 window.addEventListener('resize', function() {
-  hideNavbarOnMobile();
   preventHorizontalScroll();
 });
 
-// Conversion du scroll vertical en scroll horizontal pour les 4 premières sections
+// Système de scroll horizontal temporairement désactivé pour debug
 let currentSection = 0;
 const totalSections = 4; // Hero + 3 sections de services
 let isScrolling = false;
-let horizontalScrollEnabled = true;
+let horizontalScrollEnabled = false; // Désactivé temporairement
 
 // Fonction pour activer/désactiver le scroll horizontal
 function toggleHorizontalScroll(enable) {
@@ -81,8 +70,8 @@ function toggleHorizontalScroll(enable) {
   }
 }
 
-// Initialiser avec scroll horizontal
-toggleHorizontalScroll(true);
+// Initialiser avec scroll vertical normal
+toggleHorizontalScroll(false);
 
 window.addEventListener('wheel', function(e) {
   // Si on est dans les sections horizontales
