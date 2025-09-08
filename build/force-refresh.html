@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Force Refresh - CraftMinds</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #4f4f6c;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background: #4f4f6c;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px 5px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: #3d3d54;
+    }
+    .info {
+      background: #e3f2fd;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 20px 0;
+      border-left: 4px solid #2196f3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔄 Force Refresh - Cache Management</h1>
+    
+    <div class="info">
+      <strong>Cache automatique activé !</strong><br>
+      Le système de cache-busting est maintenant actif. Les fichiers CSS et JS seront automatiquement mis à jour lors des modifications en mode développement.
+    </div>
+    
+    <h2>Actions disponibles :</h2>
+    
+    <a href="index.html" class="btn">🏠 Accueil</a>
+    <a href="services.html" class="btn">⚙️ Services</a>
+    <a href="about.html" class="btn">👥 À propos</a>
+    <a href="contact.html" class="btn">📞 Contact</a>
+    
+    <h3>Comment ça marche :</h3>
+    <ul>
+      <li><strong>Développement local</strong> : Cache automatiquement invalidé</li>
+      <li><strong>Production</strong> : Cache normal (optimisé pour les performances)</li>
+      <li><strong>Force refresh</strong> : Ctrl+F5 ou Cmd+Shift+R</li>
+    </ul>
+    
+    <h3>Fonctionnalités :</h3>
+    <ul>
+      <li>✅ Détection automatique de l'environnement</li>
+      <li>✅ Timestamp unique pour chaque chargement</li>
+      <li>✅ Mise à jour des CSS et JS</li>
+      <li>✅ Console log pour le debugging</li>
+    </ul>
+    
+    <div class="info">
+      <strong>Note :</strong> Si vous voulez forcer manuellement le refresh, vous pouvez utiliser <code>window.forceCacheRefresh()</code> dans la console du navigateur.
+    </div>
+  </div>
+  
+  <script>
+    // Affiche les informations de cache dans la console
+    console.log('🔄 Cache Buster - Force Refresh Page');
+    console.log('Timestamp actuel:', new Date().toISOString());
+    console.log('User Agent:', navigator.userAgent);
+    console.log('URL actuelle:', window.location.href);
+  </script>
+</body>
+</html>

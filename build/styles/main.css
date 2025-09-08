@@ -135,6 +135,7 @@ html, body {
   cursor: pointer;
   padding: 0.5rem;
   z-index: 1001;
+  position: relative;
 }
 
 .hamburger span {
@@ -761,7 +762,11 @@ html, body {
   }
   
   .hamburger {
-    display: flex;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: rgba(255, 0, 0, 0.1) !important; /* Debug: fond rouge léger */
+    border: 2px solid red !important; /* Debug: bordure rouge */
   }
   
   .nav-menu {
