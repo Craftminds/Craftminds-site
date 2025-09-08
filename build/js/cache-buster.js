@@ -4,7 +4,7 @@
   
   // Génère un timestamp unique basé sur la date/heure actuelle
   function getCacheBuster() {
-    return new Date().getTime();
+    return new Date().getTime() + Math.random() * 1000;
   }
   
   // Met à jour tous les liens CSS avec le cache buster
