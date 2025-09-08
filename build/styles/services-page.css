@@ -1,3 +1,5 @@
+/* ===== PAGE SERVICES ===== */
+
 /* Page Services - Sections séparées */
 .services-page-separated {
   padding-top: 80px;
@@ -147,4 +149,86 @@
 .cta-buttons .btn-secondary:hover {
   background: #fff;
   color: #4f4f6c;
+}
+
+/* ===== RESPONSIVE PAGE SERVICES ===== */
+
+/* Tablette */
+@media (max-width: 1024px) {
+  .service-wrapper {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .service-icon-section {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+  
+  .service-content-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .service-content-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  .service-content-section p {
+    font-size: 1.1rem;
+  }
+  
+  .services-cta {
+    padding: 60px 20px;
+  }
+  
+  .cta-container h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .service-wrapper {
+    padding: 0 15px;
+    gap: 30px;
+  }
+  
+  .service-icon-section {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .service-content-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .service-content-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  .service-content-section p {
+    font-size: 1rem;
+  }
+  
+  .services-cta {
+    padding: 60px 15px;
+  }
+  
+  .cta-container h2 {
+    font-size: 1.8rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+  }
 }

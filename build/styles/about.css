@@ -1,30 +1,150 @@
-/* About Section */
+/* ===== PAGE ABOUT ===== */
+
 .about-page {
   padding-top: 80px;
-  background: #fff;
-  height: 100vh;
-  overflow-y: auto;
-  display: flex;
-  align-items: center;
+  min-height: 100vh;
+  background: #f8fafe;
 }
 
-.about-page .about-container {
-  padding: 40px 40px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.about-page h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 60px;
+  letter-spacing: -0.02em;
 }
 
 .about-content {
   display: flex;
   align-items: center;
+  gap: 80px;
+  margin-bottom: 100px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #4f4f6c;
+  margin-bottom: 30px;
+}
+
+.about-text p {
+  font-size: 1.2rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.about-image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(79, 79, 108, 0.2);
+}
+
+/* Mission Section */
+.mission-section {
+  background: #fff;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.mission-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.mission-section h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 30px;
+  letter-spacing: -0.02em;
+}
+
+.mission-section p {
+  font-size: 1.3rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mission-stats {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 60px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #4f4f6c;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Team Section */
+.team-section {
+  background: #f8fafe;
+  padding: 100px 0;
+}
+
+.team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 80px;
+  letter-spacing: -0.02em;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 60px;
 }
 
-.about-person {
-  flex: 1;
+.team-member {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(79, 79, 108, 0.1);
   text-align: center;
 }
 
@@ -33,53 +153,200 @@
 }
 
 .person-photo img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #4f4f6c;
-  box-shadow: 0 10px 30px rgba(79, 79, 108, 0.3);
+  box-shadow: 0 10px 30px rgba(79, 79, 108, 0.2);
 }
 
 .person-description h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 8px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #4f4f6c;
+  margin-bottom: 10px;
 }
 
 .person-description h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #4f4f6c;
+  font-size: 1.2rem;
+  color: #64748b;
   margin-bottom: 20px;
+  font-weight: 500;
 }
 
 .person-description p {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #64748b;
   line-height: 1.6;
-  text-align: left;
-}
-
-.experience-text {
-  text-align: center;
-  font-weight: 500;
-  color: #4f4f6c;
-}
-
-.about-page .person-description p {
-  margin-bottom: 20px;
-}
-
-.about-page .person-description p:last-child {
-  margin-bottom: 0;
-  text-align: center;
 }
 
 .about-divider {
-  width: 2px;
-  height: 300px;
-  background: linear-gradient(to bottom, transparent, #4f4f6c, transparent);
-  flex-shrink: 0;
+  width: 300px;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #4f4f6c, transparent);
+  margin: 60px auto;
+}
+
+/* ===== RESPONSIVE PAGE ABOUT ===== */
+
+/* Tablette */
+@media (max-width: 1024px) {
+  .about-container {
+    padding: 60px 20px;
+  }
+  
+  .about-page h1 {
+    font-size: 3rem;
+  }
+  
+  .about-content {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .about-text h2 {
+    font-size: 2rem;
+  }
+  
+  .about-text p {
+    font-size: 1.1rem;
+  }
+  
+  .mission-container {
+    padding: 0 20px;
+  }
+  
+  .mission-section h2 {
+    font-size: 2.5rem;
+  }
+  
+  .mission-section p {
+    font-size: 1.2rem;
+  }
+  
+  .mission-stats {
+    gap: 40px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .team-container {
+    padding: 0 20px;
+  }
+  
+  .team-section h2 {
+    font-size: 2.5rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .person-photo img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .person-description h2 {
+    font-size: 1.6rem;
+  }
+  
+  .person-description h3 {
+    font-size: 1.1rem;
+  }
+  
+  .about-divider {
+    width: 200px;
+    height: 2px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .about-container {
+    padding: 40px 15px;
+  }
+  
+  .about-page h1 {
+    font-size: 2.5rem;
+  }
+  
+  .about-content {
+    gap: 30px;
+  }
+  
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+  
+  .about-text p {
+    font-size: 1rem;
+  }
+  
+  .mission-container {
+    padding: 0 15px;
+  }
+  
+  .mission-section {
+    padding: 60px 0;
+  }
+  
+  .mission-section h2 {
+    font-size: 2rem;
+  }
+  
+  .mission-section p {
+    font-size: 1.1rem;
+  }
+  
+  .mission-stats {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .stat-label {
+    font-size: 1rem;
+  }
+  
+  .team-container {
+    padding: 0 15px;
+  }
+  
+  .team-section {
+    padding: 60px 0;
+  }
+  
+  .team-section h2 {
+    font-size: 2rem;
+  }
+  
+  .team-member {
+    padding: 30px 20px;
+  }
+  
+  .person-photo img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .person-description h2 {
+    font-size: 1.4rem;
+  }
+  
+  .person-description h3 {
+    font-size: 1rem;
+  }
+  
+  .about-divider {
+    width: 150px;
+    height: 2px;
+  }
 }

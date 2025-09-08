@@ -1,4 +1,4 @@
-// La navbar est maintenant gérée par CSS responsive uniquement
+// Système de scroll horizontal pour desktop uniquement
 
 // Empêcher le scroll horizontal sur mobile/tablette
 function preventHorizontalScroll() {
