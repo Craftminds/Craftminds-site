@@ -182,14 +182,6 @@
     -webkit-tap-highlight-color: transparent !important;
   }
   
-  /* Permettre seulement le hint mobile */
-  .mobile-hint {
-    pointer-events: auto !important;
-    user-select: text !important;
-    -webkit-user-select: text !important;
-    -moz-user-select: text !important;
-    -ms-user-select: text !important;
-  }
   
   /* Désactiver tous les boutons et liens sur mobile */
   .btn-primary, .btn-secondary, a, button {
