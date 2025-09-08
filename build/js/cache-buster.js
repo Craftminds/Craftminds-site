@@ -4,7 +4,11 @@
   
   // Génère un timestamp unique basé sur la date/heure actuelle
   function getCacheBuster() {
-    return new Date().getTime() + Math.random() * 1000;
+    const timestamp = new Date().getTime();
+    const random = Math.floor(Math.random() * 10000);
+    const sessionId = sessionStorage.getItem('sessionId') || Math.random().toString(36).substr(2, 9);
+    sessionStorage.setItem('sessionId', sessionId);
+    return `${timestamp}-${random}-${sessionId}`;
   }
   
   // Met à jour tous les liens CSS avec le cache buster
@@ -39,17 +43,14 @@
   
   // Fonction principale
   function initCacheBuster() {
-    // Vérifie si on est en mode développement (localhost)
-    const isDevelopment = window.location.hostname === 'localhost' || 
-                         window.location.hostname === '127.0.0.1' ||
-                         window.location.hostname.includes('192.168');
-    
-    if (isDevelopment) {
-      updateCSSLinks();
-      updateScriptLinks();
-      console.log('Cache buster activé pour le développement');
-    }
+    // Force le cache buster sur TOUS les environnements
+    updateCSSLinks();
+    updateScriptLinks();
+    console.log('🔄 Cache buster activé - Force refresh à chaque chargement');
   }
+  
+  // Force le refresh immédiatement
+  initCacheBuster();
   
   // Initialise le cache buster au chargement de la page
   if (document.readyState === 'loading') {
