@@ -181,10 +181,11 @@
 }
 
 .about-divider {
-  width: 300px;
-  height: 3px;
-  background: linear-gradient(to right, transparent, #4f4f6c, transparent);
-  margin: 60px auto;
+  width: 3px;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, #4f4f6c, transparent);
+  margin: 0 auto;
+  align-self: center;
 }
 
 /* ===== RESPONSIVE PAGE ABOUT ===== */
@@ -260,8 +261,8 @@
   }
   
   .about-divider {
-    width: 200px;
-    height: 2px;
+    width: 3px;
+    height: 150px;
   }
 }
 
@@ -346,7 +347,7 @@
   }
   
   .about-divider {
-    width: 150px;
-    height: 2px;
+    width: 3px;
+    height: 100px;
   }
 }
